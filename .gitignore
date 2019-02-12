@@ -3,4 +3,5 @@
 .env.php
 .env
 /vendor
-/storage
+/public/storage
+/storage/*.key
