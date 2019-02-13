@@ -2,7 +2,7 @@
 
 @section('content')
 
-Profil:
+ <img src="img/{{Auth::user()->avatar}}" id="large">
 
 {!! Form::open(['route' => 'edit', 'ng-submit' => "addprofil()"]) !!}
 
@@ -14,6 +14,11 @@ Profil:
 <div class="form-group">
     {!! Form::label('email', 'Adresse e-mail') !!}
     {!! Form::text('email', null, ['class' => 'form-control', 'placeholder'=> $email]) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('avatar', 'Avatar') !!}
+    {!! Form::file('avatar', null, ['class' => 'form-control']) !!}
 </div>
 
 
