@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Image;
+use UserSys;
+
 
 class HomeController extends Controller {
 	/**
@@ -33,18 +36,9 @@ class HomeController extends Controller {
 	}
 
     public function edit(Request $request) {
-        $user = Auth::user();
-        if ($request->input('name') != '') {
-            $user->name = $request->input('name');
-        }
-        if ($request->input('email') != '') {
-            $user->email = $request->input('email');
-        }
-       
-        if ($request->input('password') != '') {
-            $user->password = bcrypt($request->input('password'));
-        }
-        $user->save();
-        return View('home');
+    
+    	 UserSys::EditProfil($request);
+
+        return View('welcome');
     }
 }
