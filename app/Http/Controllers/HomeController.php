@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Image;
+
 
 class HomeController extends Controller {
 	/**
@@ -46,6 +48,7 @@ class HomeController extends Controller {
         }
 
         if ($request->hasFile('avatar')) {
+
         	$type = $request->file('avatar')->extension();
             $img = Image::make(realpath($request->file('avatar')));
             $img->resize(320, 240);
@@ -55,6 +58,6 @@ class HomeController extends Controller {
     
 }
         $user->save();
-        return View('home');
+        return View('welcome');
     }
 }

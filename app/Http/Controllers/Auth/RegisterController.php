@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Image;
+use Avatar;
 
 class RegisterController extends Controller
 {
@@ -75,7 +76,9 @@ class RegisterController extends Controller
         }
         else{
 
-            Avatar::create($data['name'])->toBase64();
+            Avatar::create($data['name'])->save('img/'.$data['name'].'.jpg', 100); 
+            $avatar = $data['name'].'.jpg';
+
 
         }
         

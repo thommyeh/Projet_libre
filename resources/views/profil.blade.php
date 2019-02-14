@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
- <img src="img/{{Auth::user()->avatar}}" id="large">
-
-{!! Form::open(['route' => 'edit', 'ng-submit' => "addprofil()"]) !!}
+<div>
+ <img src="img/{{Auth::user()->avatar}}" id="large">&nbsp;{{Auth::user()->name}}
+</div>
+{!! Form::open(['route' => 'edit', 'ng-submit' => "addprofil()", 'enctype' => "multipart/form-data"]) !!}
 
 <div class="form-group">
     {!! Form::label('name', 'Nom') !!}
