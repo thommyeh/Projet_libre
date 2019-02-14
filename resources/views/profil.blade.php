@@ -1,5 +1,7 @@
-@extends('layouts.app')
 
+@extends('layouts.app')
+@section('sidebar')
+@endsection
 @section('content')
 <div>
  <img src="img/{{Auth::user()->avatar}}" id="large">&nbsp;{{Auth::user()->name}}
