@@ -15,6 +15,10 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
+Route::get('/EspacePerso', function () {
+	return view('editeur');
+});
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profil', 'HomeController@profil')->name('profil');

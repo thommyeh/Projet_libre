@@ -6,3 +6,11 @@
 	width: 100px;
 	height: 100px;
 }
+
+a:focus {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
