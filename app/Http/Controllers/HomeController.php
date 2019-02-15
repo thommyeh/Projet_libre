@@ -41,4 +41,12 @@ class HomeController extends Controller {
 
         return View('welcome');
     }
+
+        public function delete() {
+        	
+    	 UserSys::Delete();
+    	 Auth::logout();
+
+        return View('DeleteConfirm');
+    }
 }

@@ -1,7 +1,6 @@
 
 @extends('layouts.app')
-@section('sidebar')
-@endsection
+
 @section('content')
 <div>
  <img src="img/{{Auth::user()->avatar}}" id="large">&nbsp;{{Auth::user()->name}}
@@ -30,6 +29,10 @@
 {!! Form::submit('Editer', ['class' => 'btn btn-info']) !!}
 
 {!! Form::close() !!}
-
+<p>
+<a href="/delete"><button class="is-button">Supprimer mon compte</button></a>
+</p>
+<p>
 <a href="/home">Retourner a l'accueil</a>
+</p>
 @endsection

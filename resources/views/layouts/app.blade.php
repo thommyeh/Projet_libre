@@ -69,6 +69,7 @@
         </div>
     </div>
 </nav>
+@auth
     @section('EspacePerso')
           <div class="tabs is-centered is-boxed is-fullwidth">
   <ul>
@@ -78,6 +79,7 @@
     <li><a>Documents</a></li>
   </ul>
 </div>
+@endauth
         @show
 <main class="container">
     @yield('content')

@@ -36,4 +36,15 @@ class UserSys {
     
 }
 
+    public function Delete(){
+
+
+        $user = Auth::user();
+
+        unlink($_SERVER['DOCUMENT_ROOT'].'/img/'. $user->avatar);
+        $user->delete();
+        
+
+    }
+
 }
