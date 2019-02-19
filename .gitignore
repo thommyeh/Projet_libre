@@ -5,3 +5,4 @@
 /vendor
 /public/storage
 /storage/*.key
+/documentation/site

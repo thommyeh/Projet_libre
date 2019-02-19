@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('My Waifu', 'My Waifu') }}
+                    {{ config('Weebif', 'Weebify') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -73,7 +73,7 @@
     @section('EspacePerso')
           <div class="tabs is-centered is-boxed is-fullwidth">
   <ul>
-    <li><a href="/EspacePerso">Editeur de perso</a></li>
+    <li><a href="/editeur">Editeur de perso</a></li>
     <li><a href="/profil">Mon profil</a></li>
     <li><a>Calendrier</a></li>
     <li><a>Documents</a></li>
@@ -86,4 +86,23 @@
 </main>
 </div>
 </body>
+<footer class="fix-footer has-background-grey-darker">
+ <nav class="level">
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a class="link is-info" href="/home">Accueil</a>
+  </p>
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a class="link is-info">Documentation</a>
+  </p>
+  <p class="level-item has-text-centered has-text-white-bis">
+      <a class="link is-info">Weebify</a>
+  </p>
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a class="link is-info">Mentions légales</a>
+  </p>
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a class="link is-info">Contact</a>
+  </p>
+</nav>
+</footer>
 </html>

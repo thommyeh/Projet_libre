@@ -41,8 +41,11 @@ class UserSys {
 
         $user = Auth::user();
 
-        unlink($_SERVER['DOCUMENT_ROOT'].'/img/'. $user->avatar);
-        $user->delete();
+        if (file_exists($_SERVER['DOCUMENT_ROOT'].'/img/'. $user->avatar)) {
+            unlink($_SERVER['DOCUMENT_ROOT'].'/img/'. $user->avatar);
+        }
+        
+        $user->destroy($user->id);
         
 
     }

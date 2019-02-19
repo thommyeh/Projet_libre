@@ -27,6 +27,10 @@ class HomeController extends Controller {
 		return view('welcome');
 	}
 
+	public function editeur() {
+		return view('editeur');
+	}
+
 	public function profil() {
 
 		$name = Auth::user()->name;
