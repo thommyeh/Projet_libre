@@ -20,9 +20,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('Weebif', 'Weebify') }}
-                </a>
+                <img class="nav-item" src="2.png">
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,6 +29,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     </ul>
+                     <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('Weebif', 'Weebify') }}
+                </a>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -86,22 +88,20 @@
 </main>
 </div>
 </body>
-<footer class="fix-footer has-background-grey-darker">
+<footer class="fix-footer has-background-grey">
  <nav class="level">
   <p class="level-item has-text-centered has-text-white-bis">
-    <a class="link is-info" href="/home">Accueil</a>
+    <a class="is-link is-primary has-text-white-bis" href="/home">Accueil</a>
   </p>
   <p class="level-item has-text-centered has-text-white-bis">
-    <a class="link is-info">Documentation</a>
+    <a href="/docs" class="has-text-white-bis">Documentation</a>
+  </p>
+  
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a class="link is-primary">Mentions légales</a>
   </p>
   <p class="level-item has-text-centered has-text-white-bis">
-      <a class="link is-info">Weebify</a>
-  </p>
-  <p class="level-item has-text-centered has-text-white-bis">
-    <a class="link is-info">Mentions légales</a>
-  </p>
-  <p class="level-item has-text-centered has-text-white-bis">
-    <a class="link is-info">Contact</a>
+    <a class="link is-link has-text-white-bis" href="">Contact</a>
   </p>
 </nav>
 </footer>

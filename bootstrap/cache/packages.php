@@ -6,6 +6,13 @@
       0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
     ),
   ),
+  'binarytorch/larecipe' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BinaryTorch\\LaRecipe\\LaRecipeServiceProvider',
+    ),
+  ),
   'fideloper/proxy' => 
   array (
     'providers' => 
