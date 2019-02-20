@@ -20,9 +20,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('My Waifu', 'My Waifu') }}
-                </a>
+                <img class="nav-item" src="2.png">
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,6 +29,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     </ul>
+                     <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('Weebif', 'Weebify') }}
+                </a>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -69,19 +71,38 @@
         </div>
     </div>
 </nav>
+@auth
     @section('EspacePerso')
           <div class="tabs is-centered is-boxed is-fullwidth">
   <ul>
-    <li><a href="/EspacePerso">Editeur de perso</a></li>
+    <li><a href="/editeur">Editeur de perso</a></li>
     <li><a href="/profil">Mon profil</a></li>
     <li><a>Calendrier</a></li>
     <li><a>Documents</a></li>
   </ul>
 </div>
+@endauth
         @show
 <main class="container">
     @yield('content')
 </main>
 </div>
 </body>
+<footer class="fix-footer has-background-grey">
+ <nav class="level">
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a class="is-link is-primary has-text-white-bis" href="/home">Accueil</a>
+  </p>
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a href="/docs" class="has-text-white-bis">Documentation</a>
+  </p>
+  
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a class="link is-primary">Mentions légales</a>
+  </p>
+  <p class="level-item has-text-centered has-text-white-bis">
+    <a class="link is-link has-text-white-bis" href="">Contact</a>
+  </p>
+</nav>
+</footer>
 </html>

@@ -15,12 +15,12 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::get('/EspacePerso', function () {
-	return view('editeur');
-});
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profil', 'HomeController@profil')->name('profil');
-Route::post('/profil', 'HomeController@edit')->name('edit');
+
+Auth::routes(['verify' => true]);
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/editeur', 'HomeController@editeur')->name('editeur')->middleware('verified');
+Route::get('/profil', 'HomeController@profil')->name('profil')->middleware('verified');
+Route::post('/profil', 'HomeController@edit')->name('edit')->middleware('verified');
+Route::get('/delete', 'HomeController@delete')->name('delete')->middleware('verified');
 

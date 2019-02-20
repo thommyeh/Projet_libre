@@ -1,7 +1,6 @@
 
 @extends('layouts.app')
-@section('sidebar')
-@endsection
+
 @section('content')
 <div>
  <img src="img/{{Auth::user()->avatar}}" id="large">&nbsp;{{Auth::user()->name}}
@@ -20,16 +19,22 @@
 
 <div class="form-group">
     {!! Form::label('avatar', 'Avatar') !!}
-    {!! Form::file('avatar', null, ['class' => 'form-control']) !!}
+    {!! Form::file('avatar', null, ['class' => 'file-input']) !!}
 </div>
 
 
 
 
-
-{!! Form::submit('Editer', ['class' => 'btn btn-info']) !!}
-
+<p>
+{!! Form::submit('Editer', ['class' => 'button is-info']) !!}
+</p>
 {!! Form::close() !!}
-
+<div>
+	<p>
+<a href="/delete"><button class="button is-info">Supprimer mon compte</button></a>
+</div>
+</p>
+<p>
 <a href="/home">Retourner a l'accueil</a>
+</p>
 @endsection

@@ -27,6 +27,10 @@ class HomeController extends Controller {
 		return view('welcome');
 	}
 
+	public function editeur() {
+		return view('editeur');
+	}
+
 	public function profil() {
 
 		$name = Auth::user()->name;
@@ -40,5 +44,13 @@ class HomeController extends Controller {
     	 UserSys::EditProfil($request);
 
         return View('welcome');
+    }
+
+        public function delete() {
+        	
+    	 UserSys::Delete();
+    	 Auth::logout();
+
+        return View('DeleteConfirm');
     }
 }
