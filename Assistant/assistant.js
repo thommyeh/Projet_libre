@@ -10,10 +10,9 @@ function assistantSpawn() {
   assistant.style.position = 'fixed';
   assistant.style.right = '10px';
   assistant.style.bottom = '10px';
+  assistant.style.zIndex = '50';
   assistant.className = "assistant";
-
   document.body.appendChild(assistant);
-
 }
 
 function assistantTalk() {
@@ -22,25 +21,21 @@ function assistantTalk() {
   h.style.position = 'fixed';
   h.style.right = '70px';
   h.style.bottom = '10px';
+  h.style.zIndex = '50';
   h.id = "h";
 
   msg = randomMsg();
-
   let txt = document.createTextNode(msg);
-
   h.appendChild(txt);
-
   document.body.appendChild(h);
   let clearTimer = setTimeout(clearMsg, 5000);
-  let talkAgain = setTimeout(assistantTalk, 6000);
-
+  let talkAgain = setTimeout(assistantTalk, 15000);
 }
 
 function clearMsg() {
 
-  var elem = document.getElementById('h');
-    elem.parentNode.removeChild(elem);
-
+  let clear = document.getElementById('h');
+    clear.parentNode.removeChild(clear);
 }
 
 function randomMsg() {
@@ -66,16 +61,19 @@ switch (rand) {
     break;
   case 6:
     result = "I Samsara vi Britannia command you ! Die !";
+    break;
   case 7:
     result = "This isn't even my final form !";
+    break;
   case 8:
     result = "Medusa, what does the scooter say about his power level ?";
+    break;
   case 9:
     result = "I used to be an internet explorer like you, but then I took a Java to the knee...";
+    break;
   case 10:
     result = "All your bases are belong to us !";
+    break;
 }
-
 return result;
-
 }
