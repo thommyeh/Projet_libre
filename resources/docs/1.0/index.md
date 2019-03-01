@@ -1,3 +1,9 @@
 - ## Weebify
     - [Accueil](/docs/{{version}}/overview)
+    - [Informations](/docs/{{version}}/Doc_technique/information)
+    - [Présentation du projet](/docs/{{version}}/Doc_technique/presentation)
+    - [Améliorations futures](/docs/{{version}}/Doc_technique/amelioration)
+    - [Choix des technologies](/docs/{{version}}/Doc_technique/choice)
+    - [User story](/docs/{{version}}/Doc_technique/userstory)
     - [Installation](/docs/{{version}}/Doc_technique/installation)
+    - [Annexe](/docs/{{version}}/Doc_technique/annexe)
