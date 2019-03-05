@@ -31,10 +31,16 @@
 {!! Form::close() !!}
 <div>
 	<p>
-<a href="/delete"><button class="button is-info">Supprimer mon compte</button></a>
+<a href="/delete"><button class="button is-info" onclick="return myFunction();">Supprimer mon compte</button></a>
 </div>
 </p>
 <p>
 <a href="/home">Retourner a l'accueil</a>
 </p>
+<script>
+  function myFunction() {
+      if(!confirm("Voulez-vous vraiment supprimer votre compte?"))
+      event.preventDefault();
+  }
+ </script>
 @endsection

@@ -48,6 +48,7 @@
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                
                                 <img src="img/{{Auth::user()->avatar}}" id="thumb">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
@@ -88,21 +89,5 @@
 </main>
 </div>
 </body>
-<footer class="fix-footer has-background-grey">
- <nav class="level">
-  <p class="level-item has-text-centered has-text-white-bis">
-    <a class="is-link is-primary has-text-white-bis" href="/home">Accueil</a>
-  </p>
-  <p class="level-item has-text-centered has-text-white-bis">
-    <a href="/docs" class="has-text-white-bis">Documentation</a>
-  </p>
-  
-  <p class="level-item has-text-centered has-text-white-bis">
-    <a class="link is-primary">Mentions légales</a>
-  </p>
-  <p class="level-item has-text-centered has-text-white-bis">
-    <a class="link is-link has-text-white-bis" href="">Contact</a>
-  </p>
-</nav>
-</footer>
+
 </html>
