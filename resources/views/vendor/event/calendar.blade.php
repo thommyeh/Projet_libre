@@ -28,6 +28,7 @@
                     <div class="col-lg-12 col-xs-12">
                       <div class="form-group">
                         <input type="text" name="event_title" id="event_title" required=""  class="form-control" placeholder="Titre">
+                         <input type="hidden" name="user_id" id="user_id" required=""  class="form-control" value='{{Auth::user()->id}}'>
                         <input  type="hidden" id="set_start_time_data" value="No" />  
                         <input  type="hidden" id="set_end_time_data" value="No" />  
                         <input  type="hidden" name="set_end_date_data" id="set_end_date_data" value="No" />  

@@ -23,12 +23,9 @@ Route::get('/editeur', 'HomeController@editeur')->name('editeur')->middleware('v
 Route::get('/profil', 'HomeController@profil')->name('profil')->middleware('verified');
 Route::post('/profil', 'HomeController@edit')->name('edit')->middleware('verified');
 Route::get('/delete', 'HomeController@delete')->name('delete')->middleware('verified');
+Route::get('/test', 'HomeController@test');
+Route::get('all-event','EventController@all_event')->name('all-event');
+Route::get('event','EventController@index')->name('event');  
+Route::get('event-list','EventController@event_list');   
+Route::get('single-event/{id}','EventController@single_event');
 
-
-Route::group(['namespace'=>'\Latfur\Event\Http\Controllers'],function(){
-  Route::get('event','EventController@index')->name('event');  
-  Route::get('event-list','EventController@event_list');   
-  Route::get('all-event','EventController@all_event')->name('all-event');
-  Route::get('single-event/{id}','EventController@single_event');
-
-});

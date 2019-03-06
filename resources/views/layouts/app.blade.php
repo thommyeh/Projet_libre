@@ -78,7 +78,7 @@
   <ul>
     <li><a href="/editeur">Editeur de perso</a></li>
     <li><a href="/profil">Mon profil</a></li>
-    <li><a>Calendrier</a></li>
+    <li><a href="{{route('event')}}">Calendrier</a></li>
     <li><a>Documents</a></li>
   </ul>
 </div>

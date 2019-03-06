@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use UserSys;
+use Latfur\Event\Models\Event;
 
 
 class HomeController extends Controller {
@@ -53,4 +54,17 @@ class HomeController extends Controller {
 
         return View('DeleteConfirm');
     }
+
+    public function test(){
+
+    	$user = Auth::user();
+
+    	$comments = $user->events;
+
+    	$test = json_encode($comments);
+    	return $test;
+    	
+    }
+
+   
 }
