@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         App\Services\UserSys\UserSysServiceProvider::class,
+        Latfur\Event\EventServiceProvider::class,
 
         /*
          * Package Service Providers...

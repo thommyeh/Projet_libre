@@ -75,6 +75,13 @@
       'Avatar' => 'Laravolt\\Avatar\\Facade',
     ),
   ),
+  'latfur/laravel-event-crud' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Latfur\\Event\\EventServiceProvider',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 

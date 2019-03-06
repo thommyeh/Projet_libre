@@ -24,3 +24,11 @@ Route::get('/profil', 'HomeController@profil')->name('profil')->middleware('veri
 Route::post('/profil', 'HomeController@edit')->name('edit')->middleware('verified');
 Route::get('/delete', 'HomeController@delete')->name('delete')->middleware('verified');
 
+
+Route::group(['namespace'=>'\Latfur\Event\Http\Controllers'],function(){
+  Route::get('event','EventController@index')->name('event');  
+  Route::get('event-list','EventController@event_list');   
+  Route::get('all-event','EventController@all_event')->name('all-event');
+  Route::get('single-event/{id}','EventController@single_event');
+
+});

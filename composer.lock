@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d80df7ebd3687e9b66a1406e18138da7",
+    "content-hash": "c8ae3b4c02a40266705f338061b11b64",
     "packages": [
         {
             "name": "binarytorch/larecipe",
@@ -1320,6 +1320,46 @@
                 "laravolt"
             ],
             "time": "2018-11-08T23:46:21+00:00"
+        },
+        {
+            "name": "latfur/laravel-event-crud",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/latfur1/laravel-event-crud.git",
+                "reference": "2aeefe722d5fd883753ae525975b6fb0b5df6081"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/latfur1/laravel-event-crud/zipball/2aeefe722d5fd883753ae525975b6fb0b5df6081",
+                "reference": "2aeefe722d5fd883753ae525975b6fb0b5df6081",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Latfur\\Event\\EventServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Latfur\\Event\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "latfur",
+                    "email": "rubel.itlive@gmail.com"
+                }
+            ],
+            "description": "Laravel Event CRUD With Full Calendar",
+            "time": "2018-08-26T10:41:43+00:00"
         },
         {
             "name": "lcobucci/jwt",
