@@ -4,6 +4,5 @@
 .env
 /vendor
 /public/storage
-/public/img
 /storage/*.key
 /documentation/site

@@ -40,31 +40,31 @@ class HomeController extends Controller {
 		return View('profil', ['name' => $name, 'email' => $email]);
 	}
 
-    public function edit(Request $request) {
-    
-    	 UserSys::EditProfil($request);
+	public function edit(Request $request) {
 
-        return View('welcome');
-    }
+		UserSys::EditProfil($request);
 
-        public function delete() {
-        	
-    	 UserSys::Delete();
-    	 Auth::logout();
+		return View('welcome');
+	}
 
-        return View('DeleteConfirm');
-    }
+	public function delete() {
 
-    public function test(){
+		UserSys::Delete();
+		Auth::logout();
 
-    	$user = Auth::user();
+		return View('DeleteConfirm');
+	}
+	//Renvoi les events d'un user en Json
+	public function test(){
 
-    	$comments = $user->events;
+		$user = Auth::user();
 
-    	$test = json_encode($comments);
-    	return $test;
-    	
-    }
+		$comments = $user->events;
+
+		$test = json_encode($comments);
+		return $test;
+
+	}
 
    
 }

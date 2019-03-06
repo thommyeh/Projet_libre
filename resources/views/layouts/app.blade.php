@@ -79,7 +79,7 @@
     <li><a href="/editeur">Editeur de perso</a></li>
     <li><a href="/profil">Mon profil</a></li>
     <li><a href="{{route('event')}}">Calendrier</a></li>
-    <li><a>Documents</a></li>
+    <li><a href="{{url('event-list')}}">Vos évenements</a></li>
   </ul>
 </div>
 @endauth
