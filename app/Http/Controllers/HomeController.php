@@ -57,12 +57,13 @@ class HomeController extends Controller {
 	//Renvoi les events d'un user en Json
 	public function test(){
 
-		$user = Auth::user();
+		/*$user = Auth::user();
 
 		$comments = $user->events;
 
 		$test = json_encode($comments);
-		return $test;
+		return $test;*/
+		return view('test');
 
 	}
 

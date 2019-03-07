@@ -32,3 +32,8 @@ Route::get('event','EventController@index')->name('event');
 Route::get('event-list','EventController@event_list');   
 Route::get('single-event/{id}','EventController@single_event');
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

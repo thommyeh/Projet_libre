@@ -1,4 +1,16 @@
 <?php return array (
+  'arrilot/laravel-widgets' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Arrilot\\Widgets\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Widget' => 'Arrilot\\Widgets\\Facade',
+      'AsyncWidget' => 'Arrilot\\Widgets\\AsyncFacade',
+    ),
+  ),
   'beyondcode/laravel-dump-server' => 
   array (
     'providers' => 
@@ -29,6 +41,13 @@
     'aliases' => 
     array (
       'Image' => 'Intervention\\Image\\Facades\\Image',
+    ),
+  ),
+  'larapack/voyager-hooks' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Larapack\\VoyagerHooks\\VoyagerHooksServiceProvider',
     ),
   ),
   'laravel/nexmo-notification-channel' => 
@@ -94,6 +113,14 @@
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    ),
+  ),
+  'tcg/voyager' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'TCG\\Voyager\\VoyagerServiceProvider',
+      1 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
     ),
   ),
 );

@@ -3,7 +3,7 @@
 
 @section('content')
 <div>
- <img src="img/{{Auth::user()->avatar}}" id="large">&nbsp;{{Auth::user()->name}}
+ <img src="storage/{{Auth::user()->avatar}}" id="large">&nbsp;{{Auth::user()->name}}
 </div>
 {!! Form::open(['route' => 'edit', 'ng-submit' => "addprofil()", 'enctype' => "multipart/form-data"]) !!}
 
