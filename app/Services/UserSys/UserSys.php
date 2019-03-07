@@ -23,11 +23,15 @@ class UserSys {
 
         if ($request->hasFile('avatar')) {
 
+            if (file_exists($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar)) {
+            unlink($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar);
+        }
+
         	$type = $request->file('avatar')->extension();
             $img = Image::make(realpath($request->file('avatar')));
             $img->resize(320, 240);
-            $img->save('img/'.$request->input('name').'.'.$type);
-            $user->avatar = $request->input('name').'.'.$type;
+            $img->save('storage/'.$user->name.'.'.$type);
+            $user->avatar = $user->name.'.'.$type;
 
         }
 
@@ -41,8 +45,8 @@ class UserSys {
 
         $user = Auth::user();
 
-        if (file_exists($_SERVER['DOCUMENT_ROOT'].'/img/'. $user->avatar)) {
-            unlink($_SERVER['DOCUMENT_ROOT'].'/img/'. $user->avatar);
+        if (file_exists($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar)) {
+            unlink($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar);
         }
         
         $user->destroy($user->id);
