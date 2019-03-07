@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/editeur', 'HomeController@editeur')->name('editeur')->middleware('verified');
 Route::get('/profil', 'HomeController@profil')->name('profil')->middleware('verified');
 Route::post('/profil', 'HomeController@edit')->name('edit')->middleware('verified');
-Route::get('/delete', 'HomeController@delete')->name('delete')->middleware('verified');
+Route::delete('/delete', 'HomeController@delete')->name('delete')->middleware('verified');
 //test du renvoi en Json des event d'un user
 Route::get('/test', 'HomeController@test');
 //Routes surchargées du calendrier

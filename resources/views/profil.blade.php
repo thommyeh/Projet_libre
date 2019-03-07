@@ -31,7 +31,13 @@
 {!! Form::close() !!}
 <div>
 	<p>
-<a href="/delete"><button class="button is-info" onclick="return myFunction();">Supprimer mon compte</button></a>
+
+<form action="{{route('delete')}}" method="POST">
+ @method('DELETE')
+ @csrf
+ <button type="submit">Supprimer mon compte</button>               
+</form>
+
 </div>
 </p>
 <p>
