@@ -1,0 +1,28 @@
+#thumb{
+	width: 40px;
+	height: 40px;
+}
+#large{
+	width: 100px;
+	height: 100px;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fix-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    overflow:hidden;
+    height: 100px;
+}
+
+
+
+

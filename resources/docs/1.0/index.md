@@ -1,0 +1,3 @@
+- ## Weebify
+    - [Accueil](/docs/{{version}}/overview)
+    - [Installation](/docs/{{version}}/Doc_technique/installation)
