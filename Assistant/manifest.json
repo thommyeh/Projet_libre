@@ -10,17 +10,19 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
+      "matches": ["<all_urls>"],
       "js": ["assistant.js"]
     }
   ],
 
   "permissions": [
-     "tabs"
+    "tabs",
+    "<all_urls>"
   ],
 
   "web_accessible_resources": [
-    "assistants/samsara.png"
+    "assistants/samsara.png",
+    "rss.json"
   ]
 
 }

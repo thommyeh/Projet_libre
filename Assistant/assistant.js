@@ -1,5 +1,27 @@
+/*
+window.onload = jQuery();
+
+function jQuery() {
+  var jQueryScript = document.createElement('script');
+  jQueryScript.setAttribute('src','https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
+  document.head.appendChild(jQueryScript);
+}
+*/
 window.onload = assistantSpawn();
-window.onload = assistantTalk();
+window.onload = readRSS();
+
+//Talk Div
+var d;
+d = document.createElement("div")
+d.style.position = 'fixed';
+d.style.right = '70px';
+d.style.bottom = '20px';
+d.style.zIndex = '50';
+d.style.padding = '5px 10px 5px 10px';
+d.style.border = "2px solid black";
+d.style.borderRadius = "7px";
+d.style.backgroundColor = "white";
+d.id = "d";
 
 function assistantSpawn() {
 
@@ -15,27 +37,88 @@ function assistantSpawn() {
   document.body.appendChild(assistant);
 }
 
-function assistantTalk() {
+function assistantTalk(wut, wat) {
 
-  let h = document.createElement("H4")
-  h.style.position = 'fixed';
-  h.style.right = '70px';
-  h.style.bottom = '10px';
-  h.style.zIndex = '50';
-  h.id = "h";
+  //Talk Paragraph
+  var p;
+  p = document.createElement("p")
+  p.id = "p";
 
-  msg = randomMsg();
+  //Talk Link
+  var a;
+  a = document.createElement("a")
+  a.id = "a";
+  var linkText = document.createTextNode(" Download ");
+  a.appendChild(linkText);
+
+  //Talk Message
+  msg = wut + " is out !";
   let txt = document.createTextNode(msg);
-  h.appendChild(txt);
-  document.body.appendChild(h);
-  let clearTimer = setTimeout(clearMsg, 5000);
-  let talkAgain = setTimeout(assistantTalk, 15000);
+  p.appendChild(txt);
+  a.href = wat;
+  p.appendChild(a);
+  d.appendChild(p);
+  //let clearTimer = setTimeout(clearMsg, 5000);
+  //let talkAgain = setTimeout(assistantTalk, 15000);
 }
 
-function clearMsg() {
+function readRSS() {
 
-  let clear = document.getElementById('h');
-    clear.parentNode.removeChild(clear);
+  const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
+
+  /* Fetch URLs from JSON */
+  fetch("http://localhost/data/rss.json").then((res) => {
+  	res.text().then((data) => {
+
+      JSON.parse(data).filters.forEach((f) => {
+       var filter = f;
+
+  		JSON.parse(data).urls.forEach((u) => {
+  			try {
+  				var url = new URL(u)
+  			}
+  			catch (e) {
+  				console.error('URL invalid');
+  				return
+  			}
+  			fetch(url).then((res) => {
+  				res.text().then((htmlTxt) => {
+  					/* Extract the RSS Feed URL from the website */
+  					try {
+  						let doc = DOMPARSER(htmlTxt, 'text/html')
+  						var feedUrl = doc.querySelector('link[type="application/rss+xml"]').href
+  					} catch (e) {
+  						console.error('Error in parsing the website');
+  						return
+  					}
+
+  					/* Fetch the RSS Feed */
+  					fetch(feedUrl).then((res) => {
+  						res.text().then((xmlTxt) => {
+
+  							/* Parse the RSS Feed and display the content */
+  							try {
+  								let doc = DOMPARSER(xmlTxt, "text/xml")
+  								doc.querySelectorAll('item').forEach((item) => {
+  									let i = item.querySelector.bind(item)
+  									let msg = !!i('title') ? i('title').textContent : '-'
+                    let link = !!i('link') ? i('link').textContent : '-'
+                    if (msg.includes(filter)) {
+  									assistantTalk(msg, link);
+                    }
+  								})
+                    document.body.appendChild(d);
+  							} catch (e) {
+  								console.error('Error in parsing the feed')
+  							}
+  						})
+  					}).catch(() => console.error('Error in fetching the RSS feed'))
+  				})
+  			}).catch(() => console.error('Error in fetching the website'))
+  		})
+      })
+  	})
+  }).catch(() => console.error('Error in fetching the URLs json'))
 }
 
 function randomMsg() {
@@ -76,4 +159,10 @@ switch (rand) {
     break;
 }
 return result;
+}
+
+function clearMsg() {
+
+  let clear = document.getElementById('h');
+    clear.parentNode.removeChild(clear);
 }
