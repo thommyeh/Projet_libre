@@ -1,0 +1,28 @@
+{
+
+  "description": "Assistant Plugin for Firefox",
+  "manifest_version": 2,
+  "name": "Assistant",
+  "version": "0.1",
+  "icons": {
+    "48": "icons/assistant-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["assistant.js"]
+    }
+  ],
+
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ],
+
+  "web_accessible_resources": [
+    "assistants/samsara.png",
+    "rss.json"
+  ]
+
+}
