@@ -36,9 +36,9 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 //Flux Rss
-Route::get('/rssdata','RssController@index')->name('rss');
-Route::get('/urldata','RssController@Urls');
-Route::get('/rss','RssController@testou')->name('rss');
-Route::post('/rss', 'RssController@create')->name('createrss')->middleware('verified');
+Route::get('/rss','RssController@index')->name('rss');
+//Routes appelées par Axios dans le app.js
+Route::get('/rssdata','RssController@RssData');
+Route::post('/CreateRss', 'RssController@create')->name('create')->middleware('verified');
 Route::post('/flux/delete','RssController@deleteflux')->name('deleteflux');
 

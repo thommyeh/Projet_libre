@@ -6,28 +6,6 @@
 <h1>Créer un nouveau flux</h1>
 
 
-
-{{--{!! Form::open(['route' => 'createrss', 'ng-submit' => "addprofil()", 'enctype' => "multipart/form-data"]) !!}
-
-<div class="form-group">
-    {!! Form::label('name', 'Nom') !!}
-    {!! Form::text('name', null, ['class' => 'form-control','ng-model'=>"newProfil"]) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('url', 'URL') !!}
-    {!! Form::text('url', null, ['class' => 'form-control']) !!}
-</div>
-
-
-
-
-
-
-<p>
-{!! Form::submit('Valider', ['class' => 'button is-info']) !!}
-</p>
-{!! Form::close() !!} --}}
 <div id="replace">
 <form id="signup-form" v-on:submit.prevent='processForm'>
       <!-- name -->
@@ -36,12 +14,12 @@
         <input type="text" class="input" name="name" v-model='name'>
       </div>
 
-      <!-- email -->
+      <!-- url -->
       <div class="field">
         <label class="label">Url</label>
         <input type="text" class="input" name="url" v-model="url">
       </div>
-
+      <!-- filtres -->
        <div class="field">
         <label class="label">Filtres (séparés par une virgule)</label>
         <input type="text" class="input" name="filtres" v-model="filtres">
@@ -81,16 +59,7 @@
 </div>
 </div>
 
-   
-
- 
-
-{{--<input type="text" id="input" v-model='message'>
-<p>la valeure est: @{{ message }}</p>--}}
-
-
-
-
+  
 
 
 @endsection
