@@ -24,6 +24,8 @@ Route::get('/editeur', 'HomeController@editeur')->name('editeur')->middleware('v
 Route::get('/profil', 'HomeController@profil')->name('profil')->middleware('verified');
 Route::post('/profil', 'HomeController@edit')->name('edit')->middleware('verified');
 Route::delete('/delete', 'HomeController@delete')->name('delete')->middleware('verified');
+Route::get('profileAccount', 'HomeController@profileAccount')->name('profile')->middleware('verified');
+Route::get('pageProfil', 'HomeController@pageProfil')->name('pageProfil')->middleware('verified');
 //test du renvoi en Json des event d'un user
 Route::get('/test', 'HomeController@test');
 //Routes surchargées du calendrier

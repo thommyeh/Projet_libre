@@ -68,6 +68,15 @@ class HomeController extends Controller {
 		return view('test');
 
 	}
+	public function profileAccount() {
 
+
+		return View('profileAccount');
+	}
+		public function pageProfil() {
+
+
+		return View('pageProfil');
+	}
    
 }
