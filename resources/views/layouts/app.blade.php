@@ -8,6 +8,9 @@
     <title>{{ config('app.name', 'My Waifu') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -80,6 +83,7 @@
     <li><a href="/profil">Mon profil</a></li>
     <li><a href="{{route('event')}}">Calendrier</a></li>
     <li><a href="{{url('event-list')}}">Vos évenements</a></li>
+    <li><a href="{{url('rss')}}">Fluxs Rss</a></li>
   </ul>
 </div>
 @endauth

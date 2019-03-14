@@ -31,9 +31,14 @@ Route::get('all-event','EventController@all_event')->name('all-event');
 Route::get('event','EventController@index')->name('event');  
 Route::get('event-list','EventController@event_list');   
 Route::get('single-event/{id}','EventController@single_event');
-
-
-
+//Espace Admin
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+//Flux Rss
+Route::get('/rssdata','RssController@index')->name('rss');
+Route::get('/urldata','RssController@Urls');
+Route::get('/rss','RssController@testou')->name('rss');
+Route::post('/rss', 'RssController@create')->name('createrss')->middleware('verified');
+Route::post('/flux/delete','RssController@deleteflux')->name('deleteflux');
+
