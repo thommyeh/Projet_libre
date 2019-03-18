@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Latfur\Event\Models\Event;
+use App\Url;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
@@ -32,5 +33,10 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     public function events()
     {
         return $this->hasMany('Latfur\Event\Models\Event');
+    }
+
+        public function urls()
+    {
+        return $this->hasMany('App\Url');
     }
 }

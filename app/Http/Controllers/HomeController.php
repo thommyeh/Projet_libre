@@ -25,10 +25,12 @@ class HomeController extends Controller {
 	 * @return \Illuminate\Contracts\Support\Renderable
 	 */
 	public function index() {
+
 		return view('welcome');
 	}
 
 	public function editeur() {
+		
 		return view('editeur');
 	}
 
@@ -66,6 +68,15 @@ class HomeController extends Controller {
 		return view('test');
 
 	}
+	public function profileAccount() {
 
+
+		return View('profileAccount');
+	}
+		public function pageProfil() {
+
+
+		return View('pageProfil');
+	}
    
 }

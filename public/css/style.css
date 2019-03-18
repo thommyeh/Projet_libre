@@ -1,28 +1,142 @@
+body {
+  background-color: #EBF1F4;
+  
+}
 #thumb{
-	width: 40px;
-	height: 40px;
+  width: 40px;
+  height: 40px;
 }
 #large{
-	width: 100px;
-	height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
-a:focus {
-  text-decoration: none;
+.btn-dark {
+   background-color: #1f2631!important;
+   border-color:none;
+
+}
+.dropdownMenuLayout {
+   background-color: #1f2631!important;
+  min-width:7.3rem;
+}
+.bg-dark {
+ /* Couleur de fond de la barre de navigation */
+ background-color: #1f2631!important;
+ border-color: #E7E7E7;
 }
 
-a {
-  text-decoration: none;
+.loginRegisterForm {
+   position: absolute; /* postulat de départ */
+  top: 50%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    transition: 0.5s;
+}
+.day{
+color:black;
+background-color: #EBF1F4;
+}
+.night{
+color:grey;
+background-color:#2C323F;
+}
+.night .ProfileStyleDroite{
+color:grey;
+background-color:#1f2631!important;
 }
 
-.fix-footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    overflow:hidden;
-    height: 100px;
+.night .buttonBleu {
+  background-color:#2C323F!important;
+  color:rgba(255,255,255,.5);
+  border-color: #2C323F!important;
+}
+.buttonBleu {
+  background-color:#1f2631!important;
+  color:rgba(255,255,255,.5);
+  border-color: #1f2631!important;
+}
+
+      .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      }
+      ul.parsley-errors-list {
+      padding: 0px;
+      padding-top: 5px;
+      }    
+      ul.parsley-errors-list li {
+      list-style: none;
+      color:red;
+      }
+      .parsley-error{
+      border: 1px red solid !important; 
+      }
+      .parsley-success{
+      border: 1px green solid !important;  
+      }
+      .mt30{
+      margin-top: 25px;
+      }
+      .fc-event {
+      padding: 5px;
+      margin: 5px;
+      cursor: pointer;
+ 
+      }
+      
+      .loader{
+  position: absolute;
+  margin-left: 40%;
+  z-index: 9999;
+}
+   
+.ProfileStyle {
+padding-top: 5%;
+}
+
+.ProfileStyleDroite {
+  padding-top:2%;
+  background-color:white;
+}
+
+.InputProfile {
+  background-color: #EBF1F4
 }
 
 
+.color {
+      border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    margin-right: 10px;
+    transition: .2s;
+    width: 50px;
+}
 
-
+.dayTheme{
+  background:white;
+        border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    margin-right: 10px;
+    transition: .2s;
+    width: 50px;
+}
+.nightTheme{
+  background:#1f2631!important;
+        border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    margin-right: 10px;
+    transition: .2s;
+    width: 50px;
+}
