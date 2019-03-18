@@ -2,9 +2,20 @@
 @section('sidebar')
 @endsection
 @section('content')
-<div class="columns">
-	<div class="column is-centered">
-<h1 class="title">Editeur de perso!!!</h1>
-<img src="https://www.spiritgamer.fr/wp-content/uploads/2015/08/himoto-1024x576.jpg">
-
+<script src="{{ asset('js/phaser.min.js') }}"></script>
+<style>
+canvas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 9px;
+}
+</style>
+<div class="game">
+<script src="{{ asset('js/designer.js') }}"></script>
+</div>
 @endsection

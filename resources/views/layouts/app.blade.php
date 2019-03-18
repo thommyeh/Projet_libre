@@ -32,7 +32,7 @@
          @auth
          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 NavBarText">
             <li class="nav-item">
-               <a class=" NavBarText nav-link" href="/editeur">Editeur de perso</a>
+               <a class=" NavBarText nav-link" href="{{route('editeur')}}">Editeur de perso</a>
             </li>
             <li class="nav-item NavBarText">
                <a class="nav-link NavBarText" href="{{route('event')}}">Calendrier</a>
@@ -59,8 +59,8 @@
          </ul>
          @else
          <div class="dropdown btn-dark">
-            <img src="img/{{Auth::user()->avatar}}" id="thumb">
-            <button class="btn btn-dark dropdown-toggle " type="button" data-toggle="dropdown">{{ Auth::user()->name }} 
+            <img src="storage/{{Auth::user()->avatar}}" id="thumb">
+            <button class="btn btn-dark dropdown-toggle " type="button" data-toggle="dropdown">{{ Auth::user()->name }}
             <span class="caret"></span></button>
             <div class="dropdown ">
                <ul class="dropdown-menu dropdownMenuLayout">
@@ -98,33 +98,33 @@
       function applyTheme (theme) {
        "use strict"
       document.getElementById("mypage").className = theme;
-      localStorage.setItem ("theme", theme); 
+      localStorage.setItem ("theme", theme);
       }
-      
+
       function applyDayTheme () {
            "use strict"
-      
+
       applyTheme("day");
       }
-      
+
       function applyNightTheme() {
            "use strict"
-      
+
       applyTheme("night");
-      
+
       }
-      
+
       function addButtonLestenrs () {
            "use strict"
-      
+
       document.getElementById("b1").addEventListener("click", applyDayTheme);
       document.getElementById("b2").addEventListener("click", applyNightTheme);
-      
+
       }
-      
+
       function initiate(){
            "use strict"
-      
+
       if(typeof(localStorage)===undefined)
          alert("the application can not be executed properly in this browser");
       else{
@@ -132,13 +132,13 @@
             applyDayTheme();
          else
             applyTheme(localStorage.getItem("theme"));
-         
+
       }
       addButtonLestenrs();
       }
-      
+
       initiate();
-      
-      
+
+
    </script>
 </html>

@@ -42,6 +42,8 @@ d.style.borderRadius = "7px";
 d.style.backgroundColor = "white";
 d.id = "d";
 
+function personalityCheck() {}
+
 //Make the Assistant talk
 function assistantTalk(wut, wat) {
 
