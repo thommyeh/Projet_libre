@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use UserSys;
+use Latfur\Event\Models\Event;
 
 
 class HomeController extends Controller {
@@ -27,6 +28,10 @@ class HomeController extends Controller {
 		return view('welcome');
 	}
 
+	public function editeur() {
+		return view('editeur');
+	}
+
 	public function profil() {
 
 		$name = Auth::user()->name;
@@ -35,10 +40,32 @@ class HomeController extends Controller {
 		return View('profil', ['name' => $name, 'email' => $email]);
 	}
 
-    public function edit(Request $request) {
-    
-    	 UserSys::EditProfil($request);
+	public function edit(Request $request) {
 
-        return View('welcome');
-    }
+		UserSys::EditProfil($request);
+
+		return View('welcome');
+	}
+
+	public function delete() {
+
+		UserSys::Delete();
+		Auth::logout();
+
+		return View('DeleteConfirm');
+	}
+	//Renvoi les events d'un user en Json
+	public function test(){
+
+		/*$user = Auth::user();
+
+		$comments = $user->events;
+
+		$test = json_encode($comments);
+		return $test;*/
+		return view('test');
+
+	}
+
+   
 }
