@@ -20,17 +20,20 @@
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
       <script src="{{ asset('js/app.js') }}" defer></script>
    </head>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark NavBarLayout NavBarText">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark NavBarLayout NavBarText navbarcenter">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
          <a class="navbar-brand" href="{{ url('/') }}">
          <img src="2.png" alt="" width="112" height="28">
-         {{ config('Weebif', 'Accueil') }}
+           
          </a>
          @auth
-         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 NavBarText">
+         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 NavBarText mx-auto">
+            <li class="nav-item">
+               <a class=" NavBarText nav-link" href="{{ route('home')}}">Accueil</a>
+            </li>
             <li class="nav-item">
                <a class=" NavBarText nav-link" href="{{route('editeur')}}">Editeur de perso</a>
             </li>
@@ -90,7 +93,7 @@
    </nav>
    <body id="mypage">
       @show
-      <main class="container">
+      <main>
          @yield('content')
       </main>
    </body>
