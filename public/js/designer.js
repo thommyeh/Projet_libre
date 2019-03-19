@@ -22,15 +22,15 @@ function preload() {
   this.load.image('background', './img/UI/background.png');
   this.load.image('bottomMenu', './img/UI/BottomMenu.png');
   this.load.image('leftMenu', './img/UI/SideMenu.png');
-  this.load.image('bodyButton', './img/UI/BodyButton.png');
-  this.load.image('faceButton', './img/UI/FaceButton.png');
-  this.load.image('outfitButton', './img/UI/OutfitButton.png');
-  this.load.image('hairButton', './img/UI/HairButton.png');
-  this.load.image('itemButton', './img/UI/ItemsButton.png');
+  this.load.image('bodyButton', './img/UI/buttons/BodyButton.png');
+  this.load.image('faceButton', './img/UI/buttons/FaceButton.png');
+  this.load.image('outfitButton', './img/UI/buttons/OutfitButton.png');
+  this.load.image('hairButton', './img/UI/buttons/HairButton.png');
+  this.load.image('itemButton', './img/UI/buttons/ItemsButton.png');
 
   //Buttons
-  this.load.image('BodyMaleButton', './img/UI/BodyMaleButton.png');
-  this.load.image('BodyFemaleButton', './img/UI/BodyFemaleButton.png');
+  this.load.image('BodyMaleButton', './img/UI/buttons/BodyMaleButton.png');
+  this.load.image('BodyFemaleButton', './img/UI/buttons/BodyFemaleButton.png');
 
   //Body parts
   this.load.image('Body', './img/body/BodyMale.png');
@@ -76,6 +76,8 @@ function create() {
   bodyButton.on('pointerdown', function(pointer, x, y) {
     if (body.visible == true) {
       body.visible = false;
+      bodyMaleButton.visible = false;
+
     } else {
       body.visible = true;
     }

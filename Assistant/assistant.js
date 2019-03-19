@@ -14,6 +14,19 @@ window.onload = readRSS();
 var url;
 var feedUrl;
 
+//Talk Div styling
+var d;
+d = document.createElement("div");
+d.style.position = 'fixed';
+d.style.right = '70px';
+d.style.bottom = '20px';
+d.style.zIndex = '50';
+d.style.padding = '5px 10px 5px 10px';
+d.style.border = "2px solid black";
+d.style.borderRadius = "7px";
+d.style.backgroundColor = "white";
+d.id = "d";
+
 //Spawn the Assistant on every webpage
 function assistantSpawn() {
 
@@ -28,21 +41,6 @@ function assistantSpawn() {
   assistant.className = "assistant";
   document.body.appendChild(assistant);
 }
-
-//Talk Div styling
-var d;
-d = document.createElement("div");
-d.style.position = 'fixed';
-d.style.right = '70px';
-d.style.bottom = '20px';
-d.style.zIndex = '50';
-d.style.padding = '5px 10px 5px 10px';
-d.style.border = "2px solid black";
-d.style.borderRadius = "7px";
-d.style.backgroundColor = "white";
-d.id = "d";
-
-function personalityCheck() {}
 
 //Make the Assistant talk
 function assistantTalk(wut, wat) {
@@ -129,8 +127,6 @@ function readRSS() {
     });
   }).catch(() => console.error('Error in fetching the URLs json'));
 }
-
-function readCalendar() {}
 
 //Randomizes the messages for the assistantTalk function
 function randomMsg() {
