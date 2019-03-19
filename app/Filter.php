@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Filter extends Model
 {
         protected $fillable = [
-        'name', 'url_id',
+        'name', 'user_id',
     ];
 }

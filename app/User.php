@@ -39,4 +39,9 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     {
         return $this->hasMany('App\Url');
     }
+
+        public function filters(){
+
+        return $this->hasMany('App\Filter');
+    }
 }

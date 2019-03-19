@@ -1,4 +1,4 @@
-var vm = new Vue({
+var rss = new Vue({
 	el: "#replace",
 	data: {
 		filters: [],
@@ -8,7 +8,9 @@ var vm = new Vue({
 		filtres: '',
 
 		selected: '',
+		selected1: '',
 		message: '',
+		message1: '',
 
 
 
@@ -20,13 +22,24 @@ var vm = new Vue({
 			.post('/CreateRss', {
 				name: this.name,
 				url: this.url,
-				filtres: this.filtres,
+				
 			})
 			this.message = "Le flux a bien été ajouté";
 			this.name = "";
 			this.url = "";
-			this.filtres = "";
+			
 			axios.get('/rssdata').then(response => this.urls = response.data);
+		},
+
+		FiltersForm: function() {
+			axios
+			.post('/CreateFilter', {
+				filtres: this.filtres,
+				
+			})
+			this.message1 = "Le filtre a bien été ajouté";
+			this.filtres = "";
+			axios.get('/filterdata').then(response => this.filters = response.data);
 		},
 
 		editFlux: function() {
@@ -38,15 +51,27 @@ var vm = new Vue({
 
 
 
+		},
+
+				editFilters: function() {
+			axios
+			.post('/filter/delete', {
+				id: this.selected1,
+			})
+			axios.get('/filterdata').then(response => this.filters = response.data);
+
+
+
 		}
 	},
 
 	mounted(){
 
 		axios.get('/rssdata').then(response => this.urls = response.data);
+		axios.get('/filterdata').then(response => this.filters = response.data);
 
 	}
 	
-})
+});
 
 

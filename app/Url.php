@@ -11,8 +11,5 @@ class Url extends Model
     ];
 
 
-    public function filters(){
 
-        return $this->hasMany('App\Filter');
-    }
 }

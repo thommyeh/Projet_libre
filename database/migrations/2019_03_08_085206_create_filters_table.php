@@ -17,8 +17,8 @@ class CreateFiltersTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->integer('url_id')->unsigned();
-            $table->foreign('url_id')->references('id')->on('urls')->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         
         });
     }

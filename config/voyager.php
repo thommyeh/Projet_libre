@@ -240,7 +240,7 @@ return [
         ],
         */
        //Path for media-manager. Relative to the filesystem.
-       'path'                => '/files',
+       'path'                => '/',
        'show_folders'        => true,
        'allow_upload'        => true,
        'allow_move'          => true,

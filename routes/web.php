@@ -26,6 +26,7 @@ Route::post('/profil', 'HomeController@edit')->name('edit')->middleware('verifie
 Route::delete('/delete', 'HomeController@delete')->name('delete')->middleware('verified');
 Route::get('profileAccount', 'HomeController@profileAccount')->name('profile')->middleware('verified');
 Route::get('pageProfil', 'HomeController@pageProfil')->name('pageProfil')->middleware('verified');
+Route::get('/profildata', 'HomeController@ProfilData');
 //test du renvoi en Json des event d'un user
 Route::get('/test', 'HomeController@test');
 //Routes surchargées du calendrier
@@ -41,6 +42,10 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/rss','RssController@index')->name('rss');
 //Routes appelées par Axios dans le app.js
 Route::get('/rssdata','RssController@RssData');
-Route::post('/CreateRss', 'RssController@create')->name('create')->middleware('verified');
+Route::get('/filterdata','RssController@FiltersData');
+Route::post('/CreateRss', 'RssController@createRss')->name('create')->middleware('verified');
+Route::post('/CreateFilter', 'RssController@createFilter')->name('createFilters')->middleware('verified');
 Route::post('/flux/delete','RssController@deleteflux')->name('deleteflux');
+Route::post('/filter/delete','RssController@deletefilter')->name('deletefilter');
+Route::get('/generate','RssController@GenerateData');
 

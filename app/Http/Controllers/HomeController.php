@@ -78,5 +78,12 @@ class HomeController extends Controller {
 
 		return View('pageProfil');
 	}
+
+		public function ProfilData() {
+
+		$user = Auth::user()->toArray();
+
+		return $user;
+	}
    
 }

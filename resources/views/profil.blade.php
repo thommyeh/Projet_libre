@@ -9,31 +9,37 @@
             <div><a class="NavBarText nav-link"href="{{ route('profile') }}">Paramètres du profil </a></div>
          </div>
          <div class="col-md-offset-2 col-md-7 ProfileStyleDroite">
-            {!! Form::open(['route' => 'edit', 'ng-submit' => "addprofil()", 'enctype' => "multipart/form-data"]) !!}
-            <div class="form-group">
-               {!! Form::label('name', 'Nom') !!}
-               {!! Form::text('name', null, ['class' => 'form-control InputProfile', 'placeholder'=> $name, 'ng-model'=>"newProfil"]) !!}
-            </div>
-            <div class="form-group ">
-               {!! Form::label('email', 'Adresse e-mail') !!}
-               {!! Form::text('email', null, ['class' => 'form-control InputProfile', 'placeholder'=> $email]) !!}
-            </div>
-            <div class="form-group">
-               {!! Form::label('avatar', 'Avatar') !!}
-               {!! Form::file('avatar', null, ['class' => ' form-control button']) !!}
-            </div>
-            <p>
-               {!! Form::submit('Editer', ['class' => 'button is-info btn btn-primary buttonBleu']) !!}
-            </p>
-            {!! Form::close() !!} 
+            <div id="profil-edit">
+            <form id="editform" v-on:submit.prevent='EditProfil'>
+         <div class="field">
+             <label class="label">Nom d'utilisateur</label>
+         <input type="text" class="input" name="name" v-model="name" v-bind:placeholder="user.name">
+      </div>
+      <div class="filed">
+          <label class="label">Adresse E-mail</label>
+         <input type="text" class="input" name="email" v-model="email" v-bind:placeholder="user.email">
+      </div>
+      <p>@{{message}}</p>
+            <div class="field has-text-right">
+         <button type="submit" class="button is-danger">Modifiez</button>
+      </div>
+</form>
+</div>
             <form action="{{route('delete')}}" method="POST">
                @method('DELETE')
                @csrf
-               <button class="btn btn-primary buttonBleu" type="submit">Supprimer mon compte</button>               
+               <button class="btn btn-primary buttonBleu" type="submit" onclick="myFunction()">Supprimer mon compte</button>               
             </form>
          </div>
       </div>
    </div>
+   <script>
+         function myFunction() {
+       if(!confirm("Voulez-vous vraiment supprimer votre compte?"))
+       event.preventDefault();
+   }
+   </script>
+    <script src="{{ asset('js/profil.js') }}" defer></script>
 </body>
 <script></script>
 @endsection
