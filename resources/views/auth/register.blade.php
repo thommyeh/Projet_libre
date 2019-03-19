@@ -63,9 +63,8 @@
 
                                                 <div class="form-group row">
                             <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
-
                             <div class="col-md-6">
-                                <input type="file" name="avatar" name="avatar">
+                                <input class="inputfile" type="file" name="avatar" name="avatar">
                             </div>
                         </div>
 
