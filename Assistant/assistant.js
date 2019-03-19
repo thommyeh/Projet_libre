@@ -31,8 +31,8 @@ d.id = "d";
 //Spawn the Assistant on every webpage
 function assistantSpawn() {
 
-  let assistant = document.createElement("img");
-  let imgUrl = browser.extension.getURL("assistants/samsara.png");
+  var assistant = document.createElement("img");
+  var imgUrl = browser.extension.getURL("assistants/samsara.png");
 
   assistant.setAttribute("src", imgUrl);
   assistant.style.position = 'fixed';
@@ -41,6 +41,32 @@ function assistantSpawn() {
   assistant.style.zIndex = '50';
   assistant.className = "assistant";
   document.body.appendChild(assistant);
+}
+
+//Make the Assistant talk
+function assistantTalk(title, link) {
+
+  //Talk Paragraph styling
+  var p;
+  p = document.createElement("p");
+  p.id = "p";
+
+  //Talk Link styling
+  var a;
+  a = document.createElement("a");
+  a.id = "a";
+  var linkText = document.createTextNode(" Download ");
+  a.appendChild(linkText);
+
+  //Talk Message
+  msg = title + " is out !";
+  var txt = document.createTextNode(msg);
+  p.appendChild(txt);
+  a.href = link;
+  p.appendChild(a);
+  d.appendChild(p);
+  //var clearTimer = setTimeout(clearMsg, 5000);
+  //var talkAgain = setTimeout(assistantTalk, 15000);
 }
 
 //Reads RSS Feeds from a JSON file
@@ -67,7 +93,7 @@ function readRSS() {
             res.text().then((htmlTxt) => {
               // Extract the RSS Feed URL from the website
               try {
-                let doc = DOMPARSER(htmlTxt, 'text/html');
+                var doc = DOMPARSER(htmlTxt, 'text/html');
                 feedUrl = doc.querySelector('link[type="application/rss+xml"]').href;
               } catch (e) {
                 console.error('Error in parsing the website');
@@ -80,12 +106,14 @@ function readRSS() {
 
                   // Parse the RSS Feed and display the content
                   try {
-                    let doc = DOMPARSER(xmlTxt, "text/xml");
+                    var doc = DOMPARSER(xmlTxt, "text/xml");
                     doc.querySelectorAll('item').forEach((item) => {
-                      let i = item.querySelector.bind(item);
-                      let title = !!i('title') ? i('title').textContent : '-';
-                      let link = !!i('link') ? i('link').textContent : '-';
+                      var i = item.querySelector.bind(item);
+                      var title = !!i('title') ? i('title').textContent : '-';
+                      var link = !!i('link') ? i('link').textContent : '-';
                       if (title.includes(filter)) {
+                        console.log(title);
+                        console.log(link);
                         assistantTalk(title, link);
                       }
                     });
@@ -103,37 +131,11 @@ function readRSS() {
   }).catch(() => console.error('Error in fetching the URLs json'));
 }
 
-//Make the Assistant talk
-function assistantTalk(title, link) {
-
-  //Talk Paragraph styling
-  var p;
-  p = document.createElement("p");
-  p.id = "p";
-
-  //Talk Link styling
-  var a;
-  a = document.createElement("a");
-  a.id = "a";
-  var linkText = document.createTextNode(" Download ");
-  a.appendChild(linkText);
-
-  //Talk Message
-  msg = title + " is out !";
-  let txt = document.createTextNode(msg);
-  p.appendChild(txt);
-  a.href = link;
-  p.appendChild(a);
-  d.appendChild(p);
-  //let clearTimer = setTimeout(clearMsg, 5000);
-  //let talkAgain = setTimeout(assistantTalk, 15000);
-}
-
 //Randomizes the messages for the assistantTalk function
 function randomMsg() {
 
   rand = Math.floor((Math.random() * 10) + 1);
-  let result;
+  var result;
 
   switch (rand) {
     case 1:
@@ -173,6 +175,6 @@ function randomMsg() {
 //Clears the screen of any message display
 function clearMsg() {
 
-  let clear = document.getElementById('h');
+  var clear = document.getElementById('h');
   clear.parentNode.removeChild(clear);
 }
