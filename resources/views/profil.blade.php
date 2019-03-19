@@ -21,7 +21,7 @@
       </div>
       <p>@{{message}}</p>
             <div class="field has-text-right">
-         <button type="submit" class="button is-danger">Modifiez</button>
+         <button type="submit" class="button is-danger btn btn-primary buttonBleu">Modifier</button>
       </div>
 </form>
 </div>
