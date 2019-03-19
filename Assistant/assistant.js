@@ -11,6 +11,7 @@ function jQuery() {
 window.onload = assistantSpawn();
 window.onload = readRSS();
 
+var filter;
 var url;
 var feedUrl;
 
@@ -42,32 +43,6 @@ function assistantSpawn() {
   document.body.appendChild(assistant);
 }
 
-//Make the Assistant talk
-function assistantTalk(wut, wat) {
-
-  //Talk Paragraph styling
-  var p;
-  p = document.createElement("p");
-  p.id = "p";
-
-  //Talk Link styling
-  var a;
-  a = document.createElement("a");
-  a.id = "a";
-  var linkText = document.createTextNode(" Download ");
-  a.appendChild(linkText);
-
-  //Talk Message
-  msg = wut + " is out !";
-  let txt = document.createTextNode(msg);
-  p.appendChild(txt);
-  a.href = wat;
-  p.appendChild(a);
-  d.appendChild(p);
-  //let clearTimer = setTimeout(clearMsg, 5000);
-  //let talkAgain = setTimeout(assistantTalk, 15000);
-}
-
 //Reads RSS Feeds from a JSON file
 function readRSS() {
 
@@ -79,7 +54,7 @@ function readRSS() {
 
       //Get filters
       JSON.parse(data).filters.forEach((f) => {
-        var filter = f;
+        filter = f;
         //Get urls
         JSON.parse(data).urls.forEach((u) => {
           try {
@@ -108,10 +83,10 @@ function readRSS() {
                     let doc = DOMPARSER(xmlTxt, "text/xml");
                     doc.querySelectorAll('item').forEach((item) => {
                       let i = item.querySelector.bind(item);
-                      let msg = !!i('title') ? i('title').textContent : '-';
+                      let title = !!i('title') ? i('title').textContent : '-';
                       let link = !!i('link') ? i('link').textContent : '-';
-                      if (msg.includes(filter)) {
-                        assistantTalk(msg, link);
+                      if (title.includes(filter)) {
+                        assistantTalk(title, link);
                       }
                     });
                     document.body.appendChild(d);
@@ -126,6 +101,32 @@ function readRSS() {
       });
     });
   }).catch(() => console.error('Error in fetching the URLs json'));
+}
+
+//Make the Assistant talk
+function assistantTalk(title, link) {
+
+  //Talk Paragraph styling
+  var p;
+  p = document.createElement("p");
+  p.id = "p";
+
+  //Talk Link styling
+  var a;
+  a = document.createElement("a");
+  a.id = "a";
+  var linkText = document.createTextNode(" Download ");
+  a.appendChild(linkText);
+
+  //Talk Message
+  msg = title + " is out !";
+  let txt = document.createTextNode(msg);
+  p.appendChild(txt);
+  a.href = link;
+  p.appendChild(a);
+  d.appendChild(p);
+  //let clearTimer = setTimeout(clearMsg, 5000);
+  //let talkAgain = setTimeout(assistantTalk, 15000);
 }
 
 //Randomizes the messages for the assistantTalk function
