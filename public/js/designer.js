@@ -1,7 +1,7 @@
 var config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: 1024,
+  height: 768,
   scene: {
     preload: preload,
     create: create,
@@ -18,137 +18,267 @@ var hair;
 var item;
 
 function preload() {
-
-  //UI
-  this.load.image('background', './img/UI/background.png');
-  this.load.image('bottomMenu', './img/UI/BottomMenu.png');
-  this.load.image('leftMenu', './img/UI/SideMenu.png');
-  this.load.image('Canvas', './img/UI/Canvas.png');
-
-  //Body parts
-  this.load.image('Body', './img/body/BodyMale.png');
-  this.load.image('Face', './img/face/Face.png');
-  this.load.image('Outfit', './img/outfit/Outfit.png');
-  this.load.image('Hair', './img/hair/Hair.png');
-  this.load.image('Item', './img/items/Item.png');
-
-  //Body
-  this.load.image('BodyMale', './img/body/BodyMale.png');
-  this.load.image('BodyFemale', './img/body/BodyFemale.png');
-  this.load.image('BodyElf', './img/body/BodyElf.png');
-
-  //Face
-  this.load.image('FaceOld', './img/face/FaceOld.png');
-  this.load.image('FaceOlder', './img/face/FaceOlder.png');
-
-  //Outfit
-  this.load.image('OutfitMage', './img/outfit/OutfitMage.png');
-  this.load.image('OutfitCloth', './img/outfit/OutfitCloth.png');
-
-  //Hair
-  this.load.image('HairBlond', './img/hair/HairBlond.png');
-  this.load.image('HairSilver', './img/hair/HairSilver.png');
-
-  //Items
-  this.load.image('ItemHorns', './img/items/ItemHorns.png');
-  this.load.image('ItemMask', './img/items/ItemMask.png');
+  //Loads all images
+  var index;
+  for (index = 0; index < imgLoader.length; ++index) {
+    this.load.image('' + imgLoader[index] + '', './img/' + imgLoader[index] + '.png');
+  }
 }
 
 function create() {
 
   //UI
   this.add.sprite(400, 300, 'background');
-  this.add.sprite(400, 600, 'bottomMenu');
-  this.add.sprite(120, 220, 'leftMenu');
+  this.add.sprite(512, 620, 'BottomMenu');
+
+  //Menu
+  var buttonGroup = this.add.group();
+  bodyMenuButton = this.add.sprite(384, 35, 'BodyButton').setInteractive();
+  outfitMenuButton = this.add.sprite(448, 35, 'OutfitButton').setInteractive();
+  faceMenuButton = this.add.sprite(512, 35, 'FaceButton').setInteractive();
+  hairMenuButton = this.add.sprite(576, 35, 'HairButton').setInteractive();
+  itemMenuButton = this.add.sprite(640, 35, 'ItemButton').setInteractive();
 
   //Body Menu
-  bodyMaleButton = this.add.sprite(60, 50, 'BodyMale').setInteractive();
-  bodyFemaleButton = this.add.sprite(120, 50, 'BodyFemale').setInteractive();
-  bodyElfButton = this.add.sprite(180, 50, 'BodyElf').setInteractive();
+  var bodyGroup = this.add.group();
+  bodyMaleButton = bodyGroup.create(50, 530, 'BodyMale').setInteractive();
+  bodyFemaleButton = bodyGroup.create(150, 530, 'BodyFemale').setInteractive();
+  bodyElfButton = bodyGroup.create(250, 530, 'BodyElf').setInteractive();
+  bodyMaleBlackButton = bodyGroup.create(350, 530, 'BodyMaleBlack').setInteractive();
+  bodyMaleAznButton = bodyGroup.create(450, 530, 'BodyMaleAzn').setInteractive();
+  bodyFemaleBlackButton = bodyGroup.create(550, 530, 'BodyFemaleBlack').setInteractive();
+  bodyFemaleAznButton = bodyGroup.create(650, 530, 'BodyFemaleAzn').setInteractive();
+  bodyGroup.children.iterate(function(child) {
+    child.visible = false;
+  });
 
   //Face Menu
-  faceButton = this.add.sprite(60, 150, 'Face').setInteractive();
-  faceOldButton = this.add.sprite(120, 150, 'FaceOld').setInteractive();
-  faceOlderButton = this.add.sprite(180, 150, 'FaceOlder').setInteractive();
+  var faceGroup = this.add.group();
+  faceNormalButton = faceGroup.create(50, 530, 'Face').setInteractive();
+  faceOldButton = faceGroup.create(150, 530, 'FaceOld').setInteractive();
+  faceOlderButton = faceGroup.create(250, 530, 'FaceOlder').setInteractive();
+  faceAngryButton = faceGroup.create(350, 530, 'FaceAngry').setInteractive();
+  faceBigEyesButton = faceGroup.create(450, 530, 'FaceBigEyes').setInteractive();
+  faceEvilButton = faceGroup.create(550, 530, 'FaceEvil').setInteractive();
+  faceGroup.children.iterate(function(child) {
+    child.visible = false;
+  });
 
   //Outfit Menu
-  outfitButton = this.add.sprite(60, 220, 'Outfit').setInteractive();
-  outfitMageButton = this.add.sprite(120, 220, 'OutfitMage').setInteractive();
-  outfitClothButton = this.add.sprite(180, 220, 'OutfitCloth').setInteractive();
+  var outfitGroup = this.add.group();
+  outfitArmorButton = outfitGroup.create(50, 530, 'Outfit').setInteractive();
+  outfitMageButton = outfitGroup.create(150, 530, 'OutfitMage').setInteractive();
+  outfitClothButton = outfitGroup.create(250, 530, 'OutfitCloth').setInteractive();
+  outfitNobleButton = outfitGroup.create(350, 530, 'OutfitNoble').setInteractive();
+  outfitComfyButton = outfitGroup.create(450, 530, 'OutfitComfy').setInteractive();
+  outfitRogueButton = outfitGroup.create(550, 530, 'OutfitRogue').setInteractive();
+  outfitGroup.children.iterate(function(child) {
+    child.visible = false;
+  });
 
   //Hair Menu
-  hairButton = this.add.sprite(60, 320, 'Hair').setInteractive();
-  hairBlondButton = this.add.sprite(120, 320, 'HairBlond').setInteractive();
-  hairSilverButton = this.add.sprite(180, 320, 'HairSilver').setInteractive();
+  var hairGroup = this.add.group();
+  hairNormalButton = hairGroup.create(50, 530, 'Hair').setInteractive();
+  hairBlondButton = hairGroup.create(150, 530, 'HairBlond').setInteractive();
+  hairSilverButton = hairGroup.create(250, 530, 'HairSilver').setInteractive();
+  hairBlondLongButton = hairGroup.create(350, 530, 'HairBlondLong').setInteractive();
+  hairBrownButton = hairGroup.create(450, 530, 'HairBrown').setInteractive();
+  hairGreyButton = hairGroup.create(550, 530, 'HairGrey').setInteractive();
+  hairEdgelordButton = hairGroup.create(650, 530, 'HairEdgelord').setInteractive();
+  hairGroup.children.iterate(function(child) {
+    child.visible = false;
+  });
 
   //Item Menu
-  itemButton = this.add.sprite(60, 420, 'Item').setInteractive();
-  itemHornsButton = this.add.sprite(120, 420, 'ItemHorns').setInteractive();
-  itemMaskButton = this.add.sprite(180, 420, 'ItemMask').setInteractive();
+  var itemGroup = this.add.group();
+  itemHatButton = itemGroup.create(50, 530, 'Item').setInteractive();
+  itemHornsButton = itemGroup.create(150, 530, 'ItemHorns').setInteractive();
+  itemMaskButton = itemGroup.create(250, 530, 'ItemMask').setInteractive();
+  itemGroup.children.iterate(function(child) {
+    child.visible = false;
+  });
+
+  buttonGroup.addMultiple([bodyMaleButton, bodyFemaleButton, bodyElfButton, bodyMaleBlackButton, bodyMaleAznButton, bodyFemaleBlackButton, bodyFemaleAznButton, faceNormalButton, faceOldButton, faceOlderButton, faceAngryButton, faceBigEyesButton, faceEvilButton, outfitArmorButton, outfitMageButton, outfitClothButton, outfitNobleButton, outfitComfyButton, outfitRogueButton, hairNormalButton, hairBlondButton, hairSilverButton, hairBlondLongButton, hairBrownButton, hairGreyButton, hairEdgelordButton, itemHatButton, itemHornsButton, itemMaskButton]);
 
   //Paperdoll
-  body = this.add.sprite(400, 300, 'Canvas');
-  outfit = this.add.sprite(400, 300, 'Canvas');
-  face = this.add.sprite(400, 300, 'Canvas');
-  hair = this.add.sprite(400, 300, 'Canvas');
-  item = this.add.sprite(400, 300, 'Canvas');
+  body = this.add.sprite(512, 300, 'Canvas');
+  outfit = this.add.sprite(512, 300, 'Canvas');
+  face = this.add.sprite(512, 300, 'Canvas');
+  hair = this.add.sprite(512, 300, 'Canvas');
+  item = this.add.sprite(512, 300, 'Canvas');
 
-  //Buttons Input
+  //Input: Buttons
+
+  //Body Menu
+  bodyMenuButton.on('pointerdown', function(pointer, x, y) {
+    if (bodyMaleButton.visible == false) {
+      buttonGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+      bodyGroup.children.iterate(function(child) {
+        child.visible = true;
+      });
+    } else {
+      bodyGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+    }
+  }, this);
+
+  //Outfit Menu
+  outfitMenuButton.on('pointerdown', function(pointer, x, y) {
+    if (outfitArmorButton.visible == false) {
+      buttonGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+      outfitGroup.children.iterate(function(child) {
+        child.visible = true;
+      });
+    } else {
+      outfitGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+    }
+  }, this);
+
+  //Face Menu
+  faceMenuButton.on('pointerdown', function(pointer, x, y) {
+    if (faceNormalButton.visible == false) {
+      buttonGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+      faceGroup.children.iterate(function(child) {
+        child.visible = true;
+      });
+    } else {
+      faceGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+    }
+  }, this);
+
+  //Hair Menu
+  hairMenuButton.on('pointerdown', function(pointer, x, y) {
+    if (hairNormalButton.visible == false) {
+      buttonGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+      hairGroup.children.iterate(function(child) {
+        child.visible = true;
+      });
+    } else {
+      hairGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+    }
+  }, this);
+
+  //Item Menu
+  itemMenuButton.on('pointerdown', function(pointer, x, y) {
+    if (itemHatButton.visible == false) {
+      buttonGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+      itemGroup.children.iterate(function(child) {
+        child.visible = true;
+      });
+    } else {
+      itemGroup.children.iterate(function(child) {
+        child.visible = false;
+      });
+    }
+  }, this);
 
   //Body Select
   bodyMaleButton.on('pointerdown', function(pointer, x, y) {
     body.setTexture('BodyMale');
   }, this);
-
   bodyFemaleButton.on('pointerdown', function(pointer, x, y) {
     body.setTexture('BodyFemale');
   }, this);
-
   bodyElfButton.on('pointerdown', function(pointer, x, y) {
     body.setTexture('BodyElf');
   }, this);
+  bodyMaleBlackButton.on('pointerdown', function(pointer, x, y) {
+    body.setTexture('BodyMaleBlack');
+  }, this);
+  bodyMaleAznButton.on('pointerdown', function(pointer, x, y) {
+    body.setTexture('BodyMaleAzn');
+  }, this);
+  bodyFemaleBlackButton.on('pointerdown', function(pointer, x, y) {
+    body.setTexture('BodyFemaleBlack');
+  }, this);
+  bodyFemaleAznButton.on('pointerdown', function(pointer, x, y) {
+    body.setTexture('BodyFemaleAzn');
+  }, this);
 
   //Face Select
-  faceButton.on('pointerdown', function(pointer, x, y) {
+  faceNormalButton.on('pointerdown', function(pointer, x, y) {
     face.setTexture('Face');
   }, this);
 
   faceOldButton.on('pointerdown', function(pointer, x, y) {
     face.setTexture('FaceOld');
   }, this);
-
   faceOlderButton.on('pointerdown', function(pointer, x, y) {
     face.setTexture('FaceOlder');
   }, this);
+  faceAngryButton.on('pointerdown', function(pointer, x, y) {
+    face.setTexture('FaceAngry');
+  }, this);
+  faceBigEyesButton.on('pointerdown', function(pointer, x, y) {
+    face.setTexture('FaceBigEyes');
+  }, this);
+  faceEvilButton.on('pointerdown', function(pointer, x, y) {
+    face.setTexture('FaceEvil');
+  }, this);
 
   //Outfit Select
-  outfitButton.on('pointerdown', function(pointer, x, y) {
+  outfitArmorButton.on('pointerdown', function(pointer, x, y) {
     outfit.setTexture('Outfit');
   }, this);
 
   outfitMageButton.on('pointerdown', function(pointer, x, y) {
     outfit.setTexture('OutfitMage');
   }, this);
-
   outfitClothButton.on('pointerdown', function(pointer, x, y) {
     outfit.setTexture('OutfitCloth');
   }, this);
-
-  //Hair Select
-  hairButton.on('pointerdown', function(pointer, x, y) {
-    hair.setTexture('Hair');
+  outfitNobleButton.on('pointerdown', function(pointer, x, y) {
+    outfit.setTexture('OutfitNoble');
+  }, this);
+  outfitComfyButton.on('pointerdown', function(pointer, x, y) {
+    outfit.setTexture('OutfitComfy');
+  }, this);
+  outfitRogueButton.on('pointerdown', function(pointer, x, y) {
+    outfit.setTexture('OutfitRogue');
   }, this);
 
+  //Hair Select
+  hairNormalButton.on('pointerdown', function(pointer, x, y) {
+    hair.setTexture('Hair');
+  }, this);
   hairBlondButton.on('pointerdown', function(pointer, x, y) {
     hair.setTexture('HairBlond');
   }, this);
-
   hairSilverButton.on('pointerdown', function(pointer, x, y) {
     hair.setTexture('HairSilver');
   }, this);
+  hairBlondLongButton.on('pointerdown', function(pointer, x, y) {
+    hair.setTexture('HairBlondLong');
+  }, this);
+  hairBrownButton.on('pointerdown', function(pointer, x, y) {
+    hair.setTexture('HairBrown');
+  }, this);
+  hairGreyButton.on('pointerdown', function(pointer, x, y) {
+    hair.setTexture('HairGrey');
+  }, this);
+  hairEdgelordButton.on('pointerdown', function(pointer, x, y) {
+    hair.setTexture('HairEdgelord');
+  }, this);
 
   //Item Select
-  itemButton.on('pointerdown', function(pointer, x, y) {
+  itemHatButton.on('pointerdown', function(pointer, x, y) {
     item.setTexture('Item');
   }, this);
 

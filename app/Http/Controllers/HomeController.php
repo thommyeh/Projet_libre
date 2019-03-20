@@ -1,89 +1,99 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use UserSys;
+use File;
+use View;
 use Latfur\Event\Models\Event;
 
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-class HomeController extends Controller {
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-		$this->middleware('auth');
-	}
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('welcome');
+    }
 
-	/**
-	 * Show the application dashboard.
-	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
-	 */
-	public function index() {
+    public function editeur()
+    {
+        $imgArray =  File::files('./img/');
+        $imgPath = [];
+        $imgLoader = [];
+        foreach ($imgArray as $path) {
+            $imgPath = pathinfo($path);
+            $imgName = $imgPath['filename'];
+            $imgLoader[] = $imgName;
+        }
 
-		return view('welcome');
-	}
+        return View::make('editeur', array('imgLoader' => $imgLoader));
+    }
 
-	public function editeur() {
-		
-		return view('editeur');
-	}
+    public function profil()
+    {
+        $name = Auth::user()->name;
+        $email = Auth::user()->email;
 
-	public function profil() {
+        return View('profil', ['name' => $name, 'email' => $email]);
+    }
 
-		$name = Auth::user()->name;
-		$email = Auth::user()->email;
+    public function edit(Request $request)
+    {
+        UserSys::EditProfil($request);
 
-		return View('profil', ['name' => $name, 'email' => $email]);
-	}
+        return View('welcome');
+    }
 
-	public function edit(Request $request) {
+    public function delete()
+    {
+        UserSys::Delete();
+        Auth::logout();
 
-		UserSys::EditProfil($request);
+        return View('DeleteConfirm');
+    }
+    //Renvoi les events d'un user en Json
+    public function test()
+    {
 
-		return View('welcome');
-	}
+        /*$user = Auth::user();
 
-	public function delete() {
+        $comments = $user->events;
 
-		UserSys::Delete();
-		Auth::logout();
+        $test = json_encode($comments);
+        return $test;*/
+        return view('test');
+    }
+    public function profileAccount()
+    {
+        return View('profileAccount');
+    }
+    public function pageProfil()
+    {
+        return View('pageProfil');
+    }
 
-		return View('DeleteConfirm');
-	}
-	//Renvoi les events d'un user en Json
-	public function test(){
+    public function ProfilData()
+    {
+        $user = Auth::user()->toArray();
 
-		/*$user = Auth::user();
-
-		$comments = $user->events;
-
-		$test = json_encode($comments);
-		return $test;*/
-		return view('test');
-
-	}
-	public function profileAccount() {
-
-
-		return View('profileAccount');
-	}
-		public function pageProfil() {
-
-
-		return View('pageProfil');
-	}
-
-		public function ProfilData() {
-
-		$user = Auth::user()->toArray();
-
-		return $user;
-	}
-   
+        return $user;
+    }
 }

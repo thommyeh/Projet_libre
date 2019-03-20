@@ -17,5 +17,9 @@ canvas {
 </style>
 <div class="game">
 <script src="{{ asset('js/designer.js') }}"></script>
+<script>
+//Images Preloader
+var imgLoader = @json($imgLoader);
+</script>
 </div>
 @endsection
