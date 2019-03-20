@@ -46,7 +46,11 @@ class HomeController extends Controller {
 
 		UserSys::EditProfil($request);
 
-		return View('welcome');
+		$name = Auth::user()->name;
+		$email = Auth::user()->email;
+
+		return View('profil', ['name' => $name, 'email' => $email]);
+		
 	}
 
 	public function delete() {
