@@ -94,11 +94,14 @@ function create() {
   itemHatButton = itemGroup.create(50, 530, 'Item').setInteractive();
   itemHornsButton = itemGroup.create(150, 530, 'ItemHorns').setInteractive();
   itemMaskButton = itemGroup.create(250, 530, 'ItemMask').setInteractive();
+  itemBandanaButton = itemGroup.create(350, 530, 'ItemBandana').setInteractive();
+  itemWingsButton = itemGroup.create(450, 530, 'ItemWings').setInteractive();
+  itemWitchHatButton = itemGroup.create(550, 530, 'ItemWitchHat').setInteractive();
   itemGroup.children.iterate(function(child) {
     child.visible = false;
   });
 
-  buttonGroup.addMultiple([bodyMaleButton, bodyFemaleButton, bodyElfButton, bodyMaleBlackButton, bodyMaleAznButton, bodyFemaleBlackButton, bodyFemaleAznButton, faceNormalButton, faceOldButton, faceOlderButton, faceAngryButton, faceBigEyesButton, faceEvilButton, outfitArmorButton, outfitMageButton, outfitClothButton, outfitNobleButton, outfitComfyButton, outfitRogueButton, hairNormalButton, hairBlondButton, hairSilverButton, hairBlondLongButton, hairBrownButton, hairGreyButton, hairEdgelordButton, itemHatButton, itemHornsButton, itemMaskButton]);
+  buttonGroup.addMultiple([bodyMaleButton, bodyFemaleButton, bodyElfButton, bodyMaleBlackButton, bodyMaleAznButton, bodyFemaleBlackButton, bodyFemaleAznButton, faceNormalButton, faceOldButton, faceOlderButton, faceAngryButton, faceBigEyesButton, faceEvilButton, outfitArmorButton, outfitMageButton, outfitClothButton, outfitNobleButton, outfitComfyButton, outfitRogueButton, hairNormalButton, hairBlondButton, hairSilverButton, hairBlondLongButton, hairBrownButton, hairGreyButton, hairEdgelordButton, itemHatButton, itemHornsButton, itemMaskButton, itemBandanaButton, itemWingsButton, itemWitchHatButton]);
 
   //Paperdoll
   body = this.add.sprite(512, 300, 'Canvas');
@@ -281,13 +284,20 @@ function create() {
   itemHatButton.on('pointerdown', function(pointer, x, y) {
     item.setTexture('Item');
   }, this);
-
   itemHornsButton.on('pointerdown', function(pointer, x, y) {
     item.setTexture('ItemHorns');
   }, this);
-
   itemMaskButton.on('pointerdown', function(pointer, x, y) {
     item.setTexture('ItemMask');
+  }, this);
+  itemBandanaButton.on('pointerdown', function(pointer, x, y) {
+    item.setTexture('ItemBandana');
+  }, this);
+  itemWingsButton.on('pointerdown', function(pointer, x, y) {
+    item.setTexture('ItemWings');
+  }, this);
+  itemWitchHatButton.on('pointerdown', function(pointer, x, y) {
+    item.setTexture('ItemWitchHat');
   }, this);
 }
 
