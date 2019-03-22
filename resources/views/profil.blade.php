@@ -1,6 +1,8 @@
-<body id="mypage">
+      <link href="{{ asset('css/style.css') }}" rel="stylesheet">
    @extends('layouts.app')
+   
    @section('content')
+   <body id="mypage">
    <div class="container">
       <div class="row ProfileStyle">
          <div class="col-md-offset-1 col-md-2">

@@ -154,3 +154,11 @@ margin-top:35%;
     float: none;
     vertical-align: top;
 }
+
+.RSS {
+  margin-top:10em;
+}
+
+.rssInput {
+  margin-bottom: 1%;
+}

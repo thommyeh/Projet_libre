@@ -1,6 +1,7 @@
-<body id="mypage">
+      <link href="{{ asset('css/style.css') }}" rel="stylesheet">
    @extends('layouts.app')
    @section('content')
+      <body id="mypage">
    <div class="container">
    <div class="row ProfileStyle">
    <div class="col-md-offset-1 col-md-2">
@@ -11,7 +12,7 @@
    <div class="col-md-offset-2 col-md-7 ProfileStyleDroite">
    <div class="form-group" id="mypage">
       <h6>Thème du site</h6>
-      <button class="btn btn-primary Daytheme" id="b1"></button>
+      <button class="Daytheme btn btn-primary" id="b1"></button>
       <button class="NightTheme btn btn-primary " id="b2"></button>
    </div>
    <div class="form-group">
