@@ -7,6 +7,7 @@
 <div class="card-header">{{ __('Créer un nouveau flux') }}</div>
 <div class="card-body ProfileStyleDroite" id="replace">
    <form id="signup-form" v-on:submit.prevent='processForm'>
+
       <!-- name -->
       <div class="field">
          <label class="label">Nom</label>
@@ -16,13 +17,19 @@
       <div class="field">
          <label class="label">Url</label>
          <input type="text" class="input form-control InputProfile rssInput" name="url" v-model="url">
+
       </div>
+      <div v-html='message'>
+
+      </div>
+<validation-errors :errors="validationErrors" v-if="validationErrors"></validation-errors>
       <!-- submit button -->
       <div class="field has-text-right">
          <button type="submit" class="button is-danger btn btn-primary buttonBleu">Envoyer</button>
       </div>
-      <div class="success">@{{message}}</div>
+
    </form>
+
    <h4 style="margin-top:2%;">Ajouter des filtres</h4>
    <!-- Filtres -->
 <form id="filters-form" v-on:submit.prevent='FiltersForm'>
@@ -43,7 +50,7 @@
       </select>
       <span v-for="uri in urls">
          <div v-if='uri.id === selected'>
-            <p> url : @{{uri.url}}</p>
+            <p class='alert alert-success'> url : @{{uri.url}}</p>
             <button type="submit" class="button is-danger btn btn-primary buttonBleu">Supprimer ce flux</button>
             </div>
       </span>
@@ -57,12 +64,12 @@
       </select>
       <span v-for="filtou in filters">
          <div v-if='filtou.id === selected1'>
-            
+
             <button type="submit" class="button is-danger">Supprimer ce filtre</button>
             </div>
       </span>
-   </form>  
-   
+   </form>
+
 
 
 </div>

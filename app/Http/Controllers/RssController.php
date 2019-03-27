@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -12,32 +10,31 @@ use UserSys;
 use Latfur\Event\Models\Event;
 use App\Filter;
 use App\Url;
+use App\Http\Requests\UrlRequest;
 
 class RssController extends Controller
 {
-    
-        public function index(){
-
-      
-
+    public function index()
+    {
         return view('rss');
     }
 
-         public function createRss()
+    public function createRss(UrlRequest $request)
     {
+        $valid = $request->validated();
+
         $url = new Url();
-        $url->name = request('name');
-        $url->url = request('url');
+        $url->name = $valid['name'];
+        $url->url = $valid['url'];
         $url->user_id = Auth::user()->id;
         $url->save();
-      
 
-        return true;
+
+        return 'Le flux a été correctement ajouté';
     }
 
-        public function createFilter()
+    public function createFilter()
     {
-   
         $filters = new Filter();
         $filters->name = request('filtres');
         $filters->user_id = Auth::user()->id;
@@ -46,36 +43,34 @@ class RssController extends Controller
         return true;
     }
 
-   
-        public function RssData(){
 
+    public function RssData()
+    {
         $user = Auth::user();
-        
+
         $urls = Url::where('user_id', $user->id)->get()->toArray();
 
 
         return $urls;
-        
     }
 
-        public function FiltersData(){
-
+    public function FiltersData()
+    {
         $user = Auth::user();
-        
+
         $filters = Filter::where('user_id', $user->id)->get()->toArray();
 
 
         return $filters;
-        
     }
 
-        public function GenerateData(){
-
+    public function GenerateData()
+    {
         $user = Auth::user();
         $filters = Filter::where('user_id', $user->id)->pluck('name')->toArray();
         $urls = Url::where('user_id', $user->id)->pluck('url')->toArray();
         //$events = Event::where('user_id', $user->id)->get()->toArray();
-        $events = DB::table('events')->select('event_title', 'event_start_date','event_start_time', 'event_end_date', 'event_description')->get()->toArray();
+        $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
         $raw = array(
             'urls' => $urls,
             'filters' => $filters,
@@ -88,27 +83,24 @@ class RssController extends Controller
 
 
         return $data;
-        
     }
 
 
-    public function deleteflux(){
-
+    public function deleteflux()
+    {
         $id = request('id');
-        
-        $res= Url::where('id',$id)->delete();
+
+        $res= Url::where('id', $id)->delete();
 
         return true;
-
     }
 
-        public function deletefilter(){
-
+    public function deletefilter()
+    {
         $id = request('id');
-        
-        $res= Filter::where('id',$id)->delete();
+
+        $res= Filter::where('id', $id)->delete();
 
         return true;
-
     }
 }
