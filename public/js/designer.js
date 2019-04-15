@@ -101,6 +101,7 @@ function create() {
     child.visible = false;
   });
 
+  //Button Group
   buttonGroup.addMultiple([bodyMaleButton, bodyFemaleButton, bodyElfButton, bodyMaleBlackButton, bodyMaleAznButton, bodyFemaleBlackButton, bodyFemaleAznButton, faceNormalButton, faceOldButton, faceOlderButton, faceAngryButton, faceBigEyesButton, faceEvilButton, outfitArmorButton, outfitMageButton, outfitClothButton, outfitNobleButton, outfitComfyButton, outfitRogueButton, hairNormalButton, hairBlondButton, hairSilverButton, hairBlondLongButton, hairBrownButton, hairGreyButton, hairEdgelordButton, itemHatButton, itemHornsButton, itemMaskButton, itemBandanaButton, itemWingsButton, itemWitchHatButton]);
 
   //Paperdoll
@@ -109,8 +110,6 @@ function create() {
   face = this.add.sprite(512, 300, 'Canvas');
   hair = this.add.sprite(512, 300, 'Canvas');
   item = this.add.sprite(512, 300, 'Canvas');
-
-  //Input: Buttons
 
   //Body Menu
   bodyMenuButton.on('pointerdown', function(pointer, x, y) {
@@ -219,7 +218,6 @@ function create() {
   faceNormalButton.on('pointerdown', function(pointer, x, y) {
     face.setTexture('Face');
   }, this);
-
   faceOldButton.on('pointerdown', function(pointer, x, y) {
     face.setTexture('FaceOld');
   }, this);
@@ -240,7 +238,6 @@ function create() {
   outfitArmorButton.on('pointerdown', function(pointer, x, y) {
     outfit.setTexture('Outfit');
   }, this);
-
   outfitMageButton.on('pointerdown', function(pointer, x, y) {
     outfit.setTexture('OutfitMage');
   }, this);
