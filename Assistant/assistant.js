@@ -1,15 +1,24 @@
 /*
-window.onload = jQuery();
-function jQuery() {
-  var jQueryScript = document.createElement('script');
-  jQueryScript.setAttribute('src','https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
-  document.head.appendChild(jQueryScript);
-}
+░░░░░░░░▄▄▄▀▀▀▄▄███▄
+░░░░░▄▀▀░░░░░░░▐░▀██▌
+░░░▄▀░░░░▄▄███░▌▀▀░▀█
+░░▄█░░▄▀▀▒▒▒▒▒▄▐░░░░█▌
+░▐█▀▄▀▄▄▄▄▀▀▀▀▌░░░░░▐█▄
+░▌▄▄▀▀░░░░░░░░▌░░░░▄███████▄
+░░░░░░░░░░░░░▐░░░░▐███████████▄
+░░░░░░░░░░░░░▐░░░░▐█████████████▄
+░░░░░░le░░░░░░▀▄░░░▐██████████████▄
+░░░░toucan░░░░░░░▀▄▄████████████████▄
+░░░░░has░░░░░░░░░░░░░░░░█▀██████▀▀▀▀█▄
+░░░░arrived░░░░░░░░░░░░░▄▄▀▄▀░▀██▀▀▀▄▄▄▀█
+░░░░░░░░░░░░░░░░░░▄▀▀▀▀▀░░░░██▌
+░░░░░░░░░░░░░░░░░░░░░░░░░░▄▀▄▀
 */
 window.onload = assistantSpawn();
 window.onload = readRSS();
+window.onload = readCalendar();
 
-//Talk Div
+//Speech Div
 var d;
 d = document.createElement("div")
 d.style.position = 'fixed';
@@ -22,6 +31,7 @@ d.style.borderRadius = "7px";
 d.style.backgroundColor = "white";
 d.id = "d";
 
+//Display the Assistant on every webpage
 function assistantSpawn() {
 
   let assistant = document.createElement("img");
@@ -36,131 +46,115 @@ function assistantSpawn() {
   document.body.appendChild(assistant);
 }
 
-function assistantTalk(wut, wat) {
-
-  //Talk Paragraph
-  var p;
-  p = document.createElement("p")
-  p.id = "p";
-
-  //Talk Link
-  var a;
-  a = document.createElement("a")
-  a.id = "a";
-  var linkText = document.createTextNode(" Download ");
-  a.appendChild(linkText);
-
-  //Talk Message
-  msg = wut + " is out !";
-  let txt = document.createTextNode(msg);
-  p.appendChild(txt);
-  a.href = wat;
-  p.appendChild(a);
-  d.appendChild(p);
-  //let clearTimer = setTimeout(clearMsg, 5000);
-  //let talkAgain = setTimeout(assistantTalk, 15000);
-}
-
+//Read RSS Filters
 function readRSS() {
 
   const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
 
-  /* Fetch URLs from JSON */
   fetch("http://localhost/data/rss.json").then((res) => {
     res.text().then((data) => {
 
+      //Get JSON Filters and Urls
       JSON.parse(data).filters.forEach((f) => {
         var filter = f;
 
         JSON.parse(data).urls.forEach((u) => {
-          try {
-            var url = new URL(u)
-          } catch (e) {
-            console.error('URL invalid');
-            return
-          }
+          var url = new URL(u)
+
           fetch(url).then((res) => {
             res.text().then((htmlTxt) => {
-              /* Extract the RSS Feed URL from the website */
-              try {
-                let doc = DOMPARSER(htmlTxt, 'text/html')
-                var feedUrl = doc.querySelector('link[type="application/rss+xml"]').href
-              } catch (e) {
-                console.error('Error in parsing the website');
-                return
-              }
 
-              /* Fetch the RSS Feed */
+              let doc = DOMPARSER(htmlTxt, 'text/html')
+              var feedUrl = doc.querySelector('link[type="application/rss+xml"]').href
+
               fetch(feedUrl).then((res) => {
                 res.text().then((xmlTxt) => {
 
-                  /* Parse the RSS Feed and display the content */
-                  try {
-                    let doc = DOMPARSER(xmlTxt, "text/xml")
-                    doc.querySelectorAll('item').forEach((item) => {
-                      let i = item.querySelector.bind(item)
-                      let msg = !!i('title') ? i('title').textContent : '-'
-                      let link = !!i('link') ? i('link').textContent : '-'
-                      if (msg.includes(filter)) {
-                        assistantTalk(msg, link);
-                      }
-                    })
-                    document.body.appendChild(d);
-                  } catch (e) {
-                    console.error('Error in parsing the feed')
-                  }
+                  //Display the RSS Items that match the filters
+                  let doc = DOMPARSER(xmlTxt, "text/xml")
+                  doc.querySelectorAll('item').forEach((item) => {
+                    let i = item.querySelector.bind(item)
+                    let rssTitle = !!i('title') ? i('title').textContent : '-'
+                    let rssLink = !!i('link') ? i('link').textContent : '-'
+                    if (rssTitle.includes(filter)) {
+
+                      //Talk Paragraph
+                      var p;
+                      p = document.createElement("p")
+                      p.id = "p";
+
+                      //Talk Link
+                      var a;
+                      a = document.createElement("a")
+                      a.id = "a";
+                      var linkText = document.createTextNode(" Download ");
+                      a.appendChild(linkText);
+
+                      //Talk Message
+                      msg = rssTitle + " is out !";
+                      let txt = document.createTextNode(msg);
+                      p.appendChild(txt);
+                      a.href = rssLink;
+                      p.appendChild(a);
+                      d.appendChild(p);
+                    }
+                  })
+                  document.body.appendChild(d);
                 })
-              }).catch(() => console.error('Error in fetching the RSS feed'))
+              })
             })
-          }).catch(() => console.error('Error in fetching the website'))
+          })
         })
       })
     })
-  }).catch(() => console.error('Error in fetching the URLs json'))
+  })
 }
 
-function randomMsg() {
+// Read Calendar Events function
+function readCalendar() {
 
-  rand = Math.floor((Math.random() * 10) + 1);
-  let result;
+  const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
 
-  switch (rand) {
-    case 1:
-      result = "Looking cool Joker !";
-      break;
-    case 2:
-      result = "I hope senpai notices me today...";
-      break;
-    case 3:
-      result = "AM I KAWAI ?! UGUUUU !";
-      break;
-    case 4:
-      result = "A cat is fine too...";
-      break;
-    case 5:
-      result = "Rise and shine ! Ursine !";
-      break;
-    case 6:
-      result = "I Samsara vi Britannia command you ! Die !";
-      break;
-    case 7:
-      result = "This isn't even my final form !";
-      break;
-    case 8:
-      result = "Medusa, what does the scooter say about his power level ?";
-      break;
-    case 9:
-      result = "I used to be an internet explorer like you, but then I took a Java to the knee...";
-      break;
-    case 10:
-      result = "All your bases are belong to us !";
-      break;
-  }
-  return result;
-}
+  /* Get JSON Events */
+  fetch("http://localhost/data/rss.json").then((res) => {
 
-function clearMsg() {
+    res.text().then((data) => {
 
-  let clear = document.getElementById('h');
-  clear.parentNode.removeChild(clear);
+      JSON.parse(data).events.forEach((e) => {
+
+        //Get Event Data
+        var eventTitle = e.event_title;
+        var startDate = e.event_start_date;
+        var endDate = e.event_end_date;
+        var startTime = e.event_start_time;
+        var eventDesc = e.event_description;
+
+        //Display only current day events
+        var today = new Date();
+        var currentDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var currentTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        currentDate = new Date(currentDate);
+        checkDate = new Date(startDate);
+
+        if (currentDate > checkDate || currentDate < checkDate) {
+          eventTitle = "";
+        } else {
+
+          //Talk Paragraph
+          var p;
+          p = document.createElement("p")
+          p.id = "p";
+
+          //Talk Message
+          if (eventTitle != "") {
+            msg = "[" + startTime + "] " + eventTitle + ": " + eventDesc;
+            let txt = document.createTextNode(msg);
+            p.appendChild(txt);
+            d.appendChild(p);
+          }
+        }
+      })
+      document.body.appendChild(d);
+    })
+  })
 }
