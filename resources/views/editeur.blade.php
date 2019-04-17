@@ -14,6 +14,12 @@ canvas {
     border: 2px solid black;
     border-radius: 9px;
 }
+#save {
+    position: absolute;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 9px;
+}
 </style>
 <div class="game">
 <script src="{{ asset('js/designer.js') }}"></script>
@@ -21,26 +27,41 @@ canvas {
 //Images Preloader
 var imgLoader = @json($imgLoader);
 </script>
-<script src="{{ asset('js/canvas2image.js') }}"></script>
+<script src="{{ asset('js/FileSaver.js') }}"></script>
 <div>
     <p>
         <button id="save">Save</button>
     </p>
 </div>
+<canvas id="canvas2" width="96px" height="96px"></canvas>
+</div>
 
 <script>
 
-    var canvas, $save;
+function saveButton () {
 
-    function bind () {
-        $save = document.getElementById('save');
-        $save.onclick = function (e) {
-            Canvas2Image.saveAsImage(document.getElementsByTagName('canvas')[0], '1024', '768', 'png');
-        }
-    }
-    onload = bind;
+  var save = document.getElementById('save');
+  var sourceCanvas = document.getElementsByTagName("canvas")[1];
+  var destCanvas = document.getElementById("canvas2");
+
+  save.onclick = function () {
+
+    console.log(sourceCanvas);
+    console.log(destCanvas);
+    var sourceImageData = sourceCanvas.toDataURL("image/png");
+    var destCanvasContext = destCanvas.getContext('2d');
+
+    var destinationImage = new Image;
+    destinationImage.onload = function(){
+      destCanvasContext.drawImage(destinationImage,464,250,96,96,0,0,96,96);
+      destCanvas.toBlob(function(blob) {
+       saveAs(blob, "avatar.png");
+      });
+    };
+    destinationImage.src = sourceImageData;
+  }
+}
+onload = saveButton;
 
 </script>
-
-</div>
 @endsection
