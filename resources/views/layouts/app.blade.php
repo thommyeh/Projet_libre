@@ -19,6 +19,7 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
        <script src="{{ asset('js/sync.js') }}" defer></script>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
        <link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
@@ -29,16 +30,17 @@
         <script src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>
         <script src="{{asset('js/parsley.js')}}"></script>
      
+
    </head>
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark NavBarLayout NavBarText navbarcenter">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-      
+
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
          <a class="navbar-brand" href="{{ url('/') }}">
-         <img src="2.png" alt="" width="112" height="28">
-           
+         <img id="imgtest" src="2.png" alt="" width="112" height="28">
+
          </a>
          @auth
          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 NavBarText mx-auto">
