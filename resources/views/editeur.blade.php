@@ -14,6 +14,11 @@ canvas {
     border: 2px solid black;
     border-radius: 9px;
 }
+
+#canvas2 {
+  display: none;
+}
+
 #save {
     position: absolute;
     margin: auto;
@@ -28,14 +33,13 @@ canvas {
 var imgLoader = @json($imgLoader);
 </script>
 <script src="{{ asset('js/FileSaver.js') }}"></script>
+<canvas id="canvas2" width="96px" height="96px"></canvas>
+</div>
 <div>
     <p>
         <button id="save">Save</button>
     </p>
 </div>
-<canvas id="canvas2" width="96px" height="96px"></canvas>
-</div>
-
 <script>
 
 function saveButton () {
@@ -46,11 +50,8 @@ function saveButton () {
 
   save.onclick = function () {
 
-    console.log(sourceCanvas);
-    console.log(destCanvas);
     var sourceImageData = sourceCanvas.toDataURL("image/png");
     var destCanvasContext = destCanvas.getContext('2d');
-
     var destinationImage = new Image;
     destinationImage.onload = function(){
       destCanvasContext.drawImage(destinationImage,464,250,96,96,0,0,96,96);

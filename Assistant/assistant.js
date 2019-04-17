@@ -22,7 +22,7 @@ window.onload = readCalendar();
 var d;
 d = document.createElement("div")
 d.style.position = 'fixed';
-d.style.right = '70px';
+d.style.right = '80px';
 d.style.bottom = '20px';
 d.style.zIndex = '50';
 d.style.padding = '5px 10px 5px 10px';
@@ -35,12 +35,12 @@ d.id = "d";
 function assistantSpawn() {
 
   let assistant = document.createElement("img");
-  let imgUrl = browser.extension.getURL("assistants/samsara.png");
+  let imgUrl = browser.extension.getURL("assistants/avatar.png");
 
   assistant.setAttribute("src", imgUrl);
   assistant.style.position = 'fixed';
-  assistant.style.right = '10px';
-  assistant.style.bottom = '10px';
+  assistant.style.right = '0px';
+  assistant.style.bottom = '0px';
   assistant.style.zIndex = '50';
   assistant.className = "assistant";
   document.body.appendChild(assistant);
