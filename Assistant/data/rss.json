@@ -1,4 +1,8 @@
 {
-	"urls": ["https://nyaa.si/", "https://www.ddlvalley.me/"],
-	"filters": ["Magicians", "Neverland", "BanG"]
+  "urls":["https://www.ddlvalley.me/","https://nyaa.si/"],
+  "filters":["Yu-Gi-Oh!"],
+  "events":[
+    {"event_title":"Past Event","event_start_date":"2018-02-10","event_start_time":"12:00 AM","event_end_date":"2018-02-10","event_description":"Description"},
+    {"event_title":"Event","event_start_date":"2019-04-17","event_start_time":"12:00 AM","event_end_date":"2019-04-17","event_description":"Description"},
+    {"event_title":"Future Event","event_start_date":"2019-06-20","event_start_time":"12:00 AM","event_end_date":"2019-06-20","event_description":"Description"}]
 }

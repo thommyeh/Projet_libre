@@ -50,8 +50,9 @@ function assistantSpawn() {
 function readRSS() {
 
   const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
+  var jsonFile = browser.extension.getURL("data/rss.json");
 
-  fetch("http://localhost/data/rss.json").then((res) => {
+  fetch(jsonFile).then((res) => {
     res.text().then((data) => {
 
       //Get JSON Filters and Urls
@@ -114,9 +115,10 @@ function readRSS() {
 function readCalendar() {
 
   const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
+  var jsonFile = browser.extension.getURL("data/rss.json");
 
   /* Get JSON Events */
-  fetch("http://localhost/data/rss.json").then((res) => {
+  fetch(jsonFile).then((res) => {
 
     res.text().then((data) => {
 
