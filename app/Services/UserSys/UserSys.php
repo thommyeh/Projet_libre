@@ -1,9 +1,13 @@
 <?php
 namespace App\Services\UserSys;
+use Illuminate\Support\Facades\DB;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
+use Latfur\Event\Models\Event;
+use App\Filter;
+use App\Url;
+use App\Http\Requests\UrlRequest;
 
 
 class UserSys {
@@ -52,6 +56,26 @@ class UserSys {
         $user->destroy($user->id);
         
 
+    }
+
+        public function GenerateData()
+    {
+        $user = Auth::user();
+        $filters = Filter::where('user_id', $user->id)->pluck('name')->toArray();
+        $urls = Url::where('user_id', $user->id)->pluck('url')->toArray();
+        $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
+        $raw = array(
+            'urls' => $urls,
+            'filters' => $filters,
+            'events' => $events);
+        $data = json_encode($raw, JSON_UNESCAPED_SLASHES);
+
+        $fp = fopen(storage_path('rss.json'), 'w');
+        fwrite($fp, $data);
+        fclose($fp);
+
+
+        
     }
 
 }
