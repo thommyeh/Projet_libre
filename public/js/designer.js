@@ -1,12 +1,13 @@
 var config = {
-  type: Phaser.AUTO,
+  type: Phaser.CANVAS,
   width: 1024,
   height: 768,
   scene: {
     preload: preload,
     create: create,
     update: update
-  }
+  },
+  "transparent": true
 };
 
 var game = new Phaser.Game(config);
@@ -28,7 +29,7 @@ function preload() {
 function create() {
 
   //UI
-  this.add.sprite(400, 300, 'background');
+  this.add.sprite(512, 238, 'background');
   this.add.sprite(512, 620, 'BottomMenu');
 
   //Menu
