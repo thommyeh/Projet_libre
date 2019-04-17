@@ -40,6 +40,7 @@
             <div class="field has-text-right">
          <button type="submit" class="button is-danger btn btn-primary buttonBleu">Envoyer</button>
       </div>
+   
 </form>
    <h4 style="margin-top:2%;"> Vos flux</h4>
    <form v-on:submit.prevent='editFlux'>

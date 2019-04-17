@@ -28,7 +28,8 @@ Route::get('profileAccount', 'HomeController@profileAccount')->name('profile')->
 Route::get('pageProfil', 'HomeController@pageProfil')->name('pageProfil')->middleware('verified');
 Route::get('/profildata', 'HomeController@ProfilData')->middleware('verified');
 //test du renvoi en Json des event d'un user
-Route::get('/test', 'HomeController@test')->middleware('verified');;
+
+
 //Routes surchargées du calendrier
 Route::get('all-event','EventController@all_event')->name('all-event');
 Route::get('event','EventController@index')->name('event');  
@@ -46,6 +47,7 @@ Route::get('/filterdata','RssController@FiltersData')->middleware('verified');;
 Route::post('/CreateRss', 'RssController@createRss')->name('create')->middleware('verified');
 Route::post('/CreateFilter', 'RssController@createFilter')->name('createFilters')->middleware('verified');
 Route::post('/flux/delete','RssController@deleteflux')->name('deleteflux')->middleware('verified');;
-Route::post('/filter/delete','RssController@deletefilter')->name('deletefilter')->middleware('verified');;
-Route::get('/generate','RssController@GenerateData')->middleware('verified');;
+Route::post('/filter/delete','RssController@deletefilter')->name('deletefilter')->middleware('verified');
+Route::get('/generate','RssController@GenerateData')->middleware('verified');
+Route::get('/synchro', 'RssController@Synchro')->name('synchro')->middleware('verified');
 

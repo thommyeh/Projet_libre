@@ -32,6 +32,7 @@ var rss = new Vue({
     selected1: '',
     validationErrors: '',
     message: '',
+    
 
 
 
@@ -92,7 +93,8 @@ var rss = new Vue({
 
 
 
-    }
+    },
+
   },
 
   mounted() {
