@@ -36,7 +36,6 @@ function assistantSpawn() {
 
   let assistant = document.createElement("img");
   let imgUrl = browser.extension.getURL("assistants/avatar.png");
-
   assistant.setAttribute("src", imgUrl);
   assistant.style.position = 'fixed';
   assistant.style.right = '0px';
@@ -44,6 +43,7 @@ function assistantSpawn() {
   assistant.style.zIndex = '50';
   assistant.className = "assistant";
   document.body.appendChild(assistant);
+
 }
 
 //Read RSS Filters
