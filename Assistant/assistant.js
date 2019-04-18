@@ -15,8 +15,9 @@
 ░░░░░░░░░░░░░░░░░░░░░░░░░░▄▀▄▀
 */
 window.onload = assistantSpawn();
-window.onload = readRSS();
-window.onload = readCalendar();
+
+var rssDisplay = false;
+var calendarDisplay = false;
 
 //Speech Div
 var d;
@@ -44,7 +45,47 @@ function assistantSpawn() {
   assistant.className = "assistant";
   document.body.appendChild(assistant);
 
+  let bluePoint = document.createElement("img");
+  let blueUrl = browser.extension.getURL("assistants/bluePoint.png");
+  bluePoint.setAttribute("src", blueUrl);
+  bluePoint.style.position = 'fixed';
+  bluePoint.style.right = '20px';
+  bluePoint.style.bottom = '100px';
+  bluePoint.style.zIndex = '50';
+  bluePoint.id = "bluePoint";
+  document.body.appendChild(bluePoint);
+
+  let greenPoint = document.createElement("img");
+  let greenUrl = browser.extension.getURL("assistants/greenPoint.png");
+  greenPoint.setAttribute("src", greenUrl);
+  greenPoint.style.position = 'fixed';
+  greenPoint.style.right = '60px';
+  greenPoint.style.bottom = '100px';
+  greenPoint.style.zIndex = '50';
+  greenPoint.id = "greenPoint";
+  document.body.appendChild(greenPoint);
+
+  greenPoint.onclick = function() {
+    if (rssDisplay == false) {
+      readRSS();
+      rssDisplay = true;
+    } else {
+      clearMsg();
+      rssDisplay = false;
+    }
+  };
+
+  bluePoint.onclick = function() {
+    if (calendarDisplay == false) {
+      readCalendar();
+      calendarDisplay = true;
+    } else {
+      clearMsg();
+      calendarDisplay = false;
+    }
+  };
 }
+
 
 //Read RSS Filters
 function readRSS() {
@@ -159,4 +200,15 @@ function readCalendar() {
       document.body.appendChild(d);
     })
   })
+}
+
+//Clears the Speech div of all messages
+function clearMsg() {
+
+  let clear = document.getElementById('d');
+  while (clear.hasChildNodes()) {
+    clear.removeChild(clear.lastChild);
+  }
+  clear.parentNode.removeChild(clear);
+
 }
