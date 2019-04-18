@@ -48,7 +48,9 @@ class RssController extends Controller
     {
         $user = Auth::user();
 
-        $urls = Url::where('user_id', $user->id)->get()->toArray();
+        $urls = $user->urls;
+
+        
 
 
         return $urls;
@@ -58,7 +60,9 @@ class RssController extends Controller
     {
         $user = Auth::user();
 
-        $filters = Filter::where('user_id', $user->id)->get()->toArray();
+        $filters = $user->filters;
+
+        
 
 
         return $filters;
@@ -67,8 +71,8 @@ class RssController extends Controller
     public function Synchro()
     {
         $user = Auth::user();
-        $filters = Filter::where('user_id', $user->id)->pluck('name')->toArray();
-        $urls = Url::where('user_id', $user->id)->pluck('url')->toArray();
+        $filters = $user->filters->pluck('name');
+        $urls = $user->urls->pluck('url');
         $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
         $raw = array(
             'urls' => $urls,
@@ -79,10 +83,8 @@ class RssController extends Controller
         $fp = fopen(storage_path('rss.json'), 'w');
         fwrite($fp, $data);
         fclose($fp);
-        $mess = true;
         
-
-        return $mess;
+        return true;
 
 
         
