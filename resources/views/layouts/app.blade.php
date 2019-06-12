@@ -39,7 +39,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
          <a class="navbar-brand" href="{{ url('/') }}">
-         <img id="imgtest" src="2.png" alt="" width="112" height="28">
+         <img id="imgtest" src="avatar.png" alt="" width="112" height="28">
 
          </a>
          @auth

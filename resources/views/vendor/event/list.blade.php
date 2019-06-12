@@ -78,7 +78,7 @@ aria-hidden="true">
             <div class="modal-body">
                 <div id="create_event_alert"></div>
                 <form id="create_event_frm" action="{{route('event')}}"
-                method="post" enctype="multipart/form-data">{{ csrf_field() }}
+                method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-xl-12 col-12">
                             <div class="form-group">

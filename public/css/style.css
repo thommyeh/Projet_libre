@@ -156,9 +156,15 @@ margin-top:35%;
 }
 
 .RSS {
-  margin-top:10em;
+  margin-top:2em;
+  margin-bottom:2em;
+  
 }
 
 .rssInput {
   margin-bottom: 1%;
+}
+
+#yui{
+  padding-right: -180px;
 }
