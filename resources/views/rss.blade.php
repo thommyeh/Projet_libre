@@ -3,9 +3,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 ">
-            <div class="card RSS">
-<div class="card-header">{{ __('Créer un nouveau flux') }}</div>
-<div class="card-body ProfileStyleDroite" id="replace">
+            
+
+<div id="replace">
+<div class="float-left">
+ <div>
+      <h4 style="margin-top:10%;">Créer un nouveau flux</h4>
    <form id="signup-form" v-on:submit.prevent='processForm'>
 
       <!-- name -->
@@ -25,12 +28,30 @@
 <validation-errors :errors="validationErrors" v-if="validationErrors"></validation-errors>
       <!-- submit button -->
       <div class="field has-text-right">
-         <button type="submit" class="button is-danger btn btn-primary buttonBleu">Envoyer</button>
+         <button type="submit" class="button is-danger btn btn-primary buttonBleu" style="margin-top:3%;">Envoyer</button>
       </div>
 
    </form>
+</div>
 
-   <h4 style="margin-top:2%;">Ajouter des filtres</h4>
+ <div id="yui">
+
+    <h4 style="margin-top:40%;"> Vos flux</h4>
+     
+<form v-on:submit.prevent='editFlux' id="formu">
+  <div v-for="url in urls">
+              <input type="radio" v-model="selected" :value="url.id" id="raydio">  @{{ url.name }}
+              <div v-if="url.id === selected">
+    <p class='alert alert-success'> url : @{{url.url}}</p>
+ </div>
+  </div>
+  <button type="submit" class="button is-danger btn btn-primary buttonBleu" style="margin-top:3%;">Supprimer ce flux</button>
+ </form>
+</div>
+</div>
+<div class="float-right">
+<div>
+   <h4 style="margin-top:10%;">Ajouter des filtres</h4>
    <!-- Filtres -->
 <form id="filters-form" v-on:submit.prevent='FiltersForm'>
          <div class="field">
@@ -38,43 +59,35 @@
          <input type="text" class="input form-control InputProfile rssInput" name="filtres" v-model="filtres">
       </div>
             <div class="field has-text-right">
-         <button type="submit" class="button is-danger btn btn-primary buttonBleu">Envoyer</button>
+         <button type="submit" class="button is-danger btn btn-primary buttonBleu" style="margin-top:3%;">Envoyer</button>
       </div>
    
 </form>
-   <h4 style="margin-top:2%;"> Vos flux</h4>
-   <form v-on:submit.prevent='editFlux'>
-      <select class ="form-control" v-model="selected">
-         <option v-for="url in urls" v-bind:value="url.id">
-            @{{ url.name }}
-         </option>
-      </select>
-      <span v-for="uri in urls">
-         <div v-if='uri.id === selected'>
-            <p class='alert alert-success'> url : @{{uri.url}}</p>
-            <button type="submit" class="button is-danger btn btn-primary buttonBleu">Supprimer ce flux</button>
-            </div>
-      </span>
-   </form>
-    <h4 style="margin-top:2%;"> Vos filtres</h4>
-   <form v-on:submit.prevent='editFilters'>
-      <select class="form-control" v-model="selected1">
-         <option v-for="filter in filters" v-bind:value="filter.id">
-            @{{ filter.name }}
-         </option>
-      </select>
-      <span v-for="filtou in filters">
-         <div v-if='filtou.id === selected1'>
+</div>
 
-            <button type="submit" class="button is-danger">Supprimer ce filtre</button>
-            </div>
-      </span>
-   </form>
+
+   
 
 
 
+
+<div id="azerty">
+    <h4 style="margin-top:70%;"> Vos filtres</h4>
+     
+<form v-on:submit.prevent='editFilters'>
+  <div v-for="filter in filters">
+              <input type="radio" v-model="selected1" :value="filter.id">  @{{ filter.name }}
+  </div>
+  <button type="submit" class="button is-danger btn btn-primary buttonBleu" style="margin-top:3%;">Supprimer ce filtre</button>
+ </form>
 </div>
 </div>
+
+
+
+
+
+
 </div>
 </div>
 </div>
