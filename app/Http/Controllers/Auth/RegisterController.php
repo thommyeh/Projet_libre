@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'avatar' => ['mimes:jpeg,png,jpg,gif,svg|max:2048'],
+            'published' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -83,11 +84,14 @@ class RegisterController extends Controller
         }
         
         
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'avatar' => $avatar,
+            'published' => $data['published'],
+
         ]);
     }
 }

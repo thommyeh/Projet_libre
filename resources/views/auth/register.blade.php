@@ -68,6 +68,14 @@
                             </div>
                         </div>
 
+                         <div class="form-group row">
+                            <label for="published" class="col-md-10 col-form-label text-md-right">{{ __("Autoriser la publication de votre avatar sur notre page d'accueil?") }}</label>
+
+                            <div>
+                                <input id="published" type="checkbox" class="form-control" name="published" value="true" required>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary buttonBleu">
