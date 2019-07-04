@@ -32,21 +32,22 @@
     28 => 'Larapack\\VoyagerHooks\\VoyagerHooksServiceProvider',
     29 => 'Illuminate\\Notifications\\NexmoChannelServiceProvider',
     30 => 'Illuminate\\Notifications\\SlackChannelServiceProvider',
-    31 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    32 => 'Collective\\Html\\HtmlServiceProvider',
-    33 => 'Laravolt\\Avatar\\ServiceProvider',
-    34 => 'Latfur\\Event\\EventServiceProvider',
-    35 => 'Carbon\\Laravel\\ServiceProvider',
-    36 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    37 => 'TCG\\Voyager\\VoyagerServiceProvider',
-    38 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
-    39 => 'Collective\\Html\\HtmlServiceProvider',
-    40 => 'App\\Services\\UserSys\\UserSysServiceProvider',
-    41 => 'Latfur\\Event\\EventServiceProvider',
-    42 => 'App\\Providers\\AppServiceProvider',
-    43 => 'App\\Providers\\AuthServiceProvider',
-    44 => 'App\\Providers\\EventServiceProvider',
-    45 => 'App\\Providers\\RouteServiceProvider',
+    31 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+    32 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    33 => 'Collective\\Html\\HtmlServiceProvider',
+    34 => 'Laravolt\\Avatar\\ServiceProvider',
+    35 => 'Latfur\\Event\\EventServiceProvider',
+    36 => 'Carbon\\Laravel\\ServiceProvider',
+    37 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    38 => 'TCG\\Voyager\\VoyagerServiceProvider',
+    39 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
+    40 => 'Collective\\Html\\HtmlServiceProvider',
+    41 => 'App\\Services\\UserSys\\UserSysServiceProvider',
+    42 => 'Latfur\\Event\\EventServiceProvider',
+    43 => 'App\\Providers\\AppServiceProvider',
+    44 => 'App\\Providers\\AuthServiceProvider',
+    45 => 'App\\Providers\\EventServiceProvider',
+    46 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -184,6 +185,7 @@
     'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'Laravel\\Socialite\\Contracts\\Factory' => 'Laravel\\Socialite\\SocialiteServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     'html' => 'Collective\\Html\\HtmlServiceProvider',
     'form' => 'Collective\\Html\\HtmlServiceProvider',
@@ -227,6 +229,9 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Socialite\\SocialiteServiceProvider' => 
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
