@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,43 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback($provider)
+    {
+
+        $social = Socialite::driver($provider)->stateless()->user();
+        $date = date('Y/m/d h:i:s', time());
+        
+        $user = User::where('email', $social->email)->first();
+        if (!is_null($user)){
+            auth()->login($user, true);
+            auth()->user()->update([
+                'provider' => $provider,
+                'provider_id' => $social->id
+            ]);
+            return redirect('/')->with("primary", "Hey <strong>$user->name</strong>! bienvenue et amusez-vous bien: ;-)");
+        }else{
+           
+            $user = User::create([
+                'name' => $social->nickname,
+                'email' => $social->email,
+                'provider' => $provider,
+                'provider_id' => $social->id,
+                'email_verified_at' => $date,
+                'published' => 'false',
+                
+
+            ]);
+            
+          
+            auth()->login($user, true);  // Je connecte l'utilisateur
+            return redirect('/home')->with("royal", "Bienvenue $user->name, votre compte a bien été crée! Nous vous conseillons de choisir un mot de passe afin de sécuriser votre compte");
+        }
     }
 }

@@ -53,3 +53,5 @@ Route::post('/filter/delete','RssController@deletefilter')->name('deletefilter')
 Route::get('/generate','RssController@GenerateData')->middleware('verified');
 Route::get('/synchro', 'RssController@Synchro')->name('synchro')->middleware('verified');
 
+ Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
