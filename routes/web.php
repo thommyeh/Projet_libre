@@ -21,13 +21,15 @@ Auth::routes(['verify' => true]);
 //Fonctionnalités utilisateur
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/editeur', 'HomeController@editeur')->name('editeur')->middleware('verified');
+Route::post('/editeur', 'DesignerController@store')->name('save_character')->middleware('verified');
 Route::get('/profil', 'HomeController@profil')->name('profil')->middleware('verified');
 Route::post('/profil', 'HomeController@edit')->name('edit')->middleware('verified');
 Route::delete('/delete', 'HomeController@delete')->name('delete')->middleware('verified');
 Route::get('profileAccount', 'HomeController@profileAccount')->name('profile')->middleware('verified');
 Route::get('pageProfil', 'HomeController@pageProfil')->name('pageProfil')->middleware('verified');
-Route::get('/profildata', 'HomeController@ProfilData')->middleware('verified');
 //test du renvoi en Json des event d'un user
+Route::get('/profildata', 'HomeController@ProfilData')->middleware('verified');
+
 
 
 //Routes surchargées du calendrier

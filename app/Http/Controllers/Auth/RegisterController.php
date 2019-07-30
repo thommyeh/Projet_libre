@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'avatar' => ['mimes:jpeg,png,jpg,gif,svg|max:2048'],
-            'published' => ['required', 'string', 'max:255'],
+            'published' => ['string', 'max:255'],
         ]);
     }
 
@@ -67,6 +67,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+        if (!isset($data['published'])) {
+            $data['published'] = 'false';
+        }
+
         if (isset($data['avatar']) == true) {
             $type = $data['avatar']->extension();
             $img = Image::make(realpath($data['avatar']));

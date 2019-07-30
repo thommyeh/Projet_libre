@@ -27,4 +27,12 @@ class DesignerController extends Controller
     {
         return view('designer');
     }
+
+    public function store()
+    {
+        $user = Auth::user();
+        $user->character_name = request('name');
+        $user->character_date = date('Y-m-d H:i:s');
+        $user->save();
+    }
 }

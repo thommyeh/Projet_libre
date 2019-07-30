@@ -28,6 +28,7 @@ canvas {
 </style>
 <div class="game">
 <script src="{{ asset('js/designer.js') }}"></script>
+
 <script>
 //Images Preloader
 var imgLoader = @json($imgLoader);
@@ -35,11 +36,27 @@ var imgLoader = @json($imgLoader);
 <script src="{{ asset('js/FileSaver.js') }}"></script>
 <canvas id="canvas2" width="96px" height="96px"></canvas>
 </div>
-<div>
+<div id="character">
     <p>
-        <button id="save">Save</button>
+      <form id="form" v-on:submit.prevent='Form'>
+         <div class="col-xs-2">
+         <label class="label">Nom de votre personnage</label>
+         <p>
+         <input type="text" name="name" v-model="name">
+      </p>
+      </div>
+            <div class="field has-text-right">
+      <button id="save" type="submit">Save</button>
+      </div>
+   
+</form>
+        
+
     </p>
+  
+  
 </div>
+
 <script>
 
 function saveButton () {
@@ -65,4 +82,5 @@ function saveButton () {
 onload = saveButton;
 
 </script>
+<script src="{{ asset('js/character.js') }}" defer></script>
 @endsection
