@@ -77,13 +77,13 @@ class RegisterController extends Controller
             $img = Image::make(realpath($data['avatar']));
             $img->resize(320, 240);
             $img->save('storage/'.$data['name'].'.'.$type);
-            $avatar = $data['name'].'.'.$type;
+            $avatar = 'storage/'.$data['name'].'.'.$type;
            
         }
         else{
 
             Avatar::create($data['name'])->save('storage/'.$data['name'].'.jpg', 100); 
-            $avatar = $data['name'].'.jpg';
+            $avatar = 'storage/'.$data['name'].'.jpg';
 
 
         }

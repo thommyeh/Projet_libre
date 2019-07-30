@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use App\User;
+use Avatar;
 
 class LoginController extends Controller
 {
@@ -59,6 +60,7 @@ class LoginController extends Controller
             ]);
             return redirect('/')->with("primary", "Hey <strong>$user->name</strong>! bienvenue et amusez-vous bien: ;-)");
         }else{
+                
            
             $user = User::create([
                 'name' => $social->nickname,
@@ -67,6 +69,7 @@ class LoginController extends Controller
                 'provider_id' => $social->id,
                 'email_verified_at' => $date,
                 'published' => 'false',
+                'avatar' => $social->avatar,
                 
 
             ]);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Character;
 
 class DesignerController extends Controller
 {
@@ -31,8 +32,9 @@ class DesignerController extends Controller
     public function store()
     {
         $user = Auth::user();
-        $user->character_name = request('name');
-        $user->character_date = date('Y-m-d H:i:s');
-        $user->save();
+        $character = new Character();
+        $character->name = request('name');
+        $character->user_id = $user->id;
+        $character->save();
     }
 }

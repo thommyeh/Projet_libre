@@ -35,7 +35,7 @@ class UserSys {
             $img = Image::make(realpath($request->file('avatar')));
             $img->resize(320, 240);
             $img->save('storage/'.$user->name.'.'.$type);
-            $user->avatar = $user->name.'.'.$type;
+            $user->avatar = 'storage/'.$user->name.'.'.$type;
 
         }
 

@@ -76,7 +76,7 @@
          </ul>
          @else
          <div class="dropdown btn-dark">
-            <img src="storage/{{Auth::user()->avatar}}" id="thumb">
+            <img src="{{Auth::user()->avatar}}" id="thumb">
             <button class="btn btn-dark dropdown-toggle " type="button" data-toggle="dropdown">{{ Auth::user()->name }}
             <span class="caret"></span></button>
             <div class="dropdown ">

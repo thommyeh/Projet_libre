@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Url;
 use App\Event;
+use App\Character;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
@@ -43,5 +44,10 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
         public function filters(){
 
         return $this->hasMany('App\Filter');
+    }
+
+            public function characters(){
+
+        return $this->hasMany('App\character');
     }
 }
