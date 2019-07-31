@@ -44,7 +44,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input  InputProfile" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
+                                    <label class="form-check-label" for="remember" id="souvenir">
                                         {{ __('Se souvenir de moi') }}
                                     </label>
                                 </div>
