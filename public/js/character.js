@@ -20,7 +20,7 @@ var character = new Vue({
           }
 
         })
-        this.name ="";
+        
       
       
       

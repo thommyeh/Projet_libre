@@ -10,6 +10,7 @@ use UserSys;
 use File;
 use View;
 use Latfur\Event\Models\Event;
+use App\Character;
 
 class HomeController extends Controller
 {
@@ -87,7 +88,10 @@ class HomeController extends Controller
     }
     public function pageProfil()
     {
-        return View('pageProfil');
+        $user = Auth::user();
+        $characters = $user->characters;
+
+        return view('pageProfil', ['characters' => $characters]);
     }
 
     public function ProfilData()

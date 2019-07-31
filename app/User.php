@@ -48,6 +48,6 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 
             public function characters(){
 
-        return $this->hasMany('App\character');
+        return $this->hasMany('App\Character');
     }
 }
