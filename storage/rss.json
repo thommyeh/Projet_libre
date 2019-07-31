@@ -1,1 +1,1 @@
-{"urls":[],"filters":[],"events":[{"event_title":"plouf","event_start_date":"2019-04-26","event_start_time":null,"event_end_date":"2019-04-26","event_description":"Evenement plouf"},{"event_title":"plif","event_start_date":"2019-04-20","event_start_time":"14:09","event_end_date":"2019-04-27","event_description":"Plif event"}]}
+{"urls":["ger.url.fr"],"filters":["fezfez","hrt","gerger"],"events":[{"event_title":"bite","event_start_date":"2019-06-27","event_start_time":"11:36","event_end_date":"2019-06-28","event_description":"pute"}]}

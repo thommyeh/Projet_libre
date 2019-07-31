@@ -1,45 +1,35 @@
 @extends('layouts.app')
+
 @section('sidebar')
+
 @endsection
 @section('content')
 <script src="{{ asset('js/phaser.min.js') }}"></script>
-<style>
-canvas {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border: 2px solid black;
-    border-radius: 9px;
-}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="row no-gutters">
+      <div class="col-lg-offset-3 col-lg-6">
+        <button id="save">Save</button>
+      </div>
+      <div class="col-6 col-md-4">
+        <div class="game">
 
-#canvas2 {
-  display: none;
-}
-
-#save {
-    position: absolute;
-    margin: auto;
-    border: 2px solid black;
-    border-radius: 9px;
-}
-</style>
-<div class="game">
 <script src="{{ asset('js/designer.js') }}"></script>
-<script>
-//Images Preloader
+
+<script>//Images Preloader
 var imgLoader = @json($imgLoader);
 </script>
+
 <script src="{{ asset('js/FileSaver.js') }}"></script>
+
 <canvas id="canvas2" width="96px" height="96px"></canvas>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-    <p>
-        <button id="save">Save</button>
-    </p>
-</div>
+
 <script>
 
 function saveButton () {

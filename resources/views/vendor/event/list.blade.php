@@ -93,14 +93,14 @@ aria-hidden="true">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="float-left" style="width: 75%;">
+                        <div class="float-left" style="width: 100%;">
                             <div class="col-xl-5 col-12">
-                                <div class="form-group">
+                                <div class="form-group ">
                                     <input type="text" name="event_start_date" required id="event_start_date"
                                     value="" class="form-control date_pick" placeholder="Date de départ">
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-2">
+                            <div class="col-xl-2 col-2" style="width: 100%; margin-bottom: 1%;">
                                 <div id="start_time_toggle">
                                     <button type="button" class="btn btn-md" title="Add Start Time" onclick="add_start_time()"> <i class="text-success fa fa-plus"></i>
  <i class="text-success fa fa-clock"></i>
@@ -116,8 +116,8 @@ aria-hidden="true">
                             </div>
                         </div>
                         <div class="float-right">
-                            <div class="col-xl-2 col-2">
-                                <div id="end_date_toggle">
+                            <div class="col-xl-2 col-2"style="margin-bottom: 2%;">
+                                <div id="end_date_toggle" >
                                     <button type="button" class="btn btn-md" onclick="add_end_date()" style="width: 117px"> <i class="text-success fa fa-plus"></i> Date de fin</button>
                                 </div>
                             </div>
@@ -125,28 +125,28 @@ aria-hidden="true">
                     </div>
                     <div class="section row" id="end_date_area" style="display: none">
                         <!-- none-->
-                        <div class="float-left" style="width: 75%;">
+                        <div class="float-left" style="width:100%;">
                             <div class="col-xl-5 col-12">
                                 <div class="form-group">
                                     <input type="text" name="event_end_date" id="event_end_date" value=""
-                                    class="form-control date_pick" placeholder="date de fin">
+                                    class="form-control date_pick" placeholder="Date de fin">
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-2">
-                                <div id="end_time_toggle">
+                            <div class="col-xl-2 col-2" style="margin-bottom: 2%;">
+                                <div id="end_time_toggle" style="margin-bottom: 1%;">
                                     <button type="button" class="btn btn-md" title="Add End Time" onclick="add_end_time()"> <i class="text-success fa fa-plus"></i>
  <i class="text-success fa fa-clock"></i>
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-xl-5 col-12" id="event_end_time_area" style="display: none">
+                            <div class="col-xl-5 col-12 " id="event_end_time_area" style="display: none; margin-bottom: 1%;">
                                 <!-- //none-->
                                 <input type="text" name="event_end_time" id="event_end_time" value=""
-                                class="form-control time_pick" placeholder="heure de fin">
+                                class="form-control time_pick" placeholder="Heure de fin">
                             </div>
                         </div>
                         <div class="float-right">
-                            <div class="col-xl-2 col-2">
+                            <div class="col-xl-2 col-2" style="margin-bottom: 2%;">
                                 <button type="button" class="btn btn-md" onclick="remove_end_date()" style="width: 117px"> <i class="text-danger fa fa-times"></i> Supprimer</button>
                             </div>
                         </div>
@@ -201,7 +201,7 @@ aria-hidden="true">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="float-left" style="width: 75%;">
+                        <div class="float-left" style="width: 100%;">
                             <div class="col-xl-5 col-12">
                                 <div class="form-group">
                                     <label class="">Date de départ</label>
@@ -235,7 +235,7 @@ aria-hidden="true">
                         </div>
                     </div>
                     <div class="row" id="edit_end_date_area" style="display: block">
-                        <div class="float-left" style="width: 75%;">
+                        <div class="float-left" style="width: 100%;">
                             <div class="col-xl-5 col-12">
                                 <div class="form-group">
                                     <label class="">Date de fin</label>
@@ -250,7 +250,7 @@ aria-hidden="true">
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-xl-5 col-12" id="edit_event_end_time_area" style="display: block">
+                            <div class="col-xl-5 col-12" id="edit_event_end_time_area" style="display: block; margin-bottom: 1%;">
                                 <div class="form-group">
                                     <label class="">Heure de fin</label>
                                     <input type="text" name="event_end_time" id="edit_event_end_time"

@@ -168,3 +168,55 @@ margin-top:35%;
 #yui{
   padding-right: -180px;
 }
+
+/* editeur de perso */
+canvas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 9px;
+}
+
+#canvas2 {
+  display: none;
+}
+
+#save {
+    margin-top: 25%;
+    border: 2px solid black;
+    border-radius: 9px;
+}
+
+#top-left {
+  border: 2px solid black;
+  border-radius: 7px;
+  margin: 5px;
+  padding: 20px;
+  height: 300px;
+}
+
+#top-right {
+  border: 2px solid black;
+  border-radius: 7px;
+  margin: 5px;
+  padding: 20px;
+  height: 300px;
+}
+
+#bottom-left {
+  border: 2px solid black;
+  border-radius: 7px;
+  margin: 5px;
+  padding: 20px;
+}
+
+#bottom-right {
+  border: 2px solid black;
+  border-radius: 7px;
+  margin: 5px;
+  padding: 20px;
+}

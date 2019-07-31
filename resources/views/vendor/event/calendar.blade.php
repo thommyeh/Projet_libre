@@ -6,7 +6,7 @@
 @section('content')
 
   
-       <div class="card text-white bg-secondary">
+       <div class="card text-white ">
     <div class="card-header text-right">
         <button id="create_event" type="button" class="btn btn-success btn-md"><i class="fa fa-plus"></i> Créer un èvenement</button>
     </div>
