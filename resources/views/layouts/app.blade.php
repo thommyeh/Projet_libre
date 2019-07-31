@@ -11,7 +11,8 @@
       <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
       <!-- Styles -->
-
+      
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link href="{{ asset('css/style.css') }}" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -75,7 +76,7 @@
          </ul>
          @else
          <div class="dropdown btn-dark">
-            <img src="storage/{{Auth::user()->avatar}}" id="thumb">
+            <img src="{{Auth::user()->avatar}}" id="thumb">
             <button class="btn btn-dark dropdown-toggle " type="button" data-toggle="dropdown">{{ Auth::user()->name }}
             <span class="caret"></span></button>
             <div class="dropdown ">

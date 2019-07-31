@@ -16,7 +16,8 @@
 
 <script src="{{ asset('js/designer.js') }}"></script>
 
-<script>//Images Preloader
+<script>
+//Images Preloader
 var imgLoader = @json($imgLoader);
 </script>
 
@@ -29,6 +30,26 @@ var imgLoader = @json($imgLoader);
     </div>
   </div>
 </div>
+<div id="character">
+    <p>
+      <form id="form" v-on:submit.prevent='Form'>
+         <div class="col-xs-2">
+         <label class="label">Nom de votre personnage</label>
+         <p>
+         <input type="text" name="name" v-model="name" id="name">
+      </p>
+      </div>
+            <div class="field has-text-right">
+      <button id="save" type="submit">Save</button>
+      </div>
+   
+</form>
+        
+
+    </p>
+  
+  
+</div>
 
 <script>
 
@@ -37,7 +58,7 @@ function saveButton () {
   var save = document.getElementById('save');
   var sourceCanvas = document.getElementsByTagName("canvas")[1];
   var destCanvas = document.getElementById("canvas2");
-
+  
   save.onclick = function () {
 
     var sourceImageData = sourceCanvas.toDataURL("image/png");
@@ -46,7 +67,7 @@ function saveButton () {
     destinationImage.onload = function(){
       destCanvasContext.drawImage(destinationImage,464,250,96,96,0,0,96,96);
       destCanvas.toBlob(function(blob) {
-       saveAs(blob, "avatar.png");
+       saveAs(blob, character.name+'.png');
       });
     };
     destinationImage.src = sourceImageData;
@@ -55,4 +76,5 @@ function saveButton () {
 onload = saveButton;
 
 </script>
+<script src="{{ asset('js/character.js') }}" defer></script>
 @endsection

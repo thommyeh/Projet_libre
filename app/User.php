@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Url;
 use App\Event;
+use App\Character;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
@@ -18,7 +19,7 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'published',
+        'name', 'email', 'password', 'provider', 'provider_id', 'avatar', 'published', 'email_verified_at',
     ];
 
     /**
@@ -43,5 +44,10 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
         public function filters(){
 
         return $this->hasMany('App\Filter');
+    }
+
+            public function characters(){
+
+        return $this->hasMany('App\Character');
     }
 }

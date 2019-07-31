@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'avatar' => ['mimes:jpeg,png,jpg,gif,svg|max:2048'],
-            'published' => ['required', 'string', 'max:255'],
+            'published' => ['string', 'max:255'],
         ]);
     }
 
@@ -67,18 +67,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+        if (!isset($data['published'])) {
+            $data['published'] = 'false';
+        }
+
         if (isset($data['avatar']) == true) {
             $type = $data['avatar']->extension();
             $img = Image::make(realpath($data['avatar']));
             $img->resize(320, 240);
             $img->save('storage/'.$data['name'].'.'.$type);
-            $avatar = $data['name'].'.'.$type;
+            $avatar = 'storage/'.$data['name'].'.'.$type;
            
         }
         else{
 
             Avatar::create($data['name'])->save('storage/'.$data['name'].'.jpg', 100); 
-            $avatar = $data['name'].'.jpg';
+            $avatar = 'storage/'.$data['name'].'.jpg';
 
 
         }

@@ -168,6 +168,10 @@ margin-top:35%;
 #yui{
   padding-right: -180px;
 }
+#souvenir{
+  margin-left: 10px;
+  margin-top: 10px;
+}
 
 /* editeur de perso */
 canvas {
