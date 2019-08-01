@@ -100,4 +100,26 @@ class HomeController extends Controller
 
         return $user;
     }
+
+        public function deleteCharacter($id)
+    {
+        $character = Character::find($id);
+
+        $character->delete();
+        unlink('storage/'.$character->name.'.png');
+
+        return redirect()->route('pageProfil');
+
+        
+    }
+
+    public function useAvatar($id)
+    {
+        $user = Auth::user();
+        $character = Character::find($id);
+        $user->avatar = 'storage/'.$character->name.'.png';
+        $user->save();
+        return redirect()->route('pageProfil');
+
+    }
 }

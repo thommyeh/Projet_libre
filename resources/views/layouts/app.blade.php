@@ -55,7 +55,7 @@
                <a class="nav-link NavBarText" href="{{route('event')}}">Calendrier</a>
             </li>
             <li class="nav-item NavBarText">
-               <a class="nav-link NavBarText" href="{{url('event-list')}}">Vos évenements</a>
+               <a class="nav-link NavBarText" href="{{url('event-list')}}">Vos événements</a>
             </li>
             <li class="nav-item NavBarText">
                <a class="nav-link NavBarText" href="{{url('rss')}}">Flux RSS</a>

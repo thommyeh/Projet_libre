@@ -8,7 +8,7 @@
   
        <div class="card text-white bg-secondary">
     <div class="card-header text-right">
-        <button id="create_event" type="button" class="btn btn-success btn-md"><i class="fa fa-plus"></i> Créer un èvenement</button>
+        <button id="create_event" type="button" class="btn btn-success btn-md"><i class="fa fa-plus"></i> Créer un Evénement</button>
     </div>
     <div class="card-body">
         <div id="alert_tmeassage_area"></div>
@@ -22,7 +22,7 @@ aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                 <h4 class="modal-title" id="myModalLabel">Evenement</h4>
+                 <h4 class="modal-title" id="myModalLabel">Evénement</h4>
             </div>
             <div class="modal-body">
                 <div id="create_event_alert"></div>
@@ -405,7 +405,7 @@ function date_compare(){
     
     if(start_time>end_time){
 
-       $('#create_event_alert').show().html('<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>End time must be bigger then Start time</div>');   
+       $('#create_event_alert').show().html('<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>La date de fin doit être supérieure a la date de départ</div>');   
     return false;
      //   return false;
         
@@ -722,7 +722,7 @@ function edit_date_compare(){
     if(start_time>end_time){
 
 
-       $('#edit_event_alert').show().html('<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>End time must be bigger then Start time</div>');            
+       $('#edit_event_alert').show().html('<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>La date de fin doit être supérieure a la date de départ</div>');            
           
     return false;
      //   return false;

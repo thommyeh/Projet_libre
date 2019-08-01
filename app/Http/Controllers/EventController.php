@@ -154,7 +154,7 @@ class EventController extends Controller
       {
       $event->delete();
     $feed_back['type']='alert-success';
-         $feed_back['message']='Record successfully deleted';
+         $feed_back['message']='jhgjg';
      
       }else{
      $feed_back['type']='alert-danger';
