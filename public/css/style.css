@@ -224,3 +224,15 @@ canvas {
   margin: 5px;
   padding: 20px;
 }
+
+.PersoUnique {
+    margin: auto;
+  margin-bottom:1%;
+  Border:solid;
+  width: 75%;
+ 
+}
+
+.place {
+  display:inline-flex;
+}
