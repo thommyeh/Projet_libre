@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             $table->string('event_title',150);
             $table->string('event_start_date',15)->nullable();
             $table->string('event_start_time',15)->nullable();
@@ -24,12 +25,17 @@ class CreateEventsTable extends Migration
             $table->string('event_end_time',15)->nullable();
             $table->text('event_description')->default('aucune description');
 =======
+=======
+>>>>>>> Stashed changes
             $table->string('event_title', 150);
             $table->string('event_start_date', 15)->nullable();
             $table->string('event_start_time', 15)->nullable();
             $table->string('event_end_date', 15)->nullable();
             $table->string('event_end_time', 15)->nullable();
             $table->text('event_description')->nullable();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

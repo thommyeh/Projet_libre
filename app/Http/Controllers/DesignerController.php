@@ -37,4 +37,10 @@ class DesignerController extends Controller
         $character->user_id = $user->id;
         $character->save();
     }
+
+    public function uploadAvatar(Request $request)
+    {
+        $image = Image::make($request->get('imgBase64'));
+        $image->save('public/avatar.jpg');
+    }
 }
