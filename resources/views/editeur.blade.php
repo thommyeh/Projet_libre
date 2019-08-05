@@ -42,9 +42,7 @@ var imgLoader = @json($imgLoader);
 
 </form>
 
-
     </p>
-
 
 </div>
 
@@ -80,11 +78,11 @@ function saveButton () {
 
 });
 
-      });
-    };
+      };
+
     destinationImage.src = sourceImageData;
-  }
-}
+    };
+  };
 onload = saveButton;
 
 </script>
