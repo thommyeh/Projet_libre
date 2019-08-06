@@ -82,7 +82,7 @@
             <div class="dropdown ">
                <ul class="dropdown-menu dropdownMenuLayout">
                   <li><a class="nav-link" href="{{ route('pageProfil') }}">
-                     {{ __('Profil') }}
+                     {{ __('Liste des personnages') }}
                      </a>
                   </li>
                   <li><a class="nav-link" href="{{ route('profil') }}">

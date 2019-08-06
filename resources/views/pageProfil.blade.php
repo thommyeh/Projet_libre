@@ -2,11 +2,10 @@
 @extends('layouts.app')
 @section('content')
 <body id="mypage">
-<div class="container">
-	<h1>Vos personnages</h1>
+<div class="container ListePerso" style="padding-top:1%;">
 	@foreach($characters as $character)
-	<div class="columns ListePerso">
-  <div class="column PersoUnique">
+	<div class="columns ">
+  <div class="column PersoUnique col-md-offset-2 col-md-7 ProfileStyleDroite">
     <img src='storage/{{$character->name}}.png'>
     {{$character->name}}
     <form action="{{route('delete_character', ['id' => $character->id])}}" method="POST">

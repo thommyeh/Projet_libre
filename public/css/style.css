@@ -236,3 +236,7 @@ canvas {
 .place {
   display:inline-flex;
 }
+
+.ListePerso {
+  padding:-20px;
+}
