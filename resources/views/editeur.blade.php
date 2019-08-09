@@ -35,6 +35,7 @@ var imgLoader = @json($imgLoader);
          <p>
          <input type="text" name="name" v-model="name" id="name">
       </p>
+      
       </div>
             <div class="field has-text-right">
       <button id="save" type="submit">Save</button>
@@ -66,15 +67,21 @@ function saveButton () {
        saveAs(blob, character.name+'.png');
 */
     var dataURL = destCanvas.toDataURL();
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 
     $.ajax({
     type: "POST",
     url: "/avatar",
     data: {
-        imgBase64: dataURL
+        imgBase64: dataURL,
+        name: character.name
     }
 }).done(function(o) {
-    console.log('saved');
+    window.location.replace("http://127.0.0.1:8000/pageProfil");;
 
 });
 

@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Character;
+use Image;
 
 class DesignerController extends Controller
 {
@@ -38,9 +39,19 @@ class DesignerController extends Controller
         $character->save();
     }
 
-    public function uploadAvatar(Request $request)
+    public function uploadAvatar()
     {
-        $image = Image::make($request->get('imgBase64'));
-        $image->save('public/avatar.jpg');
+        /*var_dump('jkjlkl');
+        $image = Image::make(request('imgBase64'));
+        $image->save('storage/'.request('name').'.jpg');*/
+            define('UPLOAD_DIR', 'storage/');
+    $img = request('imgBase64');
+    $img = str_replace('data:image/png;base64,', '', $img);
+    $img = str_replace(' ', '+', $img);
+    $data = base64_decode($img);
+    $file = UPLOAD_DIR . request('name').'.png';
+    $success = file_put_contents($file, $data);
+    
+    return redirect()->route('home');
     }
 }
