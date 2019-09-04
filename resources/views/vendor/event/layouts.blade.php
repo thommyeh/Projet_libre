@@ -96,11 +96,7 @@
                      {{ __('Se déconnecter') }}
                      </a>
                   </li>
-                  <li>
-                     <div id="sync">
-                     <button v-on:click="SynchroFlux">Synchronisation</button>
-                  </div>
-                  </li>
+                  
                
                </ul>
             </div>

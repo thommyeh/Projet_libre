@@ -72,5 +72,9 @@
 </div>
 </div>
 </div>
+  <div id="sync" class="center">
+                     <button v-on:click="SynchroFlux" class="button is-danger btn btn-primary buttonBleu">Valider les modifications</button>
+                  </div>
+                  
  <script src="{{ asset('js/rss.js') }}" defer></script>
 @endsection

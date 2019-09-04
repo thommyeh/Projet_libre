@@ -4,6 +4,8 @@
 <div class="card text-red">
     <div class="card-header text-right">
         <button id="create_event" type="button" class="btn btn-success btn-md"><i class="fa fa-plus"></i> Créer un évenement</button>
+        <span id="sync">
+        <button v-on:click="SynchroFlux" class="btn btn-success btn-md">Valider les modifications</button></span>
     </div>
     <div class="card-body">
         <div id="alert_tmeassage_area"></div>
