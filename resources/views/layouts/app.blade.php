@@ -79,17 +79,17 @@
             <img src="{{Auth::user()->avatar}}" id="thumb">
             <button class="btn btn-dark dropdown-toggle " type="button" data-toggle="dropdown">{{ Auth::user()->name }}
             <span class="caret"></span></button>
-            <div class="dropdown ">
+            <div class="dropdown NavBarText">
                <ul class="dropdown-menu dropdownMenuLayout">
-                  <li><a class="nav-link" href="{{ route('pageProfil') }}">
+                  <li><a class="nav-link NavBarText DropDownColor" href="{{ route('pageProfil') }}">
                      {{ __('Liste des personnages') }}
                      </a>
                   </li>
-                  <li><a class="nav-link" href="{{ route('profil') }}">
+                  <li><a class="nav-link NavBarText DropDownColor" href="{{ route('profil') }}">
                      {{ __('Paramètres du compte') }}
                      </a>
                   </li>
-                  <li><a class="nav-link" href="{{ route('logout') }}"
+                  <li><a class="nav-link NavBarText DropDownColor" href="{{ route('logout') }}"
                      onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
                      {{ __('Se déconnecter') }}

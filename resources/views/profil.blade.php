@@ -7,7 +7,7 @@
       <div class="row ProfileStyle">
          <div class="col-md-offset-1 col-md-2">
             Settings 
-            <div><a class="NavBarText nav-link"href="{{ route('profil') }}">Paramètres du compte </a></div>
+            <div><a class="NavBarText nav-link "href="{{ route('profil') }}">Paramètres du compte </a></div>
             <div><a class="NavBarText nav-link"href="{{ route('profile') }}">Paramètres du profil </a></div>
          </div>
          <div class="col-md-offset-2 col-md-7 ProfileStyleDroite">
