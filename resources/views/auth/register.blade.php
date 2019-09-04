@@ -7,7 +7,7 @@
             <div class="card LoginRegisterCard">
                 <div class="card-header">{{ __('Inscription') }}</div>
 
-                <div class="card-body">
+                <div class="card-body ProfileStyleDroite">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
@@ -72,7 +72,7 @@
                             <label for="published" class="col-md-10 col-form-label text-md-right">{{ __("Autoriser la publication de votre avatar sur notre page d'accueil?") }}</label>
 
                             <div>
-                                <input id="published" type="checkbox" class="form-control" name="published" value="true">
+                                <input id="published" type="checkbox" class="" name="published" value="true">
                             </div>
                         </div>
 
