@@ -1,25 +1,21 @@
- 
 @extends('layouts.app')
-
-    
-  
 @section('content')
+<div class="container">
+      <div class="card" style="margin-top:2%">
 
-  
-       <div class="card text-white ">
-    <div class="card-header text-right">
-       
-                     
+    <div class="card-body ProfileStyleDroite">
+        <div id="alert_tmeassage_area"></div>
+        <div id="calendar"></div>
+        <div class="buttonCalendar">
         <button id="create_event" type="button" class="btn btn-success btn-md"><i class="fa fa-plus"></i> Créer un Evénement</button>
         <span id="sync">
         <button v-on:click="SynchroFlux" class="btn btn-success btn-md">Valider les modifications</button></span>
     </div>
-    <div class="card-body">
-        <div id="alert_tmeassage_area"></div>
-        <div id="calendar"></div>
     </div>
 </div>
+</div>
 <!-- Create Event -->
+<div class="container ">
 <div class="modal fade" id="create_event_modal" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
     <div class="modal-dialog">
@@ -127,7 +123,9 @@ aria-hidden="true">
         </div>
     </div>
 </div>
+</div>
 <!-- Edit Event -->
+<div class="container">
 <div class="modal fade" id="edit_event_modal" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
     <div class="modal-dialog">
@@ -241,7 +239,7 @@ aria-hidden="true">
         </div>
     </div>
 </div>
-        
+      </div>  
 
    
 <script>
