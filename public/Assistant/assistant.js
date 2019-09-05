@@ -14,10 +14,12 @@
 ░░░░░░░░░░░░░░░░░░▄▀▀▀▀▀░░░░██▌
 ░░░░░░░░░░░░░░░░░░░░░░░░░░▄▀▄▀
 */
-window.onload = assistantSpawn();
+window.onload = initData();
 
 var rssDisplay = false;
 var calendarDisplay = false;
+var username;
+var avatar;
 
 //Speech Div
 var d;
@@ -32,11 +34,32 @@ d.style.borderRadius = "7px";
 d.style.backgroundColor = "white";
 d.id = "d";
 
+//Read RSS Filters
+function initData() {
+
+  const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
+  var jsonFile = browser.extension.getURL("data/rss.json");
+
+  fetch(jsonFile).then((res) => {
+    res.text().then((data) => {
+
+      //Get JSON data
+      JSON.parse(data).username.forEach((u) => {
+        username = u;
+        })
+      JSON.parse(data).avatar.forEach((a) => {
+        avatar = a;
+        assistantSpawn();
+        })
+      })
+    })
+}
+
 //Display the Assistant on every webpage
 function assistantSpawn() {
 
   let assistant = document.createElement("img");
-  let imgUrl = browser.extension.getURL("assistants/avatar.png");
+  let imgUrl = browser.extension.getURL("assistants/"+ avatar +".png");
   assistant.setAttribute("src", imgUrl);
   assistant.style.position = 'fixed';
   assistant.style.right = '0px';

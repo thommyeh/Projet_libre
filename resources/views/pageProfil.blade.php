@@ -6,20 +6,20 @@
 	@foreach($characters as $character)
 	<div class="columns ">
   <div class="column PersoUnique col-md-offset-2 col-md-7 ProfileStyleDroite">
-    <img src='storage/{{$character->name}}.png'>
+    <img src='Assistant/assistants/{{$character->name}}.png'>
     {{$character->name}}
     <form action="{{route('delete_character', ['id' => $character->id])}}" method="POST">
-               
+
                @csrf
                <div class="place">
-               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction()">Supprimer ce personnage</button>               
+               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction()">Supprimer ce personnage</button>
             </form>
 
             <form action="{{route('use_character', ['id' => $character->id])}}" method="POST">
-               
+
                @csrf
-               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction1()">Utiliser ce personnage comme avatar</button>   
-               </div>            
+               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction1()">Utiliser ce personnage comme avatar</button>
+               </div>
             </form>
   </div>
 

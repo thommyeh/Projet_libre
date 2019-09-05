@@ -21,10 +21,7 @@
   ],
 
   "web_accessible_resources": [
-    "assistants/avatar.png",
-    "assistants/bluePoint.png",
-    "assistants/greenPoint.png",
-    "assistants/redPoint.png",
+    "assistants/*.png",
     "rss.json"
   ]
 

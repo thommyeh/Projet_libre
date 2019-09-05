@@ -106,11 +106,11 @@ class HomeController extends Controller
         $character = Character::find($id);
 
         $character->delete();
-        unlink('storage/'.$character->name.'.png');
+        unlink('Assistant/assistants/'.$character->name.'.png');
 
         return redirect()->route('pageProfil');
 
-        
+
     }
 
     public function useAvatar($id)

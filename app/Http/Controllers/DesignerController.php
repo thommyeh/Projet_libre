@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Character;
 use Image;
 
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
 class DesignerController extends Controller
 {
     /**
@@ -44,14 +47,14 @@ class DesignerController extends Controller
         /*var_dump('jkjlkl');
         $image = Image::make(request('imgBase64'));
         $image->save('storage/'.request('name').'.jpg');*/
-            define('UPLOAD_DIR', 'storage/');
+            define('UPLOAD_DIR', 'Assistant/assistants/');
     $img = request('imgBase64');
     $img = str_replace('data:image/png;base64,', '', $img);
     $img = str_replace(' ', '+', $img);
     $data = base64_decode($img);
     $file = UPLOAD_DIR . request('name').'.png';
     $success = file_put_contents($file, $data);
-    
+
     return redirect()->route('home');
     }
 }
