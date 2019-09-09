@@ -57,4 +57,5 @@ Route::get('/synchro', 'RssController@Synchro')->name('synchro')->middleware('ve
  Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
  Route::post('/deleteCharacter/{id}', 'HomeController@deleteCharacter')->name('delete_character')->middleware('verified');
  Route::post('/useCharacter/{id}', 'HomeController@useAvatar')->name('use_character')->middleware('verified');
+ Route::post('/chooseCharacter/{id}', 'RssController@chooseAvatar')->name('choose_character')->middleware('verified');
  Route::post('/avatar', 'DesignerController@uploadAvatar')->name('avatar')->middleware('verified');

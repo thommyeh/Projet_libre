@@ -6,8 +6,8 @@
 	@foreach($characters as $character)
 	<div class="columns ">
   <div class="column PersoUnique col-md-offset-2 col-md-7 ProfileStyleDroite">
-    <img src='Assistant/assistants/{{$character->name}}.png'>
-    {{$character->name}}
+    <img src='Assistant/assistants/{{$user->name."-".$character->name}}.png'>
+    {{$character->name}} {{$character->choosen}}
     <form action="{{route('delete_character', ['id' => $character->id])}}" method="POST">
 
                @csrf
@@ -18,7 +18,13 @@
             <form action="{{route('use_character', ['id' => $character->id])}}" method="POST">
 
                @csrf
-               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction1()">Utiliser ce personnage comme avatar</button>
+               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction1()">Utiliser ce personnage comme avatar sur le site</button>
+               </div>
+            </form>
+                        <form action="{{route('choose_character', ['id' => $character->id])}}" method="POST">
+
+               @csrf
+               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction2()">Utiliser comme personnage principal</button>
                </div>
             </form>
   </div>
@@ -35,6 +41,10 @@
    }
             function myFunction1() {
        if(!confirm("Utiliser ce personnage comme avatar?"))
+       event.preventDefault();
+   }
+               function myFunction2() {
+       if(!confirm("Utiliser ce personnage dans votre navigateur?"))
        event.preventDefault();
    }
    </script>

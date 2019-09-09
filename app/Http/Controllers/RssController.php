@@ -11,6 +11,7 @@ use Latfur\Event\Models\Event;
 use App\Filter;
 use App\Url;
 use App\Http\Requests\UrlRequest;
+use App\Character;
 
 class RssController extends Controller
 {
@@ -70,23 +71,7 @@ class RssController extends Controller
 
     public function Synchro()
     {
-        $user = Auth::user();
-        $filters = $user->filters->pluck('name');
-        $urls = $user->urls->pluck('url');
-        $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
-        $raw = array(
-            'urls' => $urls,
-            'filters' => $filters,
-            'events' => $events);
-        $data = json_encode($raw, JSON_UNESCAPED_SLASHES);
-
-        $fp = fopen(storage_path('rss.json'), 'w');
-        fwrite($fp, $data);
-        fclose($fp);
-        
-        return true;
-
-
+        UserSys::Synchronisation();
         
     }
 
@@ -107,5 +92,18 @@ class RssController extends Controller
         $res= Filter::where('id', $id)->delete();
 
         return true;
+    }
+
+    public function chooseAvatar($id)
+    {
+        $user = Auth::user();
+        $characters = Character::where('id', '>', 0)->update(['choosen'=>'']);
+        $character = Character::find($id);
+        $character->choosen = '(Personnage principal)';
+        $character->save();
+        UserSys::Synchronisation();
+        return redirect()->route('pageProfil');
+       
+
     }
 }

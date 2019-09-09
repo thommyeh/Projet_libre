@@ -78,4 +78,31 @@ class UserSys {
         
     }
 
+        public function Synchronisation()
+    {
+        $user = Auth::user();
+        $username = array($user->name );
+
+        $filters = $user->filters->pluck('name');
+        $urls = $user->urls->pluck('url');
+        $avatar = $user->characters->where('choosen', '(Personnage principal)')->pluck('name');
+        $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
+        $raw = array(
+            "username" => $username,
+            "avatar" => $avatar,
+            'urls' => $urls,
+            'filters' => $filters,
+            'events' => $events);
+        $data = json_encode($raw, JSON_UNESCAPED_SLASHES);
+
+        $fp = fopen(storage_path($user->name.'-rss.json'), 'w');
+        fwrite($fp, $data);
+        fclose($fp);
+        
+       
+
+
+        
+    }
+
 }

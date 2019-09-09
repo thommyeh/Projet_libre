@@ -91,7 +91,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $characters = $user->characters;
 
-        return view('pageProfil', ['characters' => $characters]);
+        return view('pageProfil', ['characters' => $characters, 'user'=> $user]);
     }
 
     public function ProfilData()
@@ -103,10 +103,12 @@ class HomeController extends Controller
 
         public function deleteCharacter($id)
     {
+        $user = Auth::user();
+        $username = $user->name;
         $character = Character::find($id);
 
         $character->delete();
-        unlink('Assistant/assistants/'.$character->name.'.png');
+        unlink('Assistant/assistants/'.$user->name."-".$character->name.'.png');
 
         return redirect()->route('pageProfil');
 
@@ -115,11 +117,15 @@ class HomeController extends Controller
 
     public function useAvatar($id)
     {
+
         $user = Auth::user();
+        $username = $user->name;
         $character = Character::find($id);
-        $user->avatar = 'storage/'.$character->name.'.png';
+        $user->avatar = 'Assistant/assistants/'.$user->name."-".$character->name.'.png';
         $user->save();
         return redirect()->route('pageProfil');
 
     }
+
+
 }
