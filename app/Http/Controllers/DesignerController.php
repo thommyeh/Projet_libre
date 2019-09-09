@@ -45,6 +45,7 @@ class DesignerController extends Controller
     public function uploadAvatar()
     {
 
+
     $user = Auth::user();
     define('UPLOAD_DIR', 'Assistant/assistants/');
     $img = request('imgBase64');
