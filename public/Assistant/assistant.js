@@ -46,20 +46,20 @@ function initData() {
       //Get JSON data
       JSON.parse(data).username.forEach((u) => {
         username = u;
-        })
+      })
       JSON.parse(data).avatar.forEach((a) => {
         avatar = a;
         assistantSpawn();
-        })
       })
     })
+  })
 }
 
 //Display the Assistant on every webpage
 function assistantSpawn() {
 
   let assistant = document.createElement("img");
-  let imgUrl = browser.extension.getURL("assistants/"+ avatar +".png");
+  let imgUrl = browser.extension.getURL("assistants/" + username + "-" + avatar + ".png");
   assistant.setAttribute("src", imgUrl);
   assistant.style.position = 'fixed';
   assistant.style.right = '0px';

@@ -44,10 +44,8 @@ class DesignerController extends Controller
 
     public function uploadAvatar()
     {
-        /*var_dump('jkjlkl');
-        $image = Image::make(request('imgBase64'));
-        $image->save('storage/'.request('name').'.jpg');*/
-            define('UPLOAD_DIR', 'Assistant/assistants/');
+
+    define('UPLOAD_DIR', 'Assistant/assistants/');
     $img = request('imgBase64');
     $img = str_replace('data:image/png;base64,', '', $img);
     $img = str_replace(' ', '+', $img);
