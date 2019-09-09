@@ -14,7 +14,7 @@
 ░░░░░░░░░░░░░░░░░░▄▀▀▀▀▀░░░░██▌
 ░░░░░░░░░░░░░░░░░░░░░░░░░░▄▀▄▀
 */
-window.onload = initData();
+window.onload = getUsername();
 
 var rssDisplay = false;
 var calendarDisplay = false;
@@ -34,19 +34,34 @@ d.style.borderRadius = "7px";
 d.style.backgroundColor = "white";
 d.id = "d";
 
-//Read RSS Filters
+//Get user data
+function getUsername() {
+
+  const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
+  var jsonFile = browser.extension.getURL("data/username.json");
+
+  fetch(jsonFile).then((res) => {
+    res.text().then((data) => {
+
+      //Get JSON username
+      JSON.parse(data).username.forEach((u) => {
+        username = u;
+        initData();
+      })
+    })
+  })
+}
+
+//Get user data
 function initData() {
 
   const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
-  var jsonFile = browser.extension.getURL("data/rss.json");
+  var jsonFile = browser.extension.getURL("data/" + username + "-rss.json");
 
   fetch(jsonFile).then((res) => {
     res.text().then((data) => {
 
       //Get JSON data
-      JSON.parse(data).username.forEach((u) => {
-        username = u;
-      })
       JSON.parse(data).avatar.forEach((a) => {
         avatar = a;
         assistantSpawn();
@@ -114,7 +129,7 @@ function assistantSpawn() {
 function readRSS() {
 
   const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
-  var jsonFile = browser.extension.getURL("data/rss.json");
+  var jsonFile = browser.extension.getURL("data/" + username + "-rss.json");
 
   fetch(jsonFile).then((res) => {
     res.text().then((data) => {
@@ -179,7 +194,7 @@ function readRSS() {
 function readCalendar() {
 
   const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
-  var jsonFile = browser.extension.getURL("data/rss.json");
+  var jsonFile = browser.extension.getURL("data/" + username + "-rss.json");
 
   /* Get JSON Events */
   fetch(jsonFile).then((res) => {
