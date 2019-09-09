@@ -22,7 +22,7 @@ aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header ProfileStyleDroite">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                 <h4 class="modal-title text-center" id="myModalLabel">Créer un nouvel événement</h4>
+                 <h4 class="modal-title" id="myModalLabel">Créer un nouvel événement</h4>
             </div>
             <div class="modal-body ProfileStyleDroite">
                 <div id="create_event_alert"></div>
@@ -42,14 +42,14 @@ aria-hidden="true">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="float-left" style="width: 75%;">
+                        <div class="float-left" style="width: 100%;">
                             <div class="col-xl-5 col-12">
                                 <div class="form-group">
                                     <input type="text" name="event_start_date" required id="event_start_date"
                                     value="" class="form-control date_pick" placeholder="Date de depart">
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-2">
+                            <div class="col-xl-2 col-2" style="width: 100%; margin-bottom: 1%;">
                                 <div id="start_time_toggle">
                                     <button type="button" class="btn btn-md buttonBleu" title="Add Start Time" onclick="add_start_time()"> <i class="text-success fa fa-plus"></i>
  <i class="text-success fa fa-clock"></i>
@@ -65,7 +65,7 @@ aria-hidden="true">
                             </div>
                         </div>
                         <div class="float-right">
-                            <div class="col-xl-2 col-2">
+                            <div class="col-xl-2 col-2"style="margin-bottom: 2%;">
                                 <div id="end_date_toggle">
                                     <button type="button" class="btn btn-md buttonBleu" onclick="add_end_date()" style="width: 117px"> <i class="text-success fa fa-plus"></i> Date de fin</button>
                                 </div>
@@ -74,23 +74,23 @@ aria-hidden="true">
                     </div>
                     <div class="section row" id="end_date_area" style="display: none">
                         <!-- none-->
-                        <div class="float-left" style="width: 75%;">
+                        <div class="float-left" style="width: 100%;">
                             <div class="col-xl-5 col-12">
                                 <div class="form-group">
                                     <input type="text" name="event_end_date" id="event_end_date" value=""
                                     class="form-control date_pick" placeholder="Date de fin">
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-2">
-                                <div id="end_time_toggle">
+                            <div class="col-xl-2 col-2" style="margin-bottom: 2%;">
+                                <div id="end_time_toggle" style="margin-bottom: 1%;">
                                     <button type="button" class="btn btn-md buttonBleu" title="Add End Time" onclick="add_end_time()"> <i class="text-success fa fa-plus"></i>
  <i class="text-success fa fa-clock"></i>
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-xl-5 col-12" id="event_end_time_area" style="display: none">
+                            <div class="col-xl-5 col-12 " id="event_end_time_area" style="display: none; margin-bottom: 1%;">
                                 <!-- //none-->
-                                <input type="text" name="event_end_time" id="event_end_time" value="11:59 PM"
+                                <input type="text" name="event_end_time" id="event_end_time" value=""
                                 class="form-control time_pick" placeholder="Heure de fin">
                             </div>
                         </div>
@@ -130,11 +130,11 @@ aria-hidden="true">
 aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content admin-form">
-            <div class="modal-header">
+            <div class="modal-header ProfileStyleDroite">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                  <h4 class="modal-title" id="myModalLabel">Modifier l'èvenement</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ProfileStyleDroite">
                 <div id="edit_event_alert"></div>
                 <form id="edit_event_frm" action="" method="post" enctype="multipart/form-data">{{ csrf_field() }}
                     <div class="row">
@@ -152,7 +152,7 @@ aria-hidden="true">
                         </div>
                     </div>
                     <div class=" row">
-                        <div class="float-left" style="width: 75%;">
+                        <div class="float-left" style="width: 100%;">
                             <div class="col-xl-5 col-12">
                                 <div class="form-group">
                                     <label class="">Date de départ</label>
@@ -186,7 +186,7 @@ aria-hidden="true">
                         </div>
                     </div>
                     <div class="row" id="edit_end_date_area" style="display: block">
-                        <div class="float-left" style="width: 75%;">
+                        <div class="float-left" style="width: 100%;">
                             <div class="col-xl-5 col-12">
                                 <div class="form-group">
                                     <label class="">Date de fin</label>
@@ -201,7 +201,7 @@ aria-hidden="true">
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-xl-5 col-12" id="edit_event_end_time_area" style="display: block">
+                            <div class="col-xl-5 col-12" id="edit_event_end_time_area" style="display: block; margin-bottom: 1%">
                                 <div class="form-group">
                                     <label class="">Heure de fin</label>
                                     <input type="text" name="event_end_time" id="edit_event_end_time"
@@ -233,7 +233,7 @@ aria-hidden="true">
                     <!-- end section row -->
                 </form>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer ProfileStyleDroite">
                 <button type="button" class="btn btn-secondary buttonBleu" data-dismiss="modal">Annuler</button>
             </div>
         </div>
