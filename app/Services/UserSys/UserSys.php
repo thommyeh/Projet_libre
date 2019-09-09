@@ -88,16 +88,24 @@ class UserSys {
         $avatar = $user->characters->where('choosen', '(Personnage principal)')->pluck('name');
         $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
         $raw = array(
-            "username" => $username,
             "avatar" => $avatar,
             'urls' => $urls,
             'filters' => $filters,
             'events' => $events);
         $data = json_encode($raw, JSON_UNESCAPED_SLASHES);
 
-        $fp = fopen(storage_path($user->name.'-rss.json'), 'w');
+        $fp = fopen('Assistant/data/'.$user->name.'-rss.json', 'w');
         fwrite($fp, $data);
         fclose($fp);
+
+        $userTab = array(
+            "username" => $username
+           );
+        $userdata = json_encode($userTab, JSON_UNESCAPED_SLASHES);
+
+        $fp1 = fopen('Assistant/data/username.json', 'w');
+        fwrite($fp1, $userdata);
+        fclose($fp1);
         
        
 
