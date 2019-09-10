@@ -34,6 +34,16 @@ class HomeController extends Controller
         return view('welcome');
     }
 
+    public function RGPD()
+    {
+        return view('RGPD');
+    }
+
+    public function legals()
+    {
+        return view('legals');
+    }
+
     public function editeur()
     {
         $imgArray =  File::files('./img/');

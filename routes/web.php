@@ -20,6 +20,8 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 //Fonctionnalités utilisateur
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/RGPD', 'HomeController@RGPD')->name('RGPD');
+Route::get('/legals', 'HomeController@legals')->name('legals');
 Route::get('/editeur', 'HomeController@editeur')->name('editeur')->middleware('verified');
 Route::post('/editeur', 'DesignerController@store')->name('save_character')->middleware('verified');
 Route::get('/profil', 'HomeController@profil')->name('profil')->middleware('verified');

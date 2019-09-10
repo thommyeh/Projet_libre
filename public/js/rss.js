@@ -26,6 +26,7 @@ var rss = new Vue({
     urls: [],
     name: '',
     url: '',
+    actu:'',
     filtres: '',
 
     selected: '',

@@ -16,10 +16,11 @@
          <input type="text" class="input form-control InputProfile rssInput" name="name" v-model='name'>
       </div>
       <!-- url -->
-      <div class="field">
+      <div>
          <label class="label">Url</label>
          <input type="text" class="input form-control InputProfile rssInput" name="url" v-model="url">
       </div>
+
       <div v-html='message'>
       </div>
 <validation-errors :errors="validationErrors" v-if="validationErrors"></validation-errors>
