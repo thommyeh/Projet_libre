@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 //Flux Rss
 Route::get('/rss', 'RssController@index')->name('rss')->middleware('verified');;
+Route::get('/rssfiltre', 'RssFiltreController@index')->name('rssfiltre')->middleware('verified');;
 //Routes appelées par Axios dans le app.js
 Route::get('/rssdata', 'RssController@RssData')->middleware('verified');;
 Route::get('/filterdata', 'RssController@FiltersData')->middleware('verified');;

@@ -44,13 +44,17 @@ background-color: #EBF1F4;
 }
 .night{
 color:grey;
-background-color:#2C323F;
+background-color:#2C323F!important;
 }
 .night .ProfileStyleDroite{
 color:grey;
 background-color:#1f2631!important;
 }
-
+.day .buttonBleu {
+  color:black;
+  background-color:#EBF1F4!important;
+  border-color:#EBF1F4!important;;
+}
 .night .buttonBleu {
   background-color:#2C323F!important;
   color:rgba(255,255,255,.5);
@@ -249,4 +253,15 @@ canvas {
 .DropDownColor:hover {
 
   color:rgba(255,255,255,.75)
+}
+
+.buttonCalendar {
+  margin-top:-3.5%;
+}
+
+.night .buttonBleu:hover {
+  color:rgba(255,255,255,.75);
+}
+.day .buttonBleu:hover {
+  color:grey;
 }

@@ -1,18 +1,15 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
+<div class="card text-red" style="margin-top:2%;">
 
-<div class="card text-red">
-    <div class="card-header text-right">
-        <button id="create_event" type="button" class="btn btn-success btn-md"><i class="fa fa-plus"></i> Créer un évenement</button>
-        <span id="sync">
-        <button v-on:click="SynchroFlux" class="btn btn-success btn-md">Valider les modifications</button></span>
-    </div>
-    <div class="card-body">
+    <div class="ProfileStyleDroite" style="padding-top:0;">
+
         <div id="alert_tmeassage_area"></div>
         <div class="table-responsive">
             <table id="data_table" class="table">
                 <thead>
-                    <tr class="bg-light">
+                    <tr class="bg-light ProfileStyleDroite">
                         <th>#</th>
                         <th>Titre</th>
                         <th>Date</th>
@@ -25,16 +22,23 @@
         </div>
     </div>
 </div>
+    <div class="text-right" style="margin-top:1%">
+        <button id="create_event" type="button" class="btn btn-success btn-md buttonBleu"><i class="fa fa-plus"></i> Créer un évenement</button>
+        <span id="sync">
+        <button v-on:click="SynchroFlux" class="btn btn-success btn-md buttonBleu">Valider les modifications</button></span>
+    </div>
+</div>
 <!-- View Event-->
+<div class="container">
 <div class="modal fade" id="view_event_modal" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content admin-form">
-            <div class="modal-header">
+            <div class="modal-header ProfileStyleDroite">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                  <h4 class="modal-title" id="myModalLabel">Détails</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ProfileStyleDroite">
                 <div id="view_event_alert"></div>
                 <div class="section row">
                     <div class="col-lg-12 col-12">
@@ -62,22 +66,24 @@ aria-hidden="true">
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer ProfileStyleDroite">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
             </div>
         </div>
     </div>
 </div>
+</div>
 <!-- Create Event -->
+<div clas="container">
 <div class="modal fade" id="create_event_modal" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header ProfileStyleDroite">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                  <h4 class="modal-title" id="myModalLabel">Créer un évenement</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ProfileStyleDroite">
                 <div id="create_event_alert"></div>
                 <form id="create_event_frm" action="{{route('event')}}"
                 method="post" enctype="multipart/form-data">
@@ -104,7 +110,7 @@ aria-hidden="true">
                             </div>
                             <div class="col-xl-2 col-2" style="width: 100%; margin-bottom: 1%;">
                                 <div id="start_time_toggle">
-                                    <button type="button" class="btn btn-md" title="Add Start Time" onclick="add_start_time()"> <i class="text-success fa fa-plus"></i>
+                                    <button type="button" class="btn btn-md buttonBleu" title="Add Start Time" onclick="add_start_time()"> <i class="text-success fa fa-plus"></i>
  <i class="text-success fa fa-clock"></i>
                                     </button>
                                 </div>
@@ -120,7 +126,7 @@ aria-hidden="true">
                         <div class="float-right">
                             <div class="col-xl-2 col-2"style="margin-bottom: 2%;">
                                 <div id="end_date_toggle" >
-                                    <button type="button" class="btn btn-md" onclick="add_end_date()" style="width: 117px"> <i class="text-success fa fa-plus"></i> Date de fin</button>
+                                    <button type="button" class="btn btn-md buttonBleu" onclick="add_end_date()" style="width: 117px"> <i class="text-success fa fa-plus"></i> Date de fin</button>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +142,7 @@ aria-hidden="true">
                             </div>
                             <div class="col-xl-2 col-2" style="margin-bottom: 2%;">
                                 <div id="end_time_toggle" style="margin-bottom: 1%;">
-                                    <button type="button" class="btn btn-md" title="Add End Time" onclick="add_end_time()"> <i class="text-success fa fa-plus"></i>
+                                    <button type="button" class="btn btn-md buttonBleu" title="Add End Time" onclick="add_end_time()"> <i class="text-success fa fa-plus"></i>
  <i class="text-success fa fa-clock"></i>
                                     </button>
                                 </div>
@@ -149,7 +155,7 @@ aria-hidden="true">
                         </div>
                         <div class="float-right">
                             <div class="col-xl-2 col-2" style="margin-bottom: 2%;">
-                                <button type="button" class="btn btn-md" onclick="remove_end_date()" style="width: 117px"> <i class="text-danger fa fa-times"></i> Supprimer</button>
+                                <button type="button" class="btn btn-md buttonBleu" onclick="remove_end_date()" style="width: 117px"> <i class="text-danger fa fa-times"></i> Supprimer</button>
                             </div>
                         </div>
                     </div>
@@ -164,28 +170,29 @@ aria-hidden="true">
                     <div class="section" style="margin-top: 10px">
                         <div class="text-right" id="event_image_error_msg"></div>
                         <p class="text-right">
-                            <button type="button" id="create_event_btn" class="btn btn-primary">Confirmer</button>
+                            <button type="button" id="create_event_btn" class="btn btn-primary buttonBleu">Confirmer</button>
                         </p>
                     </div>
                     <!-- end section row -->
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <div class="modal-footer ProfileStyleDroite">
+                <button type="button" class="btn btn-secondary buttonBleu" data-dismiss="modal">Annuler</button>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- Edit Event -->
 <div class="modal fade" id="edit_event_modal" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content admin-form">
-            <div class="modal-header">
+            <div class="modal-header ProfileStyleDroite">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                  <h4 class="modal-title" id="myModalLabel">Modifier l'évenement</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ProfileStyleDroite">
                 <div id="edit_event_alert"></div>
                 <form id="edit_event_frm" action="" method="post" enctype="multipart/form-data">{{ csrf_field() }}
                     <div class="row">
@@ -214,7 +221,7 @@ aria-hidden="true">
                             </div>
                             <div class="col-xl-2 col-2">
                                 <div id="edit_start_time_toggle" class="mt30">
-                                    <button type="button" class="btn btn-md" title="Remove Start Time" onclick="edit_remove_start_time()"> <i class="text-danger fa fa-times"></i>
+                                    <button type="button" class="btn btn-md buttonBleu" title="Remove Start Time" onclick="edit_remove_start_time()"> <i class="text-danger fa fa-times"></i>
  <i class="text-danger fa fa-clock"></i>
                                     </button>
                                 </div>
@@ -230,7 +237,7 @@ aria-hidden="true">
                         <div class="float-right">
                             <div class="col-xl-2 col-2">
                                 <div id="edit_end_date_toggle" class="mt30" style="display: none">
-                                    <button type="button" class="btn btn-md" onclick="edit_add_end_date()"
+                                    <button type="button" class="btn btn-md buttonBleu" onclick="edit_add_end_date()"
                                     style="width: 117px"> <i class="text-success fa fa-plus"></i> Date de fin</button>
                                 </div>
                             </div>
@@ -247,7 +254,7 @@ aria-hidden="true">
                             </div>
                             <div class="col-xl-2 col-2">
                                 <div id="edit_end_time_toggle" class="mt30">
-                                    <button type="button" class="btn btn-md" title="Remove End Time" onclick="edit_remove_end_time()"> <i class="text-danger fa fa-times"></i>
+                                    <button type="button" class="btn btn-md buttonBleu" title="Remove End Time" onclick="edit_remove_end_time()"> <i class="text-danger fa fa-times"></i>
  <i class="text-danger fa fa-clock"></i>
                                     </button>
                                 </div>
@@ -262,7 +269,7 @@ aria-hidden="true">
                         </div>
                         <div class="float-right">
                             <div class="col-xl-2 col-2 mt30">
-                                <button type="button" class="btn btn-md" onclick="edit_remove_end_date()"
+                                <button type="button" class="btn btn-md buttonBleu" onclick="edit_remove_end_date()"
                                 style="width: 117px"> <i class="text-danger fa fa-times"></i> Supprimer</button>
                             </div>
                         </div>
@@ -278,14 +285,14 @@ aria-hidden="true">
                     </div>
                     <div class="section" style="margin-top: 10px">
                         <p class="text-right">
-                            <button type="button" id="edit_event_btn" class="btn btn-primary">Modifier</button>
+                            <button type="button" id="edit_event_btn" class="btn btn-primary buttonBleu">Modifier</button>
                         </p>
                     </div>
                     <!-- end section row -->
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <div class="modal-footer ProfileStyleDroite">
+                <button type="button" class="btn btn-secondary buttonBleu" data-dismiss="modal">Annuler</button>
             </div>
         </div>
     </div>
@@ -403,7 +410,7 @@ function add_start_time(){
     $('#set_start_time_data').val('Yes');
      $('#event_start_time').val('');
     
-    var button='<button type="button" title="Remove Start Time"   class="btn btn-md"  onclick="remove_start_time()"><i class="text-danger fa fa-times"></i>   <i class="text-danger fa fa-clock"></i> </button>';
+    var button='<button type="button" title="Remove Start Time"   class="btn btn-md buttonBleu"  onclick="remove_start_time()"><i class="text-danger fa fa-times"></i>   <i class="text-danger fa fa-clock"></i> </button>';
      $('#start_time_toggle').html(button);
         $('#event_start_time_area').show();
      
@@ -415,7 +422,7 @@ function remove_start_time(){
     $('#set_start_time_data').val('No');
     
     $('#event_start_time').val('');
-    var button='<button type="button" title="Add Start Time"  class="btn btn-md"  onclick="add_start_time()"><i class="text-success fa fa-plus"></i>   <i class="text-success fa fa-clock"></i> </button>';
+    var button='<button type="button" title="Add Start Time"  class="btn btn-md buttonBleu"  onclick="add_start_time()"><i class="text-success fa fa-plus"></i>   <i class="text-success fa fa-clock"></i> </button>';
      $('#start_time_toggle').html(button);
        $('#event_start_time_area').hide();
   
@@ -426,7 +433,7 @@ function add_end_time(){
     $('#set_end_time_data').val('Yes');
      $('#event_end_time').val('');
     
-    var button='<button type="button"  title="Remove End Time"  class="btn btn-md"  onclick="remove_end_time()"><i class="text-danger fa fa-times"></i>   <i class="text-danger fa fa-clock"></i> </button>';
+    var button='<button type="button"  title="Remove End Time"  class="btn btn-md buttonBleu"  onclick="remove_end_time()"><i class="text-danger fa fa-times"></i>   <i class="text-danger fa fa-clock"></i> </button>';
      $('#end_time_toggle').html(button);
         $('#event_end_time_area').show();
      
@@ -438,7 +445,7 @@ function remove_end_time(){
     $('#set_end_time_data').val('No');
     
      $('#event_end_time').val('');
-    var button='<button type="button" title="Add End Time"  class="btn btn-md"  onclick="add_end_time()"><i class="text-success fa fa-plus"></i>   <i class="text-success fa fa-clock"></i> </button>';
+    var button='<button type="button" title="Add End Time"  class="btn btn-md buttonBleu"  onclick="add_end_time()"><i class="text-success fa fa-plus"></i>   <i class="text-success fa fa-clock"></i> </button>';
      $('#end_time_toggle').html(button);
        $('#event_end_time_area').hide();
   
@@ -634,7 +641,7 @@ function edit_add_start_time(){
     $('#edit_set_start_time_data').val('Yes');
      $('#edit_event_start_time').val('');
     
-    var button='<button type="button" title="Remove Start Time"   class="btn btn-md"  onclick="edit_remove_start_time()"><i class="text-danger fa fa-times"></i>   <i class="text-danger fa fa-clock"></i> </button>';
+    var button='<button type="button" title="Remove Start Time"   class="btn btn-md buttonBleu"  onclick="edit_remove_start_time()"><i class="text-danger fa fa-times"></i>   <i class="text-danger fa fa-clock"></i> </button>';
      $('#edit_start_time_toggle').html(button);
         $('#edit_event_start_time_area').show();
      
@@ -646,7 +653,7 @@ function edit_remove_start_time(){
     $('#edit_set_start_time_data').val('No');
     
     $('#edit_event_start_time').val('12:00 AM');
-    var button='<button type="button" title="Add Start Time" class="btn btn-md" onclick="edit_add_start_time()"><i class="text-success fa fa-plus"></i>  <i class="text-success fa fa-clock"></i></button>';
+    var button='<button type="button" title="Add Start Time" class="btn btn-md buttonBleu" onclick="edit_add_start_time()"><i class="text-success fa fa-plus"></i>  <i class="text-success fa fa-clock"></i></button>';
      $('#edit_start_time_toggle').html(button);
        $('#edit_event_start_time_area').hide();
   
@@ -657,7 +664,7 @@ function edit_add_end_time(){
     $('#edit_set_end_time_data').val('Yes');
      $('#edit_event_end_time').val('');
     
-    var button='<button type="button" title="Remove End Time"   class="btn btn-md"  onclick="edit_remove_end_time()"><i class="text-danger fa fa-times"></i>   <i class="text-danger fa fa-clock"></i> </button>';
+    var button='<button type="button" title="Remove End Time"   class="btn btn-md buttonBleu"  onclick="edit_remove_end_time()"><i class="text-danger fa fa-times"></i>   <i class="text-danger fa fa-clock"></i> </button>';
      $('#edit_end_time_toggle').html(button);
         $('#edit_event_end_time_area').show();
      
@@ -669,7 +676,7 @@ function edit_remove_end_time(){
     $('#edit_set_end_time_data').val('No');
     
      $('#edit_event_end_time').val('11:59 PM');
-    var button='<button type="button" title="Add End Time"   class="btn btn-md"  onclick="edit_add_end_time()"><i class="text-success fa fa-plus"></i>   <i class="text-success fa fa-clock"></i> </button>';
+    var button='<button type="button" title="Add End Time"   class="btn btn-md buttonBleu"  onclick="edit_add_end_time()"><i class="text-success fa fa-plus"></i>   <i class="text-success fa fa-clock"></i> </button>';
      $('#edit_end_time_toggle').html(button);
        $('#edit_event_end_time_area').hide();
   
