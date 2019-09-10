@@ -25,6 +25,12 @@
 					<label class="label">Url</label>
 					<input type="text" class="input form-control InputProfile rssInput" name="url" v-model="url">
 				</div>
+        <div>
+        <input type="radio" v-model="selected2" value="actu" id="actu">
+            Actu
+            <input type="radio" v-model="selected2" value="telechargement" id="telechargement">
+            Téléchargement
+          </div>
 				<div v-html='message'></div>
 				<validation-errors :errors="validationErrors" v-if="validationErrors"></validation-errors>
 				<!-- submit button -->
@@ -40,22 +46,23 @@
 					<div v-if="url.id === selected">
 						<p class='alert alert-success'>
 							 url : @{{url.url}}
+
 						</p>
 					</div>
 				</div>
 				<button type="submit" class="button is-danger btn btn-primary buttonBleu" style="margin-top:1%;">Supprimer ce flux</button>
 			</form>
-					<div id="sync"><button v-on:click="SynchroFlux" class="button is-danger btn btn-primary buttonBleu"  style="margin-bottom:3%; margin-top: 3%;">
+					
+		</div>
+
+</div>
+					
+</div>
+<div id="sync"><button v-on:click="SynchroFlux" class="button is-danger btn btn-primary buttonBleu"  style="margin-bottom:3%; margin-top: 3%;">
 	Envoyer les modifications
 </button>
 
 	</div>
-		</div>
-
-</div>
-
-</div>
-
 </div>
 
 <script src="{{ asset('js/rss.js') }}" defer></script>

@@ -26,7 +26,8 @@ class UrlRequest extends FormRequest
         $regex = '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/';
         return [
             'name' => 'required|string|min:2|max:20',
-            'url' => array('required', 'regex:'.$regex)
+            'url' => array('required', 'regex:'.$regex),
+            'type' => 'required|string'
 
         ];
     }
@@ -38,7 +39,8 @@ class UrlRequest extends FormRequest
         'name.max' => 'Le nom doit comporter un maximum de 20 caractères',
         'name.min' => 'Le nom doit comporter au minimum 2 caractères',
         'url.required' => 'Vous devez entrer une Url',
-        'url.regex' => "L'url entrée n'est pas valide"
+        'url.regex' => "L'url entrée n'est pas valide",
+        'type.required' => "Vous devez choisir un type de lien"
       ];
     }
 }

@@ -20,6 +20,12 @@
           <label class="label">Filtres</label>
           <input type="text" class="input form-control InputProfile rssInput" name="filtres" v-model="filtres">
         </div>
+         <div>
+        <input type="radio" v-model="selected3" value="actu" id="actu1">
+            Actu
+            <input type="radio" v-model="selected3" value="telechargement" id="telechargement1">
+            Téléchargement
+          </div>
         <div class="field has-text-right">
           <button type="submit" class="button is-danger btn btn-primary buttonBleu" style="margin-bottom:3%;">Envoyer</button>
         </div>

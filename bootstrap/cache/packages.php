@@ -54,13 +54,6 @@
       'Image' => 'Intervention\\Image\\Facades\\Image',
     ),
   ),
-  'larapack/doctrine-support' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Larapack\\DoctrineSupport\\DoctrineSupportServiceProvider',
-    ),
-  ),
   'larapack/voyager-hooks' => 
   array (
     'providers' => 

@@ -26,11 +26,11 @@ var rss = new Vue({
     urls: [],
     name: '',
     url: '',
-    actu:'',
     filtres: '',
-
     selected: '',
     selected1: '',
+    selected2: '',
+    selected3: '',
     validationErrors: '',
     message: '',
     
@@ -46,6 +46,7 @@ var rss = new Vue({
         .post('/CreateRss', {
           name: this.name,
           url: this.url,
+          type: this.selected2,
 
         }).then(response => {
           this.message = '<p class="alert alert-success">Le flux a bien été ajouté</p>';
@@ -59,6 +60,7 @@ var rss = new Vue({
       //this.message = "Le flux a bien été ajouté";
       this.name = "";
       this.url = "";
+      this.selected2 = "";
 
       axios.get('/rssdata').then(response => this.urls = response.data);
     },
@@ -67,10 +69,12 @@ var rss = new Vue({
       axios
         .post('/CreateFilter', {
           filtres: this.filtres,
+          type: this.selected3,
 
         })
       this.message1 = "Le filtre a bien été ajouté";
       this.filtres = "";
+      this.selected3 = "";
       axios.get('/filterdata').then(response => this.filters = response.data);
     },
 

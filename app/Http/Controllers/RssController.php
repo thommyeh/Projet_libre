@@ -28,6 +28,7 @@ class RssController extends Controller
         $url->name = $valid['name'];
         $url->url = $valid['url'];
         $url->user_id = Auth::user()->id;
+        $url->type = $valid['type'];
         $url->save();
 
 
@@ -38,6 +39,7 @@ class RssController extends Controller
     {
         $filters = new Filter();
         $filters->name = request('filtres');
+        $filters->type = request('type');
         $filters->user_id = Auth::user()->id;
         $filters->save();
 

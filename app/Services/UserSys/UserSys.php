@@ -83,14 +83,18 @@ class UserSys {
         $user = Auth::user();
         $username = array($user->name );
 
-        $filters = $user->filters->pluck('name');
-        $urls = $user->urls->pluck('url');
+        $filtres_actus = $user->filters->where('type', 'actu')->pluck('name');
+        $filtres_telechargements = $user->filters->where('type', 'telechargement')->pluck('name');
+        $actus = $user->urls->where('type', 'actu')->pluck('url');
+        $telechargements = $user->urls->where('type', 'telechargement')->pluck('url');
         $avatar = $user->characters->where('choosen', '(Personnage principal)')->pluck('name');
         $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
         $raw = array(
             "avatar" => $avatar,
-            'urls' => $urls,
-            'filters' => $filters,
+            "actus" => $actus,
+            "telechargements" => $telechargements,
+            "filtres_actus" => $filtres_actus,
+            "filtres_telechargements" => $filtres_telechargements,
             'events' => $events);
         $data = json_encode($raw, JSON_UNESCAPED_SLASHES);
 
