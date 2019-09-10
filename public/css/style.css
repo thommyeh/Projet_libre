@@ -265,3 +265,23 @@ canvas {
 .day .buttonBleu:hover {
   color:grey;
 }
+
+
+.footer {
+
+bottom: 0;
+margin: 0 auto !important;
+text-align: center !important;
+width: 100% !important;
+height: 40px;
+position: absolute;
+ }
+
+.footerC {
+  background-color: #1f2631!important;
+  color:grey;
+}
+
+.footerB {
+ 
+}
