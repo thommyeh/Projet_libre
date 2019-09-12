@@ -16,7 +16,8 @@
 */
 window.onload = getUsername();
 
-var rssDisplay = false;
+var rssNewsDisplay = false;
+var rssDownloadsDisplay = false;
 var calendarDisplay = false;
 var username;
 var avatar;
@@ -93,23 +94,43 @@ function assistantSpawn() {
   bluePoint.id = "bluePoint";
   document.body.appendChild(bluePoint);
 
+  let redPoint = document.createElement("img");
+  let redUrl = browser.extension.getURL("assistants/redPoint.png");
+  redPoint.setAttribute("src", redUrl);
+  redPoint.style.position = 'fixed';
+  redPoint.style.right = '60px';
+  redPoint.style.bottom = '100px';
+  redPoint.style.zIndex = '50';
+  redPoint.id = "redPoint";
+  document.body.appendChild(redPoint);
+
   let greenPoint = document.createElement("img");
   let greenUrl = browser.extension.getURL("assistants/greenPoint.png");
   greenPoint.setAttribute("src", greenUrl);
   greenPoint.style.position = 'fixed';
-  greenPoint.style.right = '60px';
+  greenPoint.style.right = '100px';
   greenPoint.style.bottom = '100px';
   greenPoint.style.zIndex = '50';
   greenPoint.id = "greenPoint";
   document.body.appendChild(greenPoint);
 
   greenPoint.onclick = function() {
-    if (rssDisplay == false) {
-      readRSS();
-      rssDisplay = true;
+    if (rssNewsDisplay == false) {
+      readNewsRSS();
+      rssNewsDisplay = true;
     } else {
       clearMsg();
-      rssDisplay = false;
+      rssNewsDisplay = false;
+    }
+  };
+
+  redPoint.onclick = function() {
+    if (rssDownloadsDisplay == false) {
+      readDownloadsRSS();
+      rssDownloadsDisplay = true;
+    } else {
+      clearMsg();
+      rssDownloadsDisplay = false;
     }
   };
 
@@ -124,9 +145,8 @@ function assistantSpawn() {
   };
 }
 
-
-//Read RSS Filters
-function readRSS() {
+//Read News RSS Filters
+function readNewsRSS() {
 
   const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
   var jsonFile = browser.extension.getURL("data/" + username + "-rss.json");
@@ -135,13 +155,13 @@ function readRSS() {
     res.text().then((data) => {
 
       //Get JSON Filters and Urls
-      JSON.parse(data).filters.forEach((f) => {
-        var filter = f;
+      JSON.parse(data).filtres_actus.forEach((f) => {
+        var actufilter = f;
 
-        JSON.parse(data).urls.forEach((u) => {
-          var url = new URL(u)
+        JSON.parse(data).actus.forEach((u) => {
+          var actuurl = new URL(u)
 
-          fetch(url).then((res) => {
+          fetch(actuurl).then((res) => {
             res.text().then((htmlTxt) => {
 
               let doc = DOMPARSER(htmlTxt, 'text/html')
@@ -156,7 +176,7 @@ function readRSS() {
                     let i = item.querySelector.bind(item)
                     let rssTitle = !!i('title') ? i('title').textContent : '-'
                     let rssLink = !!i('link') ? i('link').textContent : '-'
-                    if (rssTitle.includes(filter)) {
+                    if (rssTitle.includes(actufilter)) {
 
                       //Talk Paragraph
                       var p;
@@ -189,6 +209,72 @@ function readRSS() {
     })
   })
 }
+
+//Read Downloads RSS Filters
+function readDownloadsRSS() {
+
+  const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
+  var jsonFile = browser.extension.getURL("data/" + username + "-rss.json");
+
+  fetch(jsonFile).then((res) => {
+    res.text().then((data) => {
+
+      //Get JSON Filters and Urls
+      JSON.parse(data).filtres_telechargements.forEach((f) => {
+        var downloadfilter = f;
+
+        JSON.parse(data).telechargements.forEach((u) => {
+          var downloadurl = new URL(u)
+
+          fetch(downloadurl).then((res) => {
+            res.text().then((htmlTxt) => {
+
+              let doc = DOMPARSER(htmlTxt, 'text/html')
+              var feedUrl = doc.querySelector('link[type="application/rss+xml"]').href
+
+              fetch(feedUrl).then((res) => {
+                res.text().then((xmlTxt) => {
+
+                  //Display the RSS Items that match the filters
+                  let doc = DOMPARSER(xmlTxt, "text/xml")
+                  doc.querySelectorAll('item').forEach((item) => {
+                    let i = item.querySelector.bind(item)
+                    let rssTitle = !!i('title') ? i('title').textContent : '-'
+                    let rssLink = !!i('link') ? i('link').textContent : '-'
+                    if (rssTitle.includes(downloadfilter)) {
+
+                      //Talk Paragraph
+                      var p;
+                      p = document.createElement("p")
+                      p.id = "p";
+
+                      //Talk Link
+                      var a;
+                      a = document.createElement("a")
+                      a.id = "a";
+                      var linkText = document.createTextNode(" Download ");
+                      a.appendChild(linkText);
+
+                      //Talk Message
+                      msg = rssTitle;
+                      let txt = document.createTextNode(msg);
+                      p.appendChild(txt);
+                      a.href = rssLink;
+                      p.appendChild(a);
+                      d.appendChild(p);
+                    }
+                  })
+                  document.body.appendChild(d);
+                })
+              })
+            })
+          })
+        })
+      })
+    })
+  })
+}
+
 
 // Read Calendar Events function
 function readCalendar() {
