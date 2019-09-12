@@ -28,9 +28,19 @@ class DesignerController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function designer()
+
+        public function editeur()
     {
-        return view('designer');
+        $imgArray =  File::files('./img/');
+        $imgPath = [];
+        $imgLoader = [];
+        foreach ($imgArray as $path) {
+            $imgPath = pathinfo($path);
+            $imgName = $imgPath['filename'];
+            $imgLoader[] = $imgName;
+        }
+
+        return View::make('editeur', array('imgLoader' => $imgLoader));
     }
 
     public function store()

@@ -58,26 +58,6 @@ class UserSys {
 
     }
 
-        public function GenerateData()
-    {
-        $user = Auth::user();
-        $filters = Filter::where('user_id', $user->id)->pluck('name')->toArray();
-        $urls = Url::where('user_id', $user->id)->pluck('url')->toArray();
-        $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
-        $raw = array(
-            'urls' => $urls,
-            'filters' => $filters,
-            'events' => $events);
-        $data = json_encode($raw, JSON_UNESCAPED_SLASHES);
-
-        $fp = fopen(storage_path('rss.json'), 'w');
-        fwrite($fp, $data);
-        fclose($fp);
-
-
-        
-    }
-
         public function Synchronisation()
     {
         $user = Auth::user();

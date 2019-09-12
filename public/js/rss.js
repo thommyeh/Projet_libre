@@ -41,9 +41,9 @@ var rss = new Vue({
   },
 
   methods: {
-    processForm: function() {
+    newUrl: function() {
       axios
-        .post('/CreateRss', {
+        .post('/newurl', {
           name: this.name,
           url: this.url,
           type: this.selected2,
@@ -57,17 +57,16 @@ var rss = new Vue({
 
         })
 
-      //this.message = "Le flux a bien été ajouté";
       this.name = "";
       this.url = "";
       this.selected2 = "";
 
-      axios.get('/rssdata').then(response => this.urls = response.data);
+      axios.get('/urldata').then(response => this.urls = response.data);
     },
 
     FiltersForm: function() {
       axios
-        .post('/CreateFilter', {
+        .post('/createfilter', {
           filtres: this.filtres,
           type: this.selected3,
 
@@ -83,7 +82,7 @@ var rss = new Vue({
         .post('/flux/delete', {
           id: this.selected,
         })
-      axios.get('/rssdata').then(response => this.urls = response.data);
+      axios.get('/urldata').then(response => this.urls = response.data);
 
 
 
@@ -104,7 +103,7 @@ var rss = new Vue({
 
   mounted() {
 
-    axios.get('/rssdata').then(response => this.urls = response.data);
+    axios.get('/urldata').then(response => this.urls = response.data);
     axios.get('/filterdata').then(response => this.filters = response.data);
 
   }

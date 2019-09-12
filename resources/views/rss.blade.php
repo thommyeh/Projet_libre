@@ -14,7 +14,7 @@
 		<div class="col-md-offset-2 col-md-7 ProfileStyleDroite">
 		<div id="replace">
 			<h4>Créer un nouveau flux</h4>
-			<form id="signup-form" v-on:submit.prevent='processForm'>
+			<form id="UrlForm" v-on:submit.prevent='newUrl'>
 				<!-- name -->
 				<div class="field">
 					<label class="label">Nom</label>
