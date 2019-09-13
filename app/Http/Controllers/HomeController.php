@@ -33,9 +33,7 @@ class HomeController extends Controller
     public function index()
     {
         
-        $titre = Article::where('titre','presentation')->pluck('titre');
-        $contenu = Article::where('titre','presentation')->pluck('contenu');
-        return View('welcome', ['titre' => $titre, 'contenu' =>$contenu]);
+       return view('home');
     }
 
     public function RGPD()

@@ -48,6 +48,14 @@ class UserSys {
 
 
         $user = Auth::user();
+        $dir = 'Assistant/assistants/';
+        $scan = scandir($dir);
+        foreach ($scan as $item) {
+            $name = explode('-', $item);
+            if ($name[0] == $user->name) {
+                unlink($dir.$item);
+            }
+        }
 
         if (file_exists($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar)) {
             unlink($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar);
