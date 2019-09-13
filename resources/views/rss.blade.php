@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="col-md-offset-2 col-md-7 ProfileStyleDroite">
-<<<<<<< HEAD
+
 		<div id="replace">
 			<h4>Créer un nouveau flux</h4>
 			<form id="UrlForm" v-on:submit.prevent='newUrl'>
@@ -48,43 +48,7 @@
 							 url : @{{url.url}}
 
 						</p>
-=======
-			<div id="replace">
-				<h4>Créer un nouveau flux</h4>
-				<form id="signup-form" v-on:submit.prevent='processForm'>
-					<!-- name -->
-					<div class="field">
-						<label class="label">Nom</label>
-						<input type="text" class="input form-control InputProfile rssInput" name="name" v-model='name'>
->>>>>>> a20966103b2e08e1fae1ec6d54f2c49a9b53d49d
-					</div>
-					<!-- url -->
-					<div class="field">
-						<label class="label">Url</label>
-						<input type="text" class="input form-control InputProfile rssInput" name="url" v-model="url">
-					</div>
-					<div>
-						<input type="radio" v-model="selected2" value="actu" id="actu">
-						Actu
-						<input type="radio" v-model="selected2" value="telechargement" id="telechargement">
-						Téléchargement
-					</div>
-					<div v-html='message'></div>
-					<validation-errors :errors="validationErrors" v-if="validationErrors"></validation-errors>
-					<!-- submit button -->
-					<div class="field has-text-right">
-						<button type="submit" class="button is-danger btn btn-primary buttonBleu" style="margin-bottom:3%;">Envoyer</button>
-					</div>
-				</form>
-				<h4> Vos flux</h4>
-				<form v-on:submit.prevent='editFlux' id="formu">
-					<div v-for="url in urls">
-						<input type="radio" v-model="selected" :value="url.id" id="raydio">
-						  @{{ url.name }}
-						<div v-if="url.id === selected">
-							<p class='alert alert-success'>
-								 url : @{{url.url}}
-							</p>
+
 						</div>
 					</div>
 					<button type="submit" class="button is-danger btn btn-primary buttonBleu" style="margin-top:1%;">Supprimer ce flux</button>

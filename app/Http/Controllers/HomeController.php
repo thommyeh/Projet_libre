@@ -11,6 +11,7 @@ use File;
 use View;
 use Latfur\Event\Models\Event;
 use App\Character;
+use App\Article;
 
 class HomeController extends Controller
 {
@@ -31,7 +32,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        
+        $titre = Article::where('titre','presentation')->pluck('titre');
+        $contenu = Article::where('titre','presentation')->pluck('contenu');
+        return View('welcome', ['titre' => $titre, 'contenu' =>$contenu]);
     }
 
     public function RGPD()

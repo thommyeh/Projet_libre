@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Character;
 use Image;
-
-use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use File;
+use View;
 
 class DesignerController extends Controller
 {
@@ -49,6 +49,7 @@ class DesignerController extends Controller
         $character = new Character();
         $character->name = request('name');
         $character->user_id = $user->id;
+        $character->choosen = '(Personnage principal)';
         $character->save();
     }
 

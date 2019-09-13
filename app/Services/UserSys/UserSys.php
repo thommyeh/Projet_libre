@@ -52,6 +52,8 @@ class UserSys {
         if (file_exists($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar)) {
             unlink($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar);
         }
+    
+
         
         $user->destroy($user->id);
         
