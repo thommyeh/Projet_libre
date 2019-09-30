@@ -15,3 +15,5 @@ php artisan db:seed --class=VoyagerDatabaseSeeder
 
 php artisan storage:link
 
+Après avoir crée un user: php artisan voyager:admin your@email.com
+
