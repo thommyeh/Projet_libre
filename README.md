@@ -1,3 +1,5 @@
+Passer sur la branche develop
+
 cp .env.example .env
 
 Remplir le .env
