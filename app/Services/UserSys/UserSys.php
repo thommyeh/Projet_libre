@@ -15,7 +15,15 @@ class UserSys {
 	public function EditProfil($request) {
         $user = Auth::user();
         if ($request->input('name') != '') {
-            $user->name = $request->input('name');
+        $dir = 'Assistant/assistants/';
+        $scan = scandir($dir);
+        foreach ($scan as $item) {
+            $name = explode('-', $item);
+            if ($name[0] == $user->name) {
+                rename($dir.$item, $dir.$request->input('name')."-". $name[1]);
+            }
+        }
+        $user->name = $request->input('name');
         }
         if ($request->input('email') != '') {
             $user->email = $request->input('email');
@@ -38,7 +46,7 @@ class UserSys {
             $user->avatar = 'storage/'.$user->name.'.'.$type;
 
         }
-
+        $this->Synchronisation();
         $user->save();
 
     
