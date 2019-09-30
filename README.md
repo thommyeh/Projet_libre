@@ -1,8 +1,9 @@
-Passer sur la branche develop
 
 cp .env.example .env
 
 Remplir le .env
+
+Vérifier que vous êtes bien sur la branche develop sur la branche develop
 
 composer install
 
