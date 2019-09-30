@@ -6,7 +6,7 @@
     <div class="ProfileStyleDroite" style="padding-top:0;">
 
         <div id="alert_tmeassage_area"></div>
-        <div class="table-responsive">
+        <div class="table-responsive" style="margin-bottom:-1.20%;">
             <table id="data_table" class="table">
                 <thead>
                     <tr class="bg-light ProfileStyleDroite">
@@ -267,25 +267,21 @@ aria-hidden="true">
                                 </div>
                             </div>
                         </div>
-                        <div class="float-right">
-                            <div class="col-xl-2 col-2 mt30">
-                                <button type="button" class="btn btn-md buttonBleu" onclick="edit_remove_end_date()"
-                                style="width: 117px"> <i class="text-danger fa fa-times"></i> Supprimer</button>
-                            </div>
-                        </div>
+                        
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label class="">Description</label>
+                  
+                    
+                    
+                            <div class="form-group" style="padding-top:1%;">
+                            
                                 <textarea class="form-control" id="edit_event_description"
                                 name="event_description" placeholder="Description"></textarea>
                             </div>
-                        </div>
-                    </div>
-                    <div class="section" style="margin-top: 10px">
-                        <p class="text-right">
+                        <div class="section" style="margin-top: 10px">
+                        <p >
                             <button type="button" id="edit_event_btn" class="btn btn-primary buttonBleu">Modifier</button>
+                            <button type="button" class="btn btn-md buttonBleu" onclick="edit_remove_end_date()"
+                                style="width: 117px"> <i class="text-danger fa fa-times"></i> Supprimer</button>
                         </p>
                     </div>
                     <!-- end section row -->
@@ -560,7 +556,7 @@ var formData = new FormData($('#create_event_frm')[0]);
            $('#create_event_alert').show().html('');   
            
         
-           $('#alert_tmeassage_area').show().html('<div class="alert '+jd.type+'"><a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+jd.message+'</div>');     
+           $('#alert_tmeassage_area').show().html('<div class="alert '+jd.type+'"><a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+"Evenement ajouté !"/*jd.message*/+'</div>');     
            get_data();
           }else{
               
