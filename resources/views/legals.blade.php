@@ -1,4 +1,7 @@
-<p style="text-align:center"><span style="color:rgb(255, 0, 0)"><span style="background-color:rgb(211, 211, 211)">Si vous utilisez nos Mentions Légales, vous vous engagez à laisser les liens </span><strong><span style="background-color:rgb(211, 211, 211)">Crédit sans en modifier ni les liens ni les ancres.</span></strong><span style="background-color:rgb(211, 211, 211)"> </span></span><br />
+
+@extends('layouts.app')
+
+@section('content')<p style="text-align:center"><span style="color:rgb(255, 0, 0)"><span style="background-color:rgb(211, 211, 211)">Si vous utilisez nos Mentions Légales, vous vous engagez à laisser les liens </span><strong><span style="background-color:rgb(211, 211, 211)">Crédit sans en modifier ni les liens ni les ancres.</span></strong><span style="background-color:rgb(211, 211, 211)"> </span></span><br />
 <span style="color:rgb(255, 0, 0)"><span style="background-color:rgb(211, 211, 211)">Par avance merci pour votre compréhension et le respect du travail effectué par toute l'équipe</span></span></p>
 
 <h1>MENTIONS LEGALES :</h1>
@@ -29,3 +32,10 @@ Contactez le responsable de la publication : <strong>JeanBon@caramail.com</stron
 <p style="text-align:justify">Le site est hébergé par <strong>yjghj ghjghjghj 58742 hfgh</strong><br />
 <u><strong>CREDITS :</strong></u> les mentions légales ont étés générées par <strong><a href="https://www.generer-mentions-legales.com">mentions légales</a></strong><br />
 Horaires de la <strong><a href="http://www.patinoire.biz/p+patinoire-de-lyon---charlemagne+113.html">Patinoire Lyon</a></strong></p>
+                  <footer class="footer fixed-bottom">
+  <small>© 2019 Copyright:
+    <a href="{{ route('legals') }}"> My Help Mate</a>
+ <a href="{{ route('RGPD') }}"> Politique de confidentialité</a>
+    </small>
+  </footer>
+@endsection
