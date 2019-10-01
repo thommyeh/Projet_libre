@@ -31,7 +31,7 @@ var imgLoader = @json($imgLoader);
          <div class="col-xs-2" style="text-align: center;">
          <label class="label">Nom de votre personnage</label>
          <p>
-         <input class="form-control InputProfile" type="text" name="name" v-model="name" id="name">
+         <input class="form-control InputProfile" type="text" name="name" v-model="name" id="name" style="background-color:white">
                    <div class="field has-text-right">
       <button class="btn btn-primary buttonBleu" id="save" type="submit" style="margin-top: 300%;">Sauvegarder le personnage</button>
       </div>
@@ -51,7 +51,7 @@ var imgLoader = @json($imgLoader);
 
    <footer class="footer fixed-bottom">
   <small>© 2019 Copyright:
-    <a href="{{ route('legals') }}"> My Help Mate</a>
+    <a href="{{ route('legals') }}"> My Help Mate</a> |
  <a href="{{ route('RGPD') }}"> Politique de confidentialité</a>
     </small>
   </footer>

@@ -35,6 +35,8 @@
             </form>
          </div>
       </div>
+
+
    </div>
    <script>
          function myFunction() {
@@ -42,11 +44,11 @@
        event.preventDefault();
    }
    </script>
+
 </body>
-<script></script>
-   <footer class="footer fixed-bottom">
+                  <footer class="footer fixed-bottom">
   <small>© 2019 Copyright:
-    <a href="{{ route('legals') }}"> My Help Mate</a>
+    <a href="{{ route('legals') }}"> My Help Mate </a> |
  <a href="{{ route('RGPD') }}"> Politique de confidentialité</a>
     </small>
   </footer>
