@@ -49,7 +49,7 @@ class DesignerController extends Controller
         $character = new Character();
         $character->name = request('name');
         $character->user_id = $user->id;
-        $character->choosen = '(Personnage principal)';
+        $character->choosen = null;
         $character->save();
     }
 

@@ -13,12 +13,12 @@
 Route::get('/home', function () {
     return view('welcome');
 });
-
+Route::get('/', 'HomeController@index')->name('home');
 
 
 Auth::routes(['verify' => true]);
 //Fonctionnalités utilisateur
-Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
+
 Route::get('/RGPD', 'HomeController@RGPD')->name('RGPD');
 Route::get('/legals', 'HomeController@legals')->name('legals');
 Route::get('/profil', 'HomeController@profil')->name('profil')->middleware('verified');
