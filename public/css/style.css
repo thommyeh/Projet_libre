@@ -269,14 +269,18 @@ canvas {
   color:grey;
 }
 
-
 .footer {
 margin-top:2%;
 text-align: center !important;
 width: 100% !important;
   background-color: #1f2631!important;
   color:grey;
+  flex-shrink: 0;
  }
+ 
+main {
+  flex: 1 0 auto;
+}
 
 #return-to-top {
     position: fixed;
@@ -320,5 +324,3 @@ width: 100% !important;
 }
 
 
-/* Extra Things */
-body{background: #eee ;font-family: 'Open Sans', sans-serif;}h3{font-size: 30px; font-weight: 400;text-align: center;margin-top: 50px;}h3 i{color: #444;}
