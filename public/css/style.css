@@ -38,6 +38,7 @@ body
     font-family: sans-serif;
     transition: 0.5s;
 }
+
 .day{
 color:black;
 background-color: #EBF1F4;
@@ -67,8 +68,10 @@ background-color:#1f2631!important;
 }
 
       .navbar {
+
       margin-bottom: 0;
       border-radius: 0;
+      transition: top 0.3s; /* Transition effect when sliding down (and up) */
       }
       ul.parsley-errors-list {
       padding: 0px;
@@ -266,22 +269,58 @@ canvas {
   color:grey;
 }
 
-
 .footer {
-
-bottom: 0;
-margin: 0 auto !important;
+margin-top:2%;
 text-align: center !important;
 width: 100% !important;
-height: 40px;
-position: absolute;
- }
-
-.footerC {
   background-color: #1f2631!important;
   color:grey;
+  flex-shrink: 0;
+ }
+ 
+main {
+  flex: 1 0 auto;
 }
 
-.footerB {
- 
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
+

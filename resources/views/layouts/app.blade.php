@@ -12,6 +12,8 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
       <!-- Styles -->
       
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600&display=swap" rel="stylesheet">
+
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -32,15 +34,21 @@
         <script src="{{asset('js/parsley.js')}}"></script>
      
 
+
+
+<!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
    </head>
+   <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark NavBarLayout NavBarText navbarcenter">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
 
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-         <a class="navbar-brand" href="{{ url('/') }}">
-         <img id="imgtest" src="avatar.png" alt="" width="112" height="28">
+         <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Josefin Sans', sans-serif; font-size: 25px; ">
+         Helpmate
 
          </a>
          @auth
@@ -112,15 +120,14 @@
       @show
       <main>
          @yield('content')
+
       </main>
+<!-- Return to Top -->
 
    </body>
-<footer id="sticky-footer" class="py-4 bg-dark text-white-50 footer footerC">
-  <small>© 2019 Copyright:
-    <a href="{{ route('legals') }}"> My Help Mate</a>
- <a href="{{ route('RGPD') }}"> Politique de confidentialité</a>
-    </small>
-  </footer>
+
+
+  
 
    <script type="text/javascript">
       function applyTheme (theme) {
@@ -167,6 +174,30 @@
 
       initiate();
 
+// ===== Scroll to Top ==== 
 
    </script>
+   <script> $(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
+$('#return-to-top').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+});</script>
+
+<script>var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+} </script>
 </html>
