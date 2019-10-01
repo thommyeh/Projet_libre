@@ -25,27 +25,30 @@ var imgLoader = @json($imgLoader);
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div id="character">
+    <div id="character">
     <p>
       <form id="form" v-on:submit.prevent='Form'>
-         <div class="col-xs-2">
+         <div class="col-xs-2" style="text-align: center;">
          <label class="label">Nom de votre personnage</label>
          <p>
-         <input type="text" name="name" v-model="name" id="name">
+         <input class="form-control InputProfile" type="text" name="name" v-model="name" id="name">
+                   <div class="field has-text-right">
+      <button class="btn btn-primary buttonBleu" id="save" type="submit" style="margin-top: 300%;">Sauvegarder le personnage</button>
+      </div>
       </p>
 
       </div>
-            <div class="field has-text-right">
-      <button id="save" type="submit">Save</button>
-      </div>
+  
 
 </form>
 
     </p>
 
 </div>
+  </div>
+
+</div>
+
    <footer class="footer fixed-bottom">
   <small>© 2019 Copyright:
     <a href="{{ route('legals') }}"> My Help Mate</a>
