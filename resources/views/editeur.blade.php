@@ -35,7 +35,7 @@ var imgLoader = @json($imgLoader);
          <p>
          <input type="text" name="name" v-model="name" id="name">
       </p>
-      
+
       </div>
             <div class="field has-text-right">
       <button id="save" type="submit">Save</button>
@@ -66,11 +66,7 @@ function saveButton () {
     var destCanvasContext = destCanvas.getContext('2d');
     var destinationImage = new Image;
     destinationImage.onload = function(){
-      destCanvasContext.drawImage(destinationImage,464,250,96,96,0,0,96,96);
-/*
-      destCanvas.toBlob(function(blob) {
-       saveAs(blob, character.name+'.png');
-*/
+      destCanvasContext.drawImage(destinationImage,352,202,96,96,0,0,96,96);
     var dataURL = destCanvas.toDataURL();
     $.ajaxSetup({
     headers: {

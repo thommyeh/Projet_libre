@@ -29,16 +29,16 @@ function preload() {
 function create() {
 
   //UI
-  this.add.sprite(512, 238, 'background');
-  this.add.sprite(512, 620, 'BottomMenu');
+  this.add.sprite(400, 250, 'background');
+  this.add.sprite(400, 620, 'BottomMenu');
 
   //Menu
   var buttonGroup = this.add.group();
-  bodyMenuButton = this.add.sprite(384, 35, 'BodyButton').setInteractive();
-  outfitMenuButton = this.add.sprite(448, 35, 'OutfitButton').setInteractive();
-  faceMenuButton = this.add.sprite(512, 35, 'FaceButton').setInteractive();
-  hairMenuButton = this.add.sprite(576, 35, 'HairButton').setInteractive();
-  itemMenuButton = this.add.sprite(640, 35, 'ItemButton').setInteractive();
+  bodyMenuButton = this.add.sprite(200, 35, 'BodyButton').setInteractive();
+  outfitMenuButton = this.add.sprite(300, 35, 'OutfitButton').setInteractive();
+  faceMenuButton = this.add.sprite(400, 35, 'FaceButton').setInteractive();
+  hairMenuButton = this.add.sprite(500, 35, 'HairButton').setInteractive();
+  itemMenuButton = this.add.sprite(600, 35, 'ItemButton').setInteractive();
 
   //Body Menu
   var bodyGroup = this.add.group();
@@ -106,11 +106,11 @@ function create() {
   buttonGroup.addMultiple([bodyMaleButton, bodyFemaleButton, bodyElfButton, bodyMaleBlackButton, bodyMaleAznButton, bodyFemaleBlackButton, bodyFemaleAznButton, faceNormalButton, faceOldButton, faceOlderButton, faceAngryButton, faceBigEyesButton, faceEvilButton, outfitArmorButton, outfitMageButton, outfitClothButton, outfitNobleButton, outfitComfyButton, outfitRogueButton, hairNormalButton, hairBlondButton, hairSilverButton, hairBlondLongButton, hairBrownButton, hairGreyButton, hairEdgelordButton, itemHatButton, itemHornsButton, itemMaskButton, itemBandanaButton, itemWingsButton, itemWitchHatButton]);
 
   //Paperdoll
-  body = this.add.sprite(512, 300, 'Canvas');
-  outfit = this.add.sprite(512, 300, 'Canvas');
-  face = this.add.sprite(512, 300, 'Canvas');
-  hair = this.add.sprite(512, 300, 'Canvas');
-  item = this.add.sprite(512, 300, 'Canvas');
+  body = this.add.sprite(400, 252, 'Canvas');
+  outfit = this.add.sprite(400, 252, 'Canvas');
+  face = this.add.sprite(400, 252, 'Canvas');
+  hair = this.add.sprite(400, 252, 'Canvas');
+  item = this.add.sprite(400, 252, 'Canvas');
 
   //Body Menu
   bodyMenuButton.on('pointerdown', function(pointer, x, y) {

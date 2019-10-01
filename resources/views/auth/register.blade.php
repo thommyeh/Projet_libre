@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 LoginRegisterCardColor">
+        <div class="col-md-8 ">
             <div class="card LoginRegisterCard">
                 <div class="card-header">{{ __('Inscription') }}</div>
 
@@ -67,16 +67,16 @@
                                 <input class="inputfile" type="file" name="avatar" name="avatar">
                             </div>
                         </div>
-
-                        </div>
-
-                        <div class="form-group row mb-0">
+<div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary buttonBleu">
                                     {{ __('Inscription') }}
                                 </button>
                             </div>
                         </div>
+                        </div>
+
+                        
                     </form>
                 </div>
             </div>

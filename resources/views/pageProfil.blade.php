@@ -18,7 +18,7 @@
             <form action="{{route('use_character', ['id' => $character->id])}}" method="POST">
 
                @csrf
-               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction1()">Utiliser ce personnage comme avatar sur le site</button>
+               <button class="btn btn-primary buttonBleu" style="margin:2px;" type="submit" onclick="myFunction1()">Utiliser ce personnage comme avatar</button>
                </div>
             </form>
                         <form action="{{route('choose_character', ['id' => $character->id])}}" method="POST">
