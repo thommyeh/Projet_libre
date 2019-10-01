@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Character;
 use Image;
-
-use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use File;
+use View;
 
 class DesignerController extends Controller
 {
@@ -28,9 +28,19 @@ class DesignerController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function designer()
+
+        public function editeur()
     {
-        return view('designer');
+        $imgArray =  File::files('./img/');
+        $imgPath = [];
+        $imgLoader = [];
+        foreach ($imgArray as $path) {
+            $imgPath = pathinfo($path);
+            $imgName = $imgPath['filename'];
+            $imgLoader[] = $imgName;
+        }
+
+        return View::make('editeur', array('imgLoader' => $imgLoader));
     }
 
     public function store()
@@ -39,6 +49,7 @@ class DesignerController extends Controller
         $character = new Character();
         $character->name = request('name');
         $character->user_id = $user->id;
+        $character->choosen = '(Personnage principal)';
         $character->save();
     }
 

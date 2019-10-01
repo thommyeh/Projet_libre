@@ -12,6 +12,8 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
       <!-- Styles -->
       
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600&display=swap" rel="stylesheet">
+
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -39,8 +41,8 @@
 
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-         <a class="navbar-brand" href="{{ url('/') }}">
-         <img id="imgtest" src="avatar.png" alt="" width="112" height="28">
+         <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Josefin Sans', sans-serif; font-size: 25px; ">
+         Helpmate
 
          </a>
          @auth
@@ -115,12 +117,7 @@
       </main>
 
    </body>
-<footer id="sticky-footer" class="py-4 bg-dark text-white-50 footer footerC">
-  <small>© 2019 Copyright:
-    <a href="{{ route('legals') }}"> My Help Mate</a>
- <a href="{{ route('RGPD') }}"> Politique de confidentialité</a>
-    </small>
-  </footer>
+
 
    <script type="text/javascript">
       function applyTheme (theme) {

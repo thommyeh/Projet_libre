@@ -11,6 +11,7 @@ use File;
 use View;
 use Latfur\Event\Models\Event;
 use App\Character;
+use App\Article;
 
 class HomeController extends Controller
 {
@@ -31,7 +32,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        
+       return view('home');
     }
 
     public function RGPD()
@@ -44,19 +46,6 @@ class HomeController extends Controller
         return view('legals');
     }
 
-    public function editeur()
-    {
-        $imgArray =  File::files('./img/');
-        $imgPath = [];
-        $imgLoader = [];
-        foreach ($imgArray as $path) {
-            $imgPath = pathinfo($path);
-            $imgName = $imgPath['filename'];
-            $imgLoader[] = $imgName;
-        }
-
-        return View::make('editeur', array('imgLoader' => $imgLoader));
-    }
 
     public function profil()
     {
@@ -80,18 +69,7 @@ class HomeController extends Controller
 
         return View('DeleteConfirm');
     }
-    //Renvoi les events d'un user en Json
-    public function test()
-    {
 
-        /*$user = Auth::user();
-
-        $comments = $user->events;
-
-        $test = json_encode($comments);
-        return $test;*/
-        return view('test');
-    }
     public function profileAccount()
     {
         return View('profileAccount');
@@ -104,12 +82,6 @@ class HomeController extends Controller
         return view('pageProfil', ['characters' => $characters, 'user'=> $user]);
     }
 
-    public function ProfilData()
-    {
-        $user = Auth::user()->toArray();
-
-        return $user;
-    }
 
         public function deleteCharacter($id)
     {
@@ -125,7 +97,7 @@ class HomeController extends Controller
 
     }
 
-    public function useAvatar($id)
+    public function useCharacter($id)
     {
 
         $user = Auth::user();
@@ -134,6 +106,19 @@ class HomeController extends Controller
         $user->avatar = 'Assistant/assistants/'.$user->name."-".$character->name.'.png';
         $user->save();
         return redirect()->route('pageProfil');
+
+    }
+
+        public function chooseCharacter($id)
+    {
+        $user = Auth::user();
+        $characters = Character::where('id', '>', 0)->update(['choosen'=>'']);
+        $character = Character::find($id);
+        $character->choosen = '(Personnage principal)';
+        $character->save();
+        UserSys::Synchronisation();
+        return redirect()->route('pageProfil');
+       
 
     }
 

@@ -15,7 +15,15 @@ class UserSys {
 	public function EditProfil($request) {
         $user = Auth::user();
         if ($request->input('name') != '') {
-            $user->name = $request->input('name');
+        $dir = 'Assistant/assistants/';
+        $scan = scandir($dir);
+        foreach ($scan as $item) {
+            $name = explode('-', $item);
+            if ($name[0] == $user->name) {
+                rename($dir.$item, $dir.$request->input('name')."-". $name[1]);
+            }
+        }
+        $user->name = $request->input('name');
         }
         if ($request->input('email') != '') {
             $user->email = $request->input('email');
@@ -38,7 +46,7 @@ class UserSys {
             $user->avatar = 'storage/'.$user->name.'.'.$type;
 
         }
-
+        $this->Synchronisation();
         $user->save();
 
     
@@ -48,34 +56,24 @@ class UserSys {
 
 
         $user = Auth::user();
+        $dir = 'Assistant/assistants/';
+        $scan = scandir($dir);
+        foreach ($scan as $item) {
+            $name = explode('-', $item);
+            if ($name[0] == $user->name) {
+                unlink($dir.$item);
+            }
+        }
 
         if (file_exists($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar)) {
             unlink($_SERVER['DOCUMENT_ROOT'].'/storage/'. $user->avatar);
         }
+    
+
         
         $user->destroy($user->id);
         
 
-    }
-
-        public function GenerateData()
-    {
-        $user = Auth::user();
-        $filters = Filter::where('user_id', $user->id)->pluck('name')->toArray();
-        $urls = Url::where('user_id', $user->id)->pluck('url')->toArray();
-        $events = DB::table('events')->select('event_title', 'event_start_date', 'event_start_time', 'event_end_date', 'event_description')->get()->toArray();
-        $raw = array(
-            'urls' => $urls,
-            'filters' => $filters,
-            'events' => $events);
-        $data = json_encode($raw, JSON_UNESCAPED_SLASHES);
-
-        $fp = fopen(storage_path('rss.json'), 'w');
-        fwrite($fp, $data);
-        fclose($fp);
-
-
-        
     }
 
         public function Synchronisation()

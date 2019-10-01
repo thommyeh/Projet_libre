@@ -38,6 +38,7 @@ body
     font-family: sans-serif;
     transition: 0.5s;
 }
+
 .day{
 color:black;
 background-color: #EBF1F4;
@@ -268,20 +269,9 @@ canvas {
 
 
 .footer {
-
-bottom: 0;
-margin: 0 auto !important;
+margin-top:2%;
 text-align: center !important;
 width: 100% !important;
-height: 40px;
-position: absolute;
- }
-
-.footerC {
   background-color: #1f2631!important;
   color:grey;
-}
-
-.footerB {
- 
-}
+ }

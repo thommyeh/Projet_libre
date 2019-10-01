@@ -15,12 +15,17 @@ use App\Character;
 
 class RssController extends Controller
 {
-    public function index()
+    public function urls()
     {
         return view('rss');
     }
 
-    public function createRss(UrlRequest $request)
+        public function filtres()
+    {
+        return view('rssfiltre');
+    }
+
+    public function newUrl(UrlRequest $request)
     {
         $valid = $request->validated();
 
@@ -47,19 +52,16 @@ class RssController extends Controller
     }
 
 
-    public function RssData()
+    public function urlData()
     {
         $user = Auth::user();
 
         $urls = $user->urls;
 
-        
-
-
         return $urls;
     }
 
-    public function FiltersData()
+    public function filtersData()
     {
         $user = Auth::user();
 
@@ -71,7 +73,7 @@ class RssController extends Controller
         return $filters;
     }
 
-    public function Synchro()
+    public function synchro()
     {
         UserSys::Synchronisation();
         
@@ -96,16 +98,5 @@ class RssController extends Controller
         return true;
     }
 
-    public function chooseAvatar($id)
-    {
-        $user = Auth::user();
-        $characters = Character::where('id', '>', 0)->update(['choosen'=>'']);
-        $character = Character::find($id);
-        $character->choosen = '(Personnage principal)';
-        $character->save();
-        UserSys::Synchronisation();
-        return redirect()->route('pageProfil');
-       
 
-    }
 }
