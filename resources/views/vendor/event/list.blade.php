@@ -27,7 +27,14 @@
         <span id="sync">
         <button v-on:click="SynchroFlux" class="btn btn-success btn-md buttonBleu">Valider les modifications</button></span>
     </div>
+
 </div>
+   <footer class="footer fixed-bottom">
+  <small>© 2019 Copyright:
+    <a href="{{ route('legals') }}"> My Help Mate</a>
+ <a href="{{ route('RGPD') }}"> Politique de confidentialité</a>
+    </small>
+  </footer>
 <!-- View Event-->
 <div class="container">
 <div class="modal fade" id="view_event_modal" role="dialog" aria-labelledby="myModalLabel"
@@ -837,10 +844,5 @@ function edit_date_compare(){
 
 
     </script>
-   <footer class="footer">
-  <small>© 2019 Copyright:
-    <a href="{{ route('legals') }}"> My Help Mate</a>
- <a href="{{ route('RGPD') }}"> Politique de confidentialité</a>
-    </small>
-  </footer>
+
     @endsection

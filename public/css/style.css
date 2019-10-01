@@ -1,5 +1,10 @@
 body {
   background-color: #EBF1F4;
+   position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+      transition: 0.5s;
 }
 
 #thumb {
@@ -38,12 +43,6 @@ body {
   /* décalage de 50% de sa propre taille */
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  transition: 0.5s;
-}
 
 .day {
   color: black;
@@ -293,6 +292,11 @@ canvas {
   color: grey;
   flex-shrink: 0;
   z-index: 0 !important;
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }
 
 main {
@@ -301,7 +305,7 @@ main {
 
 #return-to-top {
   position: fixed;
-  bottom: 20px;
+  bottom: 188px;
   right: 20px;
   background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.7);
@@ -341,4 +345,15 @@ main {
 #return-to-top:hover i {
   color: #fff;
   top: 5px;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
