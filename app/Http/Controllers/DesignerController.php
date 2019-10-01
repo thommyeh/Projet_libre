@@ -10,6 +10,7 @@ use Image;
 use Illuminate\Support\Facades\Storage;
 use File;
 use View;
+use App\Http\Requests\characterNameRequest;
 
 class DesignerController extends Controller
 {
@@ -43,11 +44,12 @@ class DesignerController extends Controller
         return View::make('editeur', array('imgLoader' => $imgLoader));
     }
 
-    public function store()
+    public function store(characterNameRequest $request)
     {
+        $valid = $request->validated();
         $user = Auth::user();
         $character = new Character();
-        $character->name = request('name');
+        $character->name = $valid['name'];
         $character->user_id = $user->id;
         $character->choosen = null;
         $character->save();
@@ -55,6 +57,7 @@ class DesignerController extends Controller
 
     public function uploadAvatar()
     {
+
 
 
     $user = Auth::user();
@@ -67,5 +70,5 @@ class DesignerController extends Controller
     $success = file_put_contents($file, $data);
 
     return redirect()->route('home');
-    }
+}
 }
