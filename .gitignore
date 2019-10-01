@@ -1,6 +1,11 @@
-/bootstrap/compiled.php
+bootstrap/compiled.php
 .env.*.php
 .env.php
 .env
 /vendor
 /storage
+/public/storage
+/storage/*.key
+/documentation/site
+/public/Assistant/assistants
+/public/Assistant/data
