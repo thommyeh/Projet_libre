@@ -11,7 +11,7 @@
       <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
       <!-- Styles -->
-      
+
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600&display=swap" rel="stylesheet">
 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,14 +26,13 @@
        <script src="{{ asset('js/sync.js') }}" defer></script>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
        <link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
-        <link href="{{asset('css/custom.css')}}" rel="stylesheet"> 
+        <link href="{{asset('css/custom.css')}}" rel="stylesheet">
          <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
          <script src=" https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/fr.js"></script>
         <script src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>
         <script src="{{asset('js/parsley.js')}}"></script>
-     
-
+        <script src="{{asset('js/anime.min.js')}}"></script>
 
 
 <!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
@@ -103,8 +102,8 @@
                      {{ __('Se déconnecter') }}
                      </a>
                   </li>
-                 
-               
+
+
                </ul>
             </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -127,7 +126,7 @@
    </body>
 
 
-  
+
 
    <script type="text/javascript">
       function applyTheme (theme) {
@@ -174,7 +173,7 @@
 
       initiate();
 
-// ===== Scroll to Top ==== 
+// ===== Scroll to Top ====
 
    </script>
    <script> $(window).scroll(function() {
