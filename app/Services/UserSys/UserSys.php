@@ -17,13 +17,16 @@ class UserSys {
         if ($request->input('name') != '') {
         $dir = 'Assistant/assistants/';
         $scan = scandir($dir);
+        $character = "";
         foreach ($scan as $item) {
             $name = explode('-', $item);
             if ($name[0] == $user->name) {
+                $character = $name[1];
                 rename($dir.$item, $dir.$request->input('name')."-". $name[1]);
             }
         }
         $user->name = $request->input('name');
+        $user->avatar = 'Assistant/assistants/'.$request->input('name')."-".$character;
         }
         if ($request->input('email') != '') {
             $user->email = $request->input('email');
