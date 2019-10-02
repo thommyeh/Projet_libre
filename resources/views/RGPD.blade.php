@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="container">
 <h1>Politique de confidentialité (standard RGPD)</h1>
 <p>Sécurité et protection des données personnelles</p>
 
@@ -143,9 +145,10 @@ En cas de litige, les parties chercheront une solution amiable avant toute actio
 ces tentatives, toutes contestations à la validité, l'interprétation et / ou l'exécution des présentes CGU devront
 être portées même en cas de pluralité des défendeurs ou d'appel en garantie, devant les tribunaux français.
 Page 4 sur 5Page 5 sur 5
-                  <footer class="footer fixed-bottom">
+
+</div>                  <footer class="footer fixed-bottom">
   <small>© 2019 Copyright:
-    <a href="{{ route('legals') }}"> My Help Mate</a>
+    <a href="{{ route('legals') }}"> My Help Mate </a> |
  <a href="{{ route('RGPD') }}"> Politique de confidentialité</a>
     </small>
   </footer>
