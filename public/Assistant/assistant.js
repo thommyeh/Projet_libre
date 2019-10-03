@@ -16,6 +16,7 @@
 */
 window.onload = getUsername();
 
+var iconsDisplay = false;
 var rssNewsDisplay = false;
 var rssDownloadsDisplay = false;
 var calendarDisplay = false;
@@ -84,37 +85,54 @@ function assistantSpawn() {
   assistant.className = "assistant";
   document.body.appendChild(assistant);
 
-  let bluePoint = document.createElement("img");
-  let blueUrl = browser.extension.getURL("assistants/bluePoint.png");
-  bluePoint.setAttribute("src", blueUrl);
-  bluePoint.style.position = 'fixed';
-  bluePoint.style.right = '20px';
-  bluePoint.style.bottom = '100px';
-  bluePoint.style.zIndex = '50';
-  bluePoint.id = "bluePoint";
-  document.body.appendChild(bluePoint);
+  let calendar = document.createElement("img");
+  let blueUrl = browser.extension.getURL("assistants/Calendar.png");
+  calendar.setAttribute("src", blueUrl);
+  calendar.style.position = 'fixed';
+  calendar.style.right = '36px';
+  calendar.style.bottom = '100px';
+  calendar.style.zIndex = '50';
+  calendar.style.visibility = 'hidden';
+  calendar.id = "calendar";
+  document.body.appendChild(calendar);
 
-  let redPoint = document.createElement("img");
-  let redUrl = browser.extension.getURL("assistants/redPoint.png");
-  redPoint.setAttribute("src", redUrl);
-  redPoint.style.position = 'fixed';
-  redPoint.style.right = '60px';
-  redPoint.style.bottom = '100px';
-  redPoint.style.zIndex = '50';
-  redPoint.id = "redPoint";
-  document.body.appendChild(redPoint);
+  let download = document.createElement("img");
+  let redUrl = browser.extension.getURL("assistants/Download.png");
+  download.setAttribute("src", redUrl);
+  download.style.position = 'fixed';
+  download.style.right = '36px';
+  download.style.bottom = '140px';
+  download.style.zIndex = '50';
+  download.style.visibility = 'hidden';
+  download.id = "download";
+  document.body.appendChild(download);
 
-  let greenPoint = document.createElement("img");
-  let greenUrl = browser.extension.getURL("assistants/greenPoint.png");
-  greenPoint.setAttribute("src", greenUrl);
-  greenPoint.style.position = 'fixed';
-  greenPoint.style.right = '100px';
-  greenPoint.style.bottom = '100px';
-  greenPoint.style.zIndex = '50';
-  greenPoint.id = "greenPoint";
-  document.body.appendChild(greenPoint);
+  let news = document.createElement("img");
+  let greenUrl = browser.extension.getURL("assistants/News.png");
+  news.setAttribute("src", greenUrl);
+  news.style.position = 'fixed';
+  news.style.right = '36px';
+  news.style.bottom = '180px';
+  news.style.zIndex = '50';
+  news.style.visibility = 'hidden';
+  news.id = "news";
+  document.body.appendChild(news);
 
-  greenPoint.onclick = function() {
+  assistant.onclick = function() {
+    if (iconsDisplay == false) {
+      calendar.style.visibility = '';
+      download.style.visibility = '';
+      news.style.visibility = '';
+      iconsDisplay = true;
+    } else {
+      calendar.style.visibility = 'hidden';
+      download.style.visibility = 'hidden';
+      news.style.visibility = 'hidden';
+      iconsDisplay = false;
+    }
+  };
+
+  news.onclick = function() {
     if (rssNewsDisplay == false) {
       readNewsRSS();
       rssNewsDisplay = true;
@@ -124,7 +142,7 @@ function assistantSpawn() {
     }
   };
 
-  redPoint.onclick = function() {
+  download.onclick = function() {
     if (rssDownloadsDisplay == false) {
       readDownloadsRSS();
       rssDownloadsDisplay = true;
@@ -134,7 +152,7 @@ function assistantSpawn() {
     }
   };
 
-  bluePoint.onclick = function() {
+  calendar.onclick = function() {
     if (calendarDisplay == false) {
       readCalendar();
       calendarDisplay = true;
