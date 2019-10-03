@@ -14,7 +14,7 @@ class ChangeChoosenColumn extends Migration
     public function up()
     {
         Schema::table('characters', function(Blueprint $table){
-        $table->string('choosen')->default('')->change();
+        $table->string('choosen')->default('')->nullable()->change();
 
         });
     }

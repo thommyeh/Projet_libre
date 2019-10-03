@@ -48,10 +48,17 @@ class DesignerController extends Controller
     {
         $valid = $request->validated();
         $user = Auth::user();
+        $perso = Character::where('user_id', $user->id)->get();
         $character = new Character();
         $character->name = $valid['name'];
         $character->user_id = $user->id;
-        $character->choosen = null;
+        if ($perso->isEmpty()) {
+            $character->choosen = "(Personnage principal)";
+        }
+        else{
+             $character->choosen = null;
+        }
+       
         $character->save();
     }
 
