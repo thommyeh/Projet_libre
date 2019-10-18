@@ -205,11 +205,11 @@ function readNewsRSS() {
                       var a;
                       a = document.createElement("a")
                       a.id = "a";
-                      var linkText = document.createTextNode(" Download ");
+                      var linkText = document.createTextNode(" Lire ");
                       a.appendChild(linkText);
 
                       //Talk Message
-                      msg = rssTitle + " is out !";
+                      msg = rssTitle + " a été publié !";
                       let txt = document.createTextNode(msg);
                       p.appendChild(txt);
                       a.href = rssLink;
@@ -270,11 +270,11 @@ function readDownloadsRSS() {
                       var a;
                       a = document.createElement("a")
                       a.id = "a";
-                      var linkText = document.createTextNode(" Download ");
+                      var linkText = document.createTextNode(" Télécharger ");
                       a.appendChild(linkText);
 
                       //Talk Message
-                      msg = rssTitle;
+                      msg = rssTitle + " est disponible !";
                       let txt = document.createTextNode(msg);
                       p.appendChild(txt);
                       a.href = rssLink;
