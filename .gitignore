@@ -7,5 +7,5 @@
 /public/storage
 /storage/*.key
 /documentation/site
-/public/Assistant/assistants
-/public/Assistant/data
+/public/Assistant/assistants/*
+/public/Assistant/data/*
