@@ -7,5 +7,4 @@ bootstrap/compiled.php
 /public/storage
 /storage/*.key
 /documentation/site
-/public/Assistant/assistants
-/public/Assistant/data
+
