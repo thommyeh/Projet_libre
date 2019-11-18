@@ -9,4 +9,9 @@ class Character extends Model
         protected $fillable = [
         'name', 'creation_date', 'user_id', 'choosen'
     ];
+
+    public function characters(){
+
+        return $this->belongsTo('App\User');
+    }
 }

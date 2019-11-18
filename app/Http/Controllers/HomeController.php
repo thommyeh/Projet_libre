@@ -73,7 +73,9 @@ class HomeController extends Controller
     public function pageProfil()
     {
         $user = Auth::user();
+        
         $characters = $user->characters;
+       
 
         return view('pageProfil', ['characters' => $characters, 'user'=> $user]);
     }

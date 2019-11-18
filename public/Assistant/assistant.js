@@ -86,7 +86,7 @@ function assistantSpawn() {
   document.body.appendChild(assistant);
 
   let calendar = document.createElement("img");
-  let blueUrl = browser.extension.getURL("assistants/Calendar.png");
+  let blueUrl = browser.extension.getURL("icons/Calendar.png");
   calendar.setAttribute("src", blueUrl);
   calendar.style.position = 'fixed';
   calendar.style.right = '36px';
@@ -97,7 +97,7 @@ function assistantSpawn() {
   document.body.appendChild(calendar);
 
   let download = document.createElement("img");
-  let redUrl = browser.extension.getURL("assistants/Download.png");
+  let redUrl = browser.extension.getURL("icons/Download.png");
   download.setAttribute("src", redUrl);
   download.style.position = 'fixed';
   download.style.right = '36px';
@@ -108,7 +108,7 @@ function assistantSpawn() {
   document.body.appendChild(download);
 
   let news = document.createElement("img");
-  let greenUrl = browser.extension.getURL("assistants/News.png");
+  let greenUrl = browser.extension.getURL("icons/News.png");
   news.setAttribute("src", greenUrl);
   news.style.position = 'fixed';
   news.style.right = '36px';
@@ -209,7 +209,7 @@ function readNewsRSS() {
                       a.appendChild(linkText);
 
                       //Talk Message
-                      msg = rssTitle + " a été publié !";
+                      msg = rssTitle;
                       let txt = document.createTextNode(msg);
                       p.appendChild(txt);
                       a.href = rssLink;
