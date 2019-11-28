@@ -1,5 +1,7 @@
 # HELPMATE
 
+![alt text](https://raw.githubusercontent.com/thommyeh/Projet_libre/develop/public/Assistant/icons/mimi-tyui.png)
+
 Helpmate est un projet axé autour d'un plugin firefox et d'une interface web vous permettant de créer et de gérer un assistant personnel ludique et personnalisable, attaché a votre navigateur.
 
 A l'aide de l'interface web, vous pourrez créer votre assistant et lui permettre de vous tenir au courant en temps réel de vos rendez vous et de la publication d'élements suivis (surveillance thématique d'articles de presses avec lien direct vers l'article, suivi personnalisé de publication de nouveaux torrents et lien direct pour le téléchargement etc...).
