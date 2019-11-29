@@ -24,7 +24,7 @@ php artisan storage:link
 
 # FONTIONNEMENT
 
-Une fois votre compte utilisateur crée, vous pouvez immédiatement commencer a fournir a votre futur assistant les informations que vous ne souhaitez plus rater!
+Une fois votre compte utilisateur crée (qui comprends toutes options de personnalisation, ainsi qu'un thème jour/nuit pour l'interface web), vous pouvez immédiatement commencer a fournir a votre futur assistant les informations que vous ne souhaitez plus rater!
 
 Entrez vos rendez-vous soit grâce au calendrier ou au CRUD dédié, et toutes vos sources d'informations et/ou de téléchargemennt dans la section flux rss.
 
@@ -35,6 +35,10 @@ Dans la section filtres, vous definirez les thèmes ou mots clés associés. Par
 Le fonctionnement sera le même pour les téléchargements. Vous voulez être prévenu dès que le dernier épisode de votre série ou anime préféré sera disponible? Entrez simplement son nom et votre helpmate vous tiendra au courant dès qu'il sera disponible, pour vous permettre de le télécharger en un seul clic!
 
 Il ne vous restera alors qu'a créer votre HelpMate de toute pièce a travers l'editeur de personnage. Une fois votre personnage crée, vous serez redirigé vers son interface de gestion (Vous pouvez créer autant de HelpMates que vous le souhaitez, et en changer a volonté en un seul clic!). Une fois le plugin installé, votre Helpmate apparaitra dans le coin inférieur droit de votre navigateur et commencera immédiatement a vous tenir au courant de tout ce qui vous intéresse pendant que vous continurez votre navigation sur d'autres sites, et sera toujours immédiatement disponible dès l'ouverture de votre navigateur!
+
+Si vous voulez que votre HelpMate se fasse plus discret, vous pouvez bien sur cacher ses alertes quand vous le souhaitez et ne les voir qu'en cliquant sur votre personnage, ce qui fera apparaître les icônes dédiés (téléchargement, news ou rendez-vous), grâce auquels vous pourrez voir toutes les nouveautés!
+
+![alt text](https://raw.githubusercontent.com/thommyeh/Projet_libre/develop/public/Assistant/icons/help.png)
 
 
 
