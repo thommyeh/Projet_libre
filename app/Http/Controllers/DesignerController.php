@@ -30,7 +30,7 @@ class DesignerController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-        public function editeur()
+    public function editeur()
     {
         $imgArray =  File::files('./img/');
         $imgPath = [];
@@ -54,28 +54,25 @@ class DesignerController extends Controller
         $character->user_id = $user->id;
         if ($perso->isEmpty()) {
             $character->choosen = "(Personnage principal)";
+        } else {
+            $character->choosen = null;
         }
-        else{
-             $character->choosen = null;
-        }
-       
+
         $character->save();
     }
 
     public function uploadAvatar()
     {
 
+        $user = Auth::user();
+        define('UPLOAD_DIR', 'Assistant/assistants/');
+        $img = request('imgBase64');
+        $img = str_replace('data:image/png;base64,', '', $img);
+        $img = str_replace(' ', '+', $img);
+        $data = base64_decode($img);
+        $file = UPLOAD_DIR . $user->name . "-" . request('name') . '.png';
+        $success = file_put_contents($file, $data);
 
-
-    $user = Auth::user();
-    define('UPLOAD_DIR', 'Assistant/assistants/');
-    $img = request('imgBase64');
-    $img = str_replace('data:image/png;base64,', '', $img);
-    $img = str_replace(' ', '+', $img);
-    $data = base64_decode($img);
-    $file = UPLOAD_DIR .$user->name."-". request('name').'.png';
-    $success = file_put_contents($file, $data);
-
-    return redirect()->route('home');
-}
+        return redirect()->route('home');
+    }
 }

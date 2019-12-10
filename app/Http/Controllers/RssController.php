@@ -20,7 +20,7 @@ class RssController extends Controller
         return view('rss');
     }
 
-        public function filtres()
+    public function filtres()
     {
         return view('rssfiltre');
     }
@@ -36,7 +36,6 @@ class RssController extends Controller
         $url->type = $valid['type'];
         $url->save();
 
-
         return 'Le flux a été correctement ajouté';
     }
 
@@ -50,7 +49,6 @@ class RssController extends Controller
 
         return true;
     }
-
 
     public function urlData()
     {
@@ -67,24 +65,19 @@ class RssController extends Controller
 
         $filters = $user->filters;
 
-        
-
-
         return $filters;
     }
 
     public function synchro()
     {
         UserSys::Synchronisation();
-        
     }
-
 
     public function deleteflux()
     {
         $id = request('id');
 
-        $res= Url::where('id', $id)->delete();
+        $res = Url::where('id', $id)->delete();
 
         return true;
     }
@@ -93,10 +86,8 @@ class RssController extends Controller
     {
         $id = request('id');
 
-        $res= Filter::where('id', $id)->delete();
+        $res = Filter::where('id', $id)->delete();
 
         return true;
     }
-
-
 }

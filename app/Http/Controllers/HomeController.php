@@ -28,8 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-       return view('home');
+
+        return view('home');
     }
 
     public function RGPD()
@@ -41,7 +41,6 @@ class HomeController extends Controller
     {
         return view('legals');
     }
-
 
     public function profil()
     {
@@ -73,52 +72,41 @@ class HomeController extends Controller
     public function pageProfil()
     {
         $user = Auth::user();
-        
-        $characters = $user->characters;
-       
 
-        return view('pageProfil', ['characters' => $characters, 'user'=> $user]);
+        $characters = $user->characters;
+
+        return view('pageProfil', ['characters' => $characters, 'user' => $user]);
     }
 
-
-        public function deleteCharacter($id)
+    public function deleteCharacter($id)
     {
         $user = Auth::user();
-        $username = $user->name;
         $character = Character::find($id);
 
         $character->delete();
-        unlink('Assistant/assistants/'.$user->name."-".$character->name.'.png');
+        unlink('Assistant/assistants/' . $user->name . "-" . $character->name . '.png');
 
         return redirect()->route('pageProfil');
-
-
     }
 
     public function useCharacter($id)
     {
 
         $user = Auth::user();
-        $username = $user->name;
         $character = Character::find($id);
-        $user->avatar = 'Assistant/assistants/'.$user->name."-".$character->name.'.png';
+        $user->avatar = 'Assistant/assistants/' . $user->name . "-" . $character->name . '.png';
         $user->save();
         return redirect()->route('pageProfil');
-
     }
 
-        public function chooseCharacter($id)
+    public function chooseCharacter($id)
     {
         $user = Auth::user();
-        $characters = Character::where('id', '>', 0)->update(['choosen'=>'']);
+        $characters = Character::where('id', '>', 0)->update(['choosen' => '']);
         $character = Character::find($id);
         $character->choosen = '(Personnage principal)';
         $character->save();
         UserSys::Synchronisation();
         return redirect()->route('pageProfil');
-       
-
     }
-
-
 }
