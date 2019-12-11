@@ -23,6 +23,7 @@ var rss = new Vue({
   el: "#replace",
   data: {
     filters: [],
+    defaultfilters: [],
     urls: [],
     name: '',
     url: '',
@@ -33,6 +34,7 @@ var rss = new Vue({
     selected3: '',
     validationErrors: '',
     message: '',
+    pre: '',
     
 
 
@@ -99,12 +101,37 @@ var rss = new Vue({
 
     },
 
+    addDefault: function(data) {
+      axios
+      .post('/addurl', {
+        id: data,
+      
+
+      }).then(response => {
+        this.message = '<p class="alert alert-success">Le flux a bien été ajouté</p>';
+      }).catch(error => {
+        if (error.response.status == 422) {
+          this.validationErrors = error.response.data.errors;
+        }
+
+      })
+
+    this.pre = "";
+    
+
+    axios.get('/urldata').then(response => this.urls = response.data);
+
+
+
+    },
+
   },
 
   mounted() {
 
     axios.get('/urldata').then(response => this.urls = response.data);
     axios.get('/filterdata').then(response => this.filters = response.data);
+    axios.get('/defaultfilters').then(response => this.defaultfilters = response.data);
 
   }
 

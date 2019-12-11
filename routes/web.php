@@ -44,13 +44,16 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 //Flux Rss
-Route::get('/rss', 'RssController@urls')->name('rss')->middleware('verified');;
-Route::get('/rssfiltre', 'RssController@filtres')->name('rssfiltre')->middleware('verified');;
+Route::get('/rss', 'RssController@urls')->name('rss')->middleware('verified');
+Route::get('/rssfiltre', 'RssController@filtres')->name('rssfiltre')->middleware('verified');
+Route::get('/suggestions', 'RssController@suggestions')->name('suggestions')->middleware('verified');
 
-//Routes appelées par Axios dans le app.js
-Route::get('/urldata', 'RssController@urlData')->middleware('verified');;
-Route::get('/filterdata', 'RssController@filtersData')->middleware('verified');;
+//Routes appelées par Axios dans le rss.js
+Route::get('/urldata', 'RssController@urlData')->middleware('verified');
+Route::get('/filterdata', 'RssController@filtersData')->middleware('verified');
+Route::get('/defaultfilters', 'RssController@defaultFilters')->middleware('verified');
 Route::post('/newurl', 'RssController@newUrl')->name('create')->middleware('verified');
+Route::post('/addurl', 'RssController@addUrl')->middleware('verified');
 Route::post('/createfilter', 'RssController@createFilter')->name('createFilters')->middleware('verified');
 Route::post('/flux/delete', 'RssController@deleteflux')->name('deleteflux')->middleware('verified');;
 Route::post('/filter/delete', 'RssController@deletefilter')->name('deletefilter')->middleware('verified');

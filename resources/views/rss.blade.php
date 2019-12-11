@@ -4,15 +4,19 @@
 	<div class="row ProfileStyle">
 		<div class="col-md-offset-1 col-md-2">
 			<div>
-				<a class="NavBarText nav-link"href="{{ route('rss') }}">Liste des flux </a>
+				<a class="NavBarText nav-link"href="{{ route('rss') }}">Flux </a>
 			</div>
 			<div>
-				<a class="NavBarText nav-link"href="{{ route('rssfiltre') }}">Liste des filtres </a>
+				<a class="NavBarText nav-link"href="{{ route('rssfiltre') }}">Filtres </a>
 			</div>
+			<div>
+					<a class="NavBarText nav-link"href="{{ route('suggestions') }}">Suggestions </a>
+				  </div>
 		</div>
 		<div class="col-md-offset-2 col-md-7 ProfileStyleDroite">
 
 		<div id="replace">
+
 			<h4>Créer un nouveau flux</h4>
 			<form id="UrlForm" v-on:submit.prevent='newUrl'>
 				<!-- name -->
